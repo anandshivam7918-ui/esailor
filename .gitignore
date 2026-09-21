@@ -10,8 +10,9 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
+# testing & mcp
 /coverage
+.playwright-mcp/
 
 # next.js
 /.next/
@@ -44,3 +45,5 @@ next-env.d.ts
 # Customer lead privacy (do not commit actual quote requests)
 data/quote-requests.json
 
+# Scratch screenshots in root directory
+/*.png

@@ -1,10 +1,10 @@
 @import "tailwindcss";
-@config "../../tailwind.config.mjs";
 
-/* CSS Variables for Theme Colors */
-:root {
+@theme {
   --color-background: #FAF7F2;
   --color-foreground: #2A241C;
+  --color-[#181411]: #181411;
+  --color-[#1C3224]: #1C3224;
   --color-surface: #FFFFFF;
   --color-surface-muted: #F0EBE1;
   --color-surface-dark: #F5F0EB;
@@ -22,100 +22,23 @@
 
 /* Base styles */
 body {
-  background-color: #FAF7F2;
-  color: #2A241C;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   font-family: 'Manrope', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Utility classes for consistent radius application */
-.rounded-btn {
-  @apply rounded-[4px];
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.rounded-card {
-  @apply rounded-[8px];
-}
-
-.rounded-input {
-  @apply rounded-[4px];
-}
-
-.rounded-badge {
-  @apply rounded-[999px];
-}
-
-/* Utility classes for elevation */
-.shadow-sm {
-  @apply shadow-[0_1px_2px_rgba(42,36,28,0.06)];
-}
-
-.shadow-md {
-  @apply shadow-[0_4px_12px_rgba(42,36,28,0.10)];
-}
-
-.shadow-lg {
-  @apply shadow-[0_12px_32px_rgba(42,36,28,0.14)];
-}
-
-/* Utility classes for hover effects */
-.hover-lift {
-  @apply hover:-translate-y-[2px] transition-transform duration-200;
-}
-
-.hover-lift-lg {
-  @apply hover:-translate-y-[4px] transition-transform duration-200;
-}
-
-/* Utility classes for interactive states */
-.hover-primary-bg {
-  @apply hover:bg-primary/90;
-}
-
-.hover-secondary-bg {
-  @apply hover:bg-secondary/90;
-}
-
-.hover-accent-bg {
-  @apply hover:bg-accent/90;
-}
-
-.hover-border-primary {
-  @apply hover:border-primary;
-}
-
-/* Focus rings */
-.focus-ring-primary {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
-}
-
-.focus-ring-secondary {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2;
-}
-
-.focus-ring-accent {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
-}
-
-/* Disabled states */
-.disabled-opacity {
-  @apply disabled:pointer-events-none disabled:opacity-50;
-}
-
-/* Transition utilities */
-.transition-all {
-  @apply transition-all duration-200;
-}
-
-.transition-transform {
-  @apply transition-transform duration-200;
-}
-
-/* Overflow utilities */
-.overflow-visible {
-  @apply overflow-visible;
-}
-
-.overflow-hidden {
-  @apply overflow-hidden;
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
 }
