@@ -1,0 +1,180 @@
+- generic [active] [ref=f5e1]:
+  - banner [ref=f5e2]:
+    - generic [ref=f5e4]:
+      - generic [ref=f5e5]:
+        - generic [ref=f5e6]: Direct Factory Dispatch • West Bengal, India
+        - generic [ref=f5e8]: "|"
+        - generic [ref=f5e9]: IEC Registered Indian Star Export House
+      - generic [ref=f5e10]:
+        - generic [ref=f5e11]:
+          - generic [ref=f5e12]: "Trade Quotes:"
+          - button "USD ($)" [ref=f5e13]
+          - button "EUR (€)" [ref=f5e14]
+          - button "GBP (£)" [ref=f5e15]
+        - generic [ref=f5e16]: "|"
+        - link "📞 +91 (0) 33 2280 4400" [ref=f5e17] [cursor=pointer]:
+          - /url: tel:+919830000000
+          - generic [ref=f5e18]: 📞
+          - text: +91 (0) 33 2280 4400
+    - generic [ref=f5e20]:
+      - link "eS eSailor .in Certified Jute Exporters" [ref=f5e22] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f5e23]: eS
+        - generic [ref=f5e24]:
+          - generic [ref=f5e25]:
+            - text: eSailor
+            - generic [ref=f5e26]: .in
+          - generic [ref=f5e27]: Certified Jute Exporters
+      - navigation [ref=f5e28]:
+        - link "B2B Catalog" [ref=f5e29] [cursor=pointer]:
+          - /url: /catalog
+        - link "Certifications Verified active audits" [ref=f5e30] [cursor=pointer]:
+          - /url: /certifications
+          - generic [ref=f5e31]: Certifications
+          - generic "Verified active audits" [ref=f5e32]
+        - link "Manufacturing & QC" [ref=f5e33] [cursor=pointer]:
+          - /url: /process
+        - link "About Factory" [ref=f5e34] [cursor=pointer]:
+          - /url: /about
+        - link "Global Desk" [ref=f5e35] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f5e36]:
+        - link "📄 Download Catalogue" [ref=f5e37] [cursor=pointer]:
+          - /url: /catalog.pdf
+          - generic [ref=f5e38]: 📄
+          - generic [ref=f5e39]: Download Catalogue
+        - link "Request Quote" [ref=f5e40] [cursor=pointer]:
+          - /url: /quote-request
+  - generic [ref=f5e42]:
+    - generic [ref=f5e43]:
+      - paragraph [ref=f5e44]: Direct Manufacturer Pricing
+      - heading "Request Wholesale FOB Quote" [level=1] [ref=f5e45]
+      - paragraph [ref=f5e46]: Provide your order specifications, target volume, and branding requirements. Our export desk will calculate freight estimates and provide a formal quotation within 24 hours.
+    - generic [ref=f5e187]:
+      - generic [ref=f5e188]:
+        - generic [ref=f5e189]: ✓
+        - generic [ref=f5e190]:
+          - heading "Enquiry Successfully Logged" [level=2] [ref=f5e191]
+          - paragraph [ref=f5e192]:
+            - text: "Reference ID:"
+            - strong [ref=f5e193]: V2a6kRsf39b2Ai1A2plaCc
+      - generic [ref=f5e194]:
+        - heading "Summary of Request:" [level=3] [ref=f5e195]
+        - generic [ref=f5e196]:
+          - paragraph [ref=f5e197]:
+            - strong [ref=f5e198]: "Buyer:"
+            - text: Marcus Vance
+          - paragraph [ref=f5e199]:
+            - strong [ref=f5e200]: "Confirmation Email:"
+            - text: marcus.vance@nordicorganic.se
+          - paragraph [ref=f5e201]:
+            - strong [ref=f5e202]: "Product of Interest:"
+            - text: 100% Organic Jute Tote Bag (Refined Heavy Weave)
+          - paragraph [ref=f5e203]:
+            - strong [ref=f5e204]: "Quantity:"
+            - text: 5000 units
+      - generic [ref=f5e205]:
+        - paragraph [ref=f5e206]:
+          - text: ⚡
+          - strong [ref=f5e207]: "What happens next:"
+          - text: Our foreign trade specialists will review your specifications, calculate FOB Kolkata port container freight, and email a complete quotation dossier within 24 business hours.
+        - paragraph [ref=f5e208]:
+          - text: Need immediate urgent assistance? You can also message our sales desk on WhatsApp quoting reference
+          - strong [ref=f5e209]: V2a6kRsf39b2Ai1A2plaCc
+          - text: .
+      - generic [ref=f5e210]:
+        - link "Browse More Products" [ref=f5e211] [cursor=pointer]:
+          - /url: /catalog
+        - button "Submit Another Inquiry" [ref=f5e212]
+  - contentinfo [ref=f5e95]:
+    - generic [ref=f5e97]:
+      - generic [ref=f5e98]:
+        - text: Global Procurement Hotline
+        - heading "Need custom branded samples or container volume pricing?" [level=3] [ref=f5e99]
+        - paragraph [ref=f5e100]: Our export engineering team delivers itemized FOB/CIF estimates within 24 hours. Custom CAD drawings and fabric swatches available upon request.
+      - generic [ref=f5e101]:
+        - link "Request Fast Quote →" [ref=f5e102] [cursor=pointer]:
+          - /url: /quote-request
+        - link "WhatsApp Trade Desk" [ref=f5e103] [cursor=pointer]:
+          - /url: https://wa.me/919830000000?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20b2b%20jute%20bags%20export
+    - generic [ref=f5e104]:
+      - generic [ref=f5e105]:
+        - generic [ref=f5e106]:
+          - generic [ref=f5e107]:
+            - generic [ref=f5e108]: eS
+            - generic [ref=f5e109]: eSailor.in
+          - paragraph [ref=f5e110]: Direct manufacturer & government-recognized star export house specializing in certified organic jute packaging, retail shoppers, and hydrocarbon-free commodity burlap.
+          - generic [ref=f5e111]:
+            - paragraph [ref=f5e112]:
+              - generic [ref=f5e113]: 🏭
+              - text: "Bengal Delta Manufacturing Facility:"
+            - paragraph [ref=f5e114]: NH-12 Industrial Manufacturing Corridor, Barasat, North 24 Parganas, West Bengal 700124, India
+            - generic [ref=f5e115]:
+              - generic [ref=f5e116]: "IEC: 0219481900"
+              - generic [ref=f5e117]: "Port: CCU / NSA Direct"
+        - generic [ref=f5e118]:
+          - heading "B2B Collections" [level=4] [ref=f5e119]
+          - navigation [ref=f5e120]:
+            - link "Retail Shopping Totes" [ref=f5e121] [cursor=pointer]:
+              - /url: /catalog?category=jute-shopping-bags
+            - link "Juco Fashion & Promo Bags" [ref=f5e122] [cursor=pointer]:
+              - /url: /catalog?category=canvas-jute-totes
+            - link "Wine & Gourmet Bottle Carriers" [ref=f5e123] [cursor=pointer]:
+              - /url: /catalog?category=gift-bottle-bags
+            - link "Agro Commodity Burlap Sacks" [ref=f5e124] [cursor=pointer]:
+              - /url: /catalog?category=industrial-burlap-sacks
+            - link "Cosmetic & Jewelry Pouches" [ref=f5e125] [cursor=pointer]:
+              - /url: /catalog?category=drawstring-pouches
+            - link "View All Models (40+) →" [ref=f5e126] [cursor=pointer]:
+              - /url: /catalog
+        - generic [ref=f5e127]:
+          - heading "Compliance & Supply" [level=4] [ref=f5e128]
+          - navigation [ref=f5e129]:
+            - link "GOTS & OEKO-TEX Standard" [ref=f5e130] [cursor=pointer]:
+              - /url: /certifications
+            - link "Sedex SMETA 4-Pillar Audit" [ref=f5e131] [cursor=pointer]:
+              - /url: /certifications
+            - link "12-Step Manufacturing Journey" [ref=f5e132] [cursor=pointer]:
+              - /url: /process
+            - link "Box-X Handle Load Testing" [ref=f5e133] [cursor=pointer]:
+              - /url: /process
+            - link "Delta Cooperative Sourcing" [ref=f5e134] [cursor=pointer]:
+              - /url: /about
+            - link "📑 Audit Dossier (PDF)" [ref=f5e135] [cursor=pointer]:
+              - /url: /certificates/compliance-dossier.pdf
+              - generic [ref=f5e136]: 📑
+              - text: Audit Dossier (PDF)
+        - generic [ref=f5e137]:
+          - heading "Accredited Quality" [level=4] [ref=f5e138]
+          - generic [ref=f5e139]:
+            - generic [ref=f5e142]:
+              - paragraph [ref=f5e143]: GOTS
+              - paragraph [ref=f5e144]: Global Organic Standard
+            - generic [ref=f5e147]:
+              - paragraph [ref=f5e148]: OEKO
+              - paragraph [ref=f5e149]: OEKO-TEX Standard 100
+            - generic [ref=f5e152]:
+              - paragraph [ref=f5e153]: SEDEX
+              - paragraph [ref=f5e154]: SMETA 4-Pillar Audited
+            - generic [ref=f5e157]:
+              - paragraph [ref=f5e158]: ISO
+              - paragraph [ref=f5e159]: ISO 9001:2015 Certified
+          - generic [ref=f5e160]:
+            - paragraph [ref=f5e161]: "Incoterms Supported:"
+            - paragraph [ref=f5e162]: FOB Kolkata, CIF Worldwide, DDP North America & EU
+      - generic [ref=f5e163]:
+        - generic [ref=f5e164]:
+          - generic [ref=f5e165]: © 2026 eSailor.in. All rights reserved.
+          - generic [ref=f5e166]: •
+          - generic [ref=f5e167]: Registered Under Directorate General of Foreign Trade (DGFT), Govt of India.
+        - generic [ref=f5e168]:
+          - link "Chain of Custody" [ref=f5e169] [cursor=pointer]:
+            - /url: /certifications
+          - link "Zero-Defect QA Policy" [ref=f5e170] [cursor=pointer]:
+            - /url: /process
+          - link "Trade Privacy" [ref=f5e171] [cursor=pointer]:
+            - /url: /contact
+  - link "Chat directly on WhatsApp with eSailor Export Desk" [ref=f5e182] [cursor=pointer]:
+    - /url: https://wa.me/919876543210?text=Hello%20eSailor%20export%20team%2C%0A%0AI%20am%20interested%20in%20eSailor%20Jute%20Bags.%0A%0APlease%20provide%20quotation%20details%20regarding%3A%0A-%20Wholesale%20FOB%20Pricing%0A-%20Minimum%20Order%20Quantity%20(MOQ)%0A-%20Custom%20Branding%20%2F%20Dimensions%0A-%20Current%20Production%20Lead%20Time%0A%0AThank%20you!
+  - button "Open Next.js Dev Tools" [ref=f5e177] [cursor=pointer]
+  - alert [ref=f5e186]

@@ -1,0 +1,485 @@
+- generic [active] [ref=f19e1]:
+  - banner [ref=f19e2]:
+    - generic [ref=f19e4]:
+      - generic [ref=f19e5]:
+        - generic [ref=f19e6]: 🌿
+        - generic [ref=f19e7]: Your Trusted Jute Bag Manufacturer & Exporter
+        - generic [ref=f19e8]: "|"
+        - generic [ref=f19e9]: Quality • Sustainability • Global Reach
+      - generic [ref=f19e10]:
+        - generic [ref=f19e11]:
+          - generic [ref=f19e12]: "Quotes:"
+          - button "USD ($)" [ref=f19e13]
+          - button "EUR (€)" [ref=f19e14]
+          - button "GBP (£)" [ref=f19e15]
+        - generic [ref=f19e16]: "|"
+        - link "📄 Download Product Catalogue (PDF) ⤓" [ref=f19e17] [cursor=pointer]:
+          - /url: /catalog.pdf
+          - generic [ref=f19e18]: 📄
+          - generic [ref=f19e19]: Download Product Catalogue (PDF) ⤓
+    - generic [ref=f19e22]:
+      - link "🌿 eSailor.in NATURAL • SUSTAINABLE • GLOBAL" [ref=f19e23] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f19e24]: 🌿
+        - generic [ref=f19e25]:
+          - generic [ref=f19e26]: eSailor.in
+          - generic [ref=f19e27]: NATURAL • SUSTAINABLE • GLOBAL
+      - navigation [ref=f19e28]:
+        - link "Home" [ref=f19e29] [cursor=pointer]:
+          - /url: /
+        - link "Products ▾" [ref=f19e31] [cursor=pointer]:
+          - /url: /catalog
+          - generic [ref=f19e32]: Products
+          - generic [ref=f19e33]: ▾
+        - link "Manufacturing" [ref=f19e34] [cursor=pointer]:
+          - /url: /process
+        - link "Certifications" [ref=f19e35] [cursor=pointer]:
+          - /url: /certifications
+        - link "About Us" [ref=f19e36] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=f19e37] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f19e38]:
+        - link "Search products" [ref=f19e39] [cursor=pointer]:
+          - /url: /catalog
+        - link "Request a Quote" [ref=f19e42] [cursor=pointer]:
+          - /url: /quote-request
+        - link "Chat on WhatsApp" [ref=f19e43] [cursor=pointer]:
+          - /url: https://wa.me/919830000000?text=Hello%2C%20I%20would%20like%20to%20request%20a%20B2B%20jute%20bags%20quote
+  - main [ref=f19e47]:
+    - generic [ref=f19e50]:
+      - generic [ref=f19e51]:
+        - generic [ref=f19e52]: PREMIUM JUTE BAGS MANUFACTURER & EXPORTER
+        - heading "Jute Products, Made for Global Supply" [level=1] [ref=f19e55]
+        - paragraph [ref=f19e56]: From India's golden fibre heartland to 50+ countries. Custom-designed, certified eco-friendly jute and juco packaging built for retail, grocery, and promotional brands worldwide.
+        - generic [ref=f19e57]:
+          - link "Explore Products →" [ref=f19e58] [cursor=pointer]:
+            - /url: /catalog
+            - generic [ref=f19e59]: Explore Products
+            - generic [ref=f19e60]: →
+          - link "Request a Quote" [ref=f19e61] [cursor=pointer]:
+            - /url: /quote-request
+        - generic [ref=f19e63]:
+          - generic [ref=f19e64]:
+            - generic [ref=f19e65]: ✓
+            - generic [ref=f19e66]: MOQ from 250 units
+          - generic [ref=f19e67]:
+            - generic [ref=f19e68]: ✓
+            - generic [ref=f19e69]: Custom Pantones & Sizing
+          - generic [ref=f19e70]:
+            - generic [ref=f19e71]: ✓
+            - generic [ref=f19e72]: Direct Port of Kolkata Shipping
+      - generic [ref=f19e74]:
+        - generic [ref=f19e76]:
+          - img "Luxury Jute Shopping Tote" [ref=f19e77]
+          - generic [ref=f19e78]: Direct Factory Export
+          - generic [ref=f19e80]:
+            - text: Retail & Supermarket Chains
+            - heading "Luxury Jute Shopping Tote" [level=3] [ref=f19e81]
+            - paragraph [ref=f19e82]: 340 GSM Tight Hessian Weave • Bio-Laminated
+        - generic [ref=f19e83]:
+          - generic [ref=f19e84]:
+            - generic [ref=f19e85]: 01 / 03
+            - generic [ref=f19e86]:
+              - button "Go to slide 1" [ref=f19e87]
+              - button "Go to slide 2" [ref=f19e88]
+              - button "Go to slide 3" [ref=f19e89]
+          - generic [ref=f19e90]:
+            - button "Previous Slide" [ref=f19e91]: ←
+            - button "Next Slide" [ref=f19e92]: →
+    - generic [ref=f19e95]:
+      - generic [ref=f19e96]:
+        - generic [ref=f19e97]:
+          - text: Our Certifications
+          - heading "Quality. Compliance. Trust." [level=3] [ref=f19e98]
+        - generic [ref=f19e99]:
+          - generic [ref=f19e100]:
+            - generic [ref=f19e101]: ISO
+            - generic [ref=f19e102]: ISO 9001:2015
+            - generic [ref=f19e103]: Quality System
+          - generic [ref=f19e104]:
+            - generic [ref=f19e105]: 🌱
+            - generic [ref=f19e106]: GOTS Organic
+            - generic [ref=f19e107]: 100% Certified
+          - generic [ref=f19e108]:
+            - generic [ref=f19e109]: OEKO
+            - generic [ref=f19e110]: OEKO-TEX 100
+            - generic [ref=f19e111]: Toxin-Free Dyes
+          - generic [ref=f19e112]:
+            - generic [ref=f19e113]: SMETA
+            - generic [ref=f19e114]: Sedex Audited
+            - generic [ref=f19e115]: Ethical Trade
+      - generic [ref=f19e117]:
+        - generic [ref=f19e118]:
+          - paragraph [ref=f19e119]: 50+
+          - paragraph [ref=f19e120]: Countries
+          - paragraph [ref=f19e121]: Served Worldwide
+        - generic [ref=f19e122]:
+          - paragraph [ref=f19e123]: 15+
+          - paragraph [ref=f19e124]: Years
+          - paragraph [ref=f19e125]: Export Experience
+        - generic [ref=f19e126]:
+          - paragraph [ref=f19e127]: 2M+
+          - paragraph [ref=f19e128]: Bags / Mo
+          - paragraph [ref=f19e129]: Production Capacity
+    - generic [ref=f19e131]:
+      - generic [ref=f19e132]:
+        - generic [ref=f19e133]:
+          - text: Featured Categories
+          - heading "Explore Our Jute Bags" [level=2] [ref=f19e134]
+          - paragraph [ref=f19e135]: Precision manufactured for retail, grocery, promotional events, and luxury gifting.
+        - link "View All Categories →" [ref=f19e136] [cursor=pointer]:
+          - /url: /catalog
+          - generic [ref=f19e137]: View All Categories
+          - generic [ref=f19e138]: →
+      - generic [ref=f19e139]:
+        - link "Shopping Bags MOQ 500 pcs Shopping Bags Durable & Eco-Friendly Explore →" [ref=f19e140] [cursor=pointer]:
+          - /url: /catalog?category=jute-shopping-bags
+          - generic [ref=f19e141]:
+            - img "Shopping Bags" [ref=f19e142]
+            - generic [ref=f19e143]: MOQ 500 pcs
+          - generic [ref=f19e144]:
+            - generic [ref=f19e145]:
+              - heading "Shopping Bags" [level=3] [ref=f19e146]
+              - paragraph [ref=f19e147]: Durable & Eco-Friendly
+            - generic [ref=f19e148]:
+              - generic [ref=f19e149]: Explore
+              - generic [ref=f19e150]: →
+        - link "Promotional Bags MOQ 300 pcs Promotional Bags Customizable & Stylish Explore →" [ref=f19e151] [cursor=pointer]:
+          - /url: /catalog?category=canvas-jute-totes
+          - generic [ref=f19e152]:
+            - img "Promotional Bags" [ref=f19e153]
+            - generic [ref=f19e154]: MOQ 300 pcs
+          - generic [ref=f19e155]:
+            - generic [ref=f19e156]:
+              - heading "Promotional Bags" [level=3] [ref=f19e157]
+              - paragraph [ref=f19e158]: Customizable & Stylish
+            - generic [ref=f19e159]:
+              - generic [ref=f19e160]: Explore
+              - generic [ref=f19e161]: →
+        - link "Wine / Bottle Bags MOQ 250 pcs Wine / Bottle Bags Secure & Sophisticated Explore →" [ref=f19e162] [cursor=pointer]:
+          - /url: /catalog?category=gift-bottle-bags
+          - generic [ref=f19e163]:
+            - img "Wine / Bottle Bags" [ref=f19e164]
+            - generic [ref=f19e165]: MOQ 250 pcs
+          - generic [ref=f19e166]:
+            - generic [ref=f19e167]:
+              - heading "Wine / Bottle Bags" [level=3] [ref=f19e168]
+              - paragraph [ref=f19e169]: Secure & Sophisticated
+            - generic [ref=f19e170]:
+              - generic [ref=f19e171]: Explore
+              - generic [ref=f19e172]: →
+        - link "Grocery Bags MOQ 1,000 pcs Grocery Bags Heavy-Duty & Reusable Explore →" [ref=f19e173] [cursor=pointer]:
+          - /url: /catalog?category=industrial-burlap-sacks
+          - generic [ref=f19e174]:
+            - img "Grocery Bags" [ref=f19e175]
+            - generic [ref=f19e176]: MOQ 1,000 pcs
+          - generic [ref=f19e177]:
+            - generic [ref=f19e178]:
+              - heading "Grocery Bags" [level=3] [ref=f19e179]
+              - paragraph [ref=f19e180]: Heavy-Duty & Reusable
+            - generic [ref=f19e181]:
+              - generic [ref=f19e182]: Explore
+              - generic [ref=f19e183]: →
+        - link "Tote Bags MOQ 300 pcs Tote Bags Versatile & Trendy Explore →" [ref=f19e184] [cursor=pointer]:
+          - /url: /catalog?category=printed-jute-bags
+          - generic [ref=f19e185]:
+            - img "Tote Bags" [ref=f19e186]
+            - generic [ref=f19e187]: MOQ 300 pcs
+          - generic [ref=f19e188]:
+            - generic [ref=f19e189]:
+              - heading "Tote Bags" [level=3] [ref=f19e190]
+              - paragraph [ref=f19e191]: Versatile & Trendy
+            - generic [ref=f19e192]:
+              - generic [ref=f19e193]: Explore
+              - generic [ref=f19e194]: →
+    - generic [ref=f19e197]:
+      - generic [ref=f19e198]:
+        - generic [ref=f19e199]:
+          - generic [ref=f19e200]: End-to-End Manufacturing
+          - heading "From Natural Fibre to Finished Product" [level=2] [ref=f19e201]
+          - paragraph [ref=f19e202]: Every eSailor bag begins in the certified organic jute basins of West Bengal. Through chemical-free retting, high-precision spinning, eco-dyeing, and industrial lockstitch sewing, we deliver world-class bags engineered to strict international export standards.
+          - generic [ref=f19e203]:
+            - generic [ref=f19e204]:
+              - generic [ref=f19e205]: ✓
+              - generic [ref=f19e206]: 100% Biodegradable & Natural Golden Jute
+            - generic [ref=f19e207]:
+              - generic [ref=f19e208]: ✓
+              - generic [ref=f19e209]: Zero Harmful Chemical Discharges & Azo-Free Dyes
+            - generic [ref=f19e210]:
+              - generic [ref=f19e211]: ✓
+              - generic [ref=f19e212]: ISO 9001:2015 & Sedex SMETA Audited Facility
+        - link "Explore Our Manufacturing Process →" [ref=f19e214] [cursor=pointer]:
+          - /url: /process
+          - generic [ref=f19e215]: Explore Our Manufacturing Process
+          - generic [ref=f19e216]: →
+      - generic [ref=f19e217]:
+        - img "Artisan hands guiding golden burlap under heavy-duty sewing machine" [ref=f19e218]
+        - generic [ref=f19e219]:
+          - link "▶ Watch Process Video" [ref=f19e220] [cursor=pointer]:
+            - /url: /process
+            - generic [ref=f19e221]: ▶
+            - generic [ref=f19e222]: Watch Process Video
+          - generic [ref=f19e223]: 100% Needle Inspected
+    - generic [ref=f19e225]:
+      - generic [ref=f19e226]:
+        - text: Why Partner With eSailor
+        - heading "Your Trusted Jute Manufacturing Partner" [level=2] [ref=f19e227]
+        - paragraph [ref=f19e228]: Built on sustainable practices, precision engineering, and seamless export operations.
+      - generic [ref=f19e229]:
+        - generic [ref=f19e230]:
+          - generic [ref=f19e231]:
+            - generic [ref=f19e232]: 🌱
+            - heading "Sustainable Materials" [level=3] [ref=f19e233]
+            - paragraph [ref=f19e234]: 100% natural, biodegradable jute & juco fibers cultivated in certified pesticide-free Bengal floodplains.
+          - generic [ref=f19e235]:
+            - generic [ref=f19e236]: 🎨
+            - heading "Custom Designs" [level=3] [ref=f19e237]
+            - paragraph [ref=f19e238]: Bespoke dimensions, pantone color dyeing, azo-free screen & digital printing, and custom branding trims.
+          - generic [ref=f19e239]:
+            - generic [ref=f19e240]: 🛡️
+            - heading "Global Compliance" [level=3] [ref=f19e241]
+            - paragraph [ref=f19e242]: Fully compliant with EU REACH, US FDA food-contact standards, GOTS Organic, and Sedex 4-Pillar audits.
+          - generic [ref=f19e243]:
+            - generic [ref=f19e244]: 🚢
+            - heading "Export Experience" [level=3] [ref=f19e245]
+            - paragraph [ref=f19e246]: 15+ years exporting across Europe, North America, Middle East, and APAC with seamless FOB & CIF logistics.
+          - generic [ref=f19e247]:
+            - generic [ref=f19e248]: ⚙️
+            - heading "Reliable Supply" [level=3] [ref=f19e249]
+            - paragraph [ref=f19e250]: Over 2M bags monthly capacity with strict quality control, zero batch variance, and guaranteed delivery SLAs.
+        - generic [ref=f19e251]:
+          - generic [ref=f19e252]:
+            - img "Lush green raw jute crop harvested in Bengal delta" [ref=f19e253]
+            - generic [ref=f19e254]: 100% Eco-Cultivation
+          - generic [ref=f19e255]:
+            - generic [ref=f19e256]: Planet-First Manufacturing
+            - heading "Sustainable Choices for a Better Tomorrow" [level=3] [ref=f19e257]
+            - paragraph [ref=f19e258]: Jute absorbs 15 tonnes of CO2 per hectare and enriches agricultural topsoil. Transitioning your packaging to eSailor jute bags supports zero-waste circular economies and empowers thousands of rural artisanal families.
+          - link "Get in Touch with Our Team →" [ref=f19e260] [cursor=pointer]:
+            - /url: /contact
+            - generic [ref=f19e261]: Get in Touch with Our Team
+            - generic [ref=f19e262]: →
+    - generic [ref=f19e264]:
+      - generic [ref=f19e265]:
+        - generic [ref=f19e266]:
+          - text: Best Sellers
+          - heading "Popular Jute Bags" [level=2] [ref=f19e267]
+          - paragraph [ref=f19e268]: Discover our most requested models engineered for retail brands, corporate gifts, and agro packaging.
+        - link "View All Products →" [ref=f19e269] [cursor=pointer]:
+          - /url: /catalog
+          - generic [ref=f19e270]: View All Products
+          - generic [ref=f19e271]: →
+      - generic [ref=f19e272]:
+        - generic [ref=f19e273]:
+          - generic [ref=f19e274]:
+            - img "Classic Jute Shopping Bag" [ref=f19e275]
+            - generic [ref=f19e276]: 320 GSM
+            - generic [ref=f19e277]: MOQ 500 pcs
+          - generic [ref=f19e278]:
+            - generic [ref=f19e279]:
+              - generic [ref=f19e280]: Natural Hessian
+              - heading "Classic Jute Shopping Bag" [level=3] [ref=f19e281]
+            - generic [ref=f19e282]:
+              - generic [ref=f19e283]: "Lead: 14-18 Days"
+              - link "Quote →" [ref=f19e284] [cursor=pointer]:
+                - /url: /quote-request?product=Classic%20Jute%20Shopping%20Bag
+                - generic [ref=f19e285]: Quote
+                - generic [ref=f19e286]: →
+        - generic [ref=f19e287]:
+          - generic [ref=f19e288]:
+            - img "Agro Drawstring Burlap Sack" [ref=f19e289]
+            - generic [ref=f19e290]: 280 GSM
+            - generic [ref=f19e291]: MOQ 1,000 pcs
+          - generic [ref=f19e292]:
+            - generic [ref=f19e293]:
+              - generic [ref=f19e294]: Golden Burlap Twill
+              - heading "Agro Drawstring Burlap Sack" [level=3] [ref=f19e295]
+            - generic [ref=f19e296]:
+              - generic [ref=f19e297]: "Lead: 18-22 Days"
+              - link "Quote →" [ref=f19e298] [cursor=pointer]:
+                - /url: /quote-request?product=Agro%20Drawstring%20Burlap%20Sack
+                - generic [ref=f19e299]: Quote
+                - generic [ref=f19e300]: →
+        - generic [ref=f19e301]:
+          - generic [ref=f19e302]:
+            - img "Two-Bottle Wine Carrier" [ref=f19e303]
+            - generic [ref=f19e304]: 380 GSM
+            - generic [ref=f19e305]: MOQ 250 pcs
+          - generic [ref=f19e306]:
+            - generic [ref=f19e307]:
+              - generic [ref=f19e308]: Heavy Jute + Cane Handles
+              - heading "Two-Bottle Wine Carrier" [level=3] [ref=f19e309]
+            - generic [ref=f19e310]:
+              - generic [ref=f19e311]: "Lead: 12-15 Days"
+              - link "Quote →" [ref=f19e312] [cursor=pointer]:
+                - /url: /quote-request?product=Two-Bottle%20Wine%20Carrier
+                - generic [ref=f19e313]: Quote
+                - generic [ref=f19e314]: →
+        - generic [ref=f19e315]:
+          - generic [ref=f19e316]:
+            - img "Juco Designer Fashion Tote" [ref=f19e317]
+            - generic [ref=f19e318]: 300 GSM
+            - generic [ref=f19e319]: MOQ 500 pcs
+          - generic [ref=f19e320]:
+            - generic [ref=f19e321]:
+              - generic [ref=f19e322]: Jute-Cotton (70/30) Hybrid
+              - heading "Juco Designer Fashion Tote" [level=3] [ref=f19e323]
+            - generic [ref=f19e324]:
+              - generic [ref=f19e325]: "Lead: 15-20 Days"
+              - link "Quote →" [ref=f19e326] [cursor=pointer]:
+                - /url: /quote-request?product=Juco%20Designer%20Fashion%20Tote
+                - generic [ref=f19e327]: Quote
+                - generic [ref=f19e328]: →
+        - generic [ref=f19e329]:
+          - generic [ref=f19e330]:
+            - img "Botanical Printed Luxury Shopper" [ref=f19e331]
+            - generic [ref=f19e332]: 340 GSM
+            - generic [ref=f19e333]: MOQ 300 pcs
+          - generic [ref=f19e334]:
+            - generic [ref=f19e335]:
+              - generic [ref=f19e336]: Bio-Laminated Jute
+              - heading "Botanical Printed Luxury Shopper" [level=3] [ref=f19e337]
+            - generic [ref=f19e338]:
+              - generic [ref=f19e339]: "Lead: 14-18 Days"
+              - link "Quote →" [ref=f19e340] [cursor=pointer]:
+                - /url: /quote-request?product=Botanical%20Printed%20Luxury%20Shopper
+                - generic [ref=f19e341]: Quote
+                - generic [ref=f19e342]: →
+    - generic [ref=f19e343]:
+      - generic:
+        - img "World Maritime & Freight Trade Routes"
+      - generic [ref=f19e345]:
+        - generic [ref=f19e346]:
+          - generic [ref=f19e347]: Global Reach & Trade Corridors
+          - heading "Exporting Quality. Building Global Partnerships." [level=2] [ref=f19e348]
+          - paragraph [ref=f19e349]: Operating directly from the Bengal delta golden fiber belt, our star export house dispatches certified eco-packaging to commercial retail chains, luxury grocers, and agricultural traders across 50+ countries.
+          - generic [ref=f19e350]:
+            - generic [ref=f19e351]:
+              - paragraph [ref=f19e352]: 50+
+              - paragraph [ref=f19e353]: Countries Served
+            - generic [ref=f19e354]:
+              - paragraph [ref=f19e355]: 15+
+              - paragraph [ref=f19e356]: Years in Export
+            - generic [ref=f19e357]:
+              - paragraph [ref=f19e358]: 2M+
+              - paragraph [ref=f19e359]: Bags / Month
+        - generic [ref=f19e361]:
+          - text: International Trade Desk
+          - heading "Direct Container Bookings" [level=3] [ref=f19e362]
+          - paragraph [ref=f19e363]: FOB Port of Kolkata (CCU) / Nhava Sheva (NSA) or CIF worldwide. Custom HS code documentation, GSP/Form A certificates, and fumigation reports provided with every shipment.
+          - generic [ref=f19e364]:
+            - link "Request CIF / FOB Rate Sheet →" [ref=f19e365] [cursor=pointer]:
+              - /url: /quote-request
+            - link "💬 WhatsApp Commercial Desk" [ref=f19e366] [cursor=pointer]:
+              - /url: https://wa.me/919830000000?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20container%20freight%20rates
+              - generic [ref=f19e367]: 💬
+              - generic [ref=f19e368]: WhatsApp Commercial Desk
+    - generic [ref=f19e372]:
+      - generic [ref=f19e373]: Let's Build Together
+      - heading "Ready to Discuss Your Requirements?" [level=2] [ref=f19e374]
+      - paragraph [ref=f19e375]: Whether you need a custom quote, sample swatches, or have questions about our manufacturing process, our export team is here to help.
+      - generic [ref=f19e376]:
+        - link "Request a Quote" [ref=f19e377] [cursor=pointer]:
+          - /url: /quote-request
+        - link "💬 WhatsApp Us" [ref=f19e378] [cursor=pointer]:
+          - /url: https://wa.me/919830000000?text=Hello%2C%20I%20would%20like%20to%20discuss%20jute%20bag%20requirements
+          - generic [ref=f19e379]: 💬
+          - generic [ref=f19e380]: WhatsApp Us
+      - generic [ref=f19e381]:
+        - generic [ref=f19e382]: ✓ Quotes within 24 Hours
+        - generic [ref=f19e383]: •
+        - generic [ref=f19e384]: ✓ Free Physical Sample Swatch Kit
+        - generic [ref=f19e385]: •
+        - generic [ref=f19e386]: ✓ Direct Port of Kolkata Shipping
+  - contentinfo [ref=f19e387]:
+    - generic [ref=f19e389]:
+      - generic [ref=f19e390]:
+        - text: Global Procurement Hotline
+        - heading "Need custom branded samples or container volume pricing?" [level=3] [ref=f19e391]
+        - paragraph [ref=f19e392]: Our export engineering team delivers itemized FOB/CIF estimates within 24 hours. Custom CAD drawings and fabric swatches available upon request.
+      - generic [ref=f19e393]:
+        - link "Request Fast Quote →" [ref=f19e394] [cursor=pointer]:
+          - /url: /quote-request
+        - link "WhatsApp Trade Desk" [ref=f19e395] [cursor=pointer]:
+          - /url: https://wa.me/919830000000?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20b2b%20jute%20bags%20export
+    - generic [ref=f19e396]:
+      - generic [ref=f19e397]:
+        - generic [ref=f19e398]:
+          - generic [ref=f19e399]:
+            - generic [ref=f19e400]: eS
+            - generic [ref=f19e401]: eSailor.in
+          - paragraph [ref=f19e402]: Direct manufacturer & government-recognized star export house specializing in certified organic jute packaging, retail shoppers, and hydrocarbon-free commodity burlap.
+          - generic [ref=f19e403]:
+            - paragraph [ref=f19e404]:
+              - generic [ref=f19e405]: 🏭
+              - text: "Bengal Delta Manufacturing Facility:"
+            - paragraph [ref=f19e406]: NH-12 Industrial Manufacturing Corridor, Barasat, North 24 Parganas, West Bengal 700124, India
+            - generic [ref=f19e407]:
+              - generic [ref=f19e408]: "IEC: 0219481900"
+              - generic [ref=f19e409]: "Port: CCU / NSA Direct"
+        - generic [ref=f19e410]:
+          - heading "B2B Collections" [level=4] [ref=f19e411]
+          - navigation [ref=f19e412]:
+            - link "Retail Shopping Totes" [ref=f19e413] [cursor=pointer]:
+              - /url: /catalog?category=jute-shopping-bags
+            - link "Juco Fashion & Promo Bags" [ref=f19e414] [cursor=pointer]:
+              - /url: /catalog?category=canvas-jute-totes
+            - link "Wine & Gourmet Bottle Carriers" [ref=f19e415] [cursor=pointer]:
+              - /url: /catalog?category=gift-bottle-bags
+            - link "Agro Commodity Burlap Sacks" [ref=f19e416] [cursor=pointer]:
+              - /url: /catalog?category=industrial-burlap-sacks
+            - link "Cosmetic & Jewelry Pouches" [ref=f19e417] [cursor=pointer]:
+              - /url: /catalog?category=drawstring-pouches
+            - link "View All Models (40+) →" [ref=f19e418] [cursor=pointer]:
+              - /url: /catalog
+        - generic [ref=f19e419]:
+          - heading "Compliance & Supply" [level=4] [ref=f19e420]
+          - navigation [ref=f19e421]:
+            - link "GOTS & OEKO-TEX Standard" [ref=f19e422] [cursor=pointer]:
+              - /url: /certifications
+            - link "Sedex SMETA 4-Pillar Audit" [ref=f19e423] [cursor=pointer]:
+              - /url: /certifications
+            - link "12-Step Manufacturing Journey" [ref=f19e424] [cursor=pointer]:
+              - /url: /process
+            - link "Box-X Handle Load Testing" [ref=f19e425] [cursor=pointer]:
+              - /url: /process
+            - link "Delta Cooperative Sourcing" [ref=f19e426] [cursor=pointer]:
+              - /url: /about
+            - link "📑 Audit Dossier (PDF)" [ref=f19e427] [cursor=pointer]:
+              - /url: /certificates/compliance-dossier.pdf
+              - generic [ref=f19e428]: 📑
+              - text: Audit Dossier (PDF)
+        - generic [ref=f19e429]:
+          - heading "Accredited Quality" [level=4] [ref=f19e430]
+          - generic [ref=f19e431]:
+            - generic [ref=f19e434]:
+              - paragraph [ref=f19e435]: GOTS
+              - paragraph [ref=f19e436]: Global Organic Standard
+            - generic [ref=f19e439]:
+              - paragraph [ref=f19e440]: OEKO
+              - paragraph [ref=f19e441]: OEKO-TEX Standard 100
+            - generic [ref=f19e444]:
+              - paragraph [ref=f19e445]: SEDEX
+              - paragraph [ref=f19e446]: SMETA 4-Pillar Audited
+            - generic [ref=f19e449]:
+              - paragraph [ref=f19e450]: ISO
+              - paragraph [ref=f19e451]: ISO 9001:2015 Certified
+          - generic [ref=f19e452]:
+            - paragraph [ref=f19e453]: "Incoterms Supported:"
+            - paragraph [ref=f19e454]: FOB Kolkata, CIF Worldwide, DDP North America & EU
+      - generic [ref=f19e455]:
+        - generic [ref=f19e456]:
+          - generic [ref=f19e457]: © 2026 eSailor.in. All rights reserved.
+          - generic [ref=f19e458]: •
+          - generic [ref=f19e459]: Registered Under Directorate General of Foreign Trade (DGFT), Govt of India.
+        - generic [ref=f19e460]:
+          - link "Chain of Custody" [ref=f19e461] [cursor=pointer]:
+            - /url: /certifications
+          - link "Zero-Defect QA Policy" [ref=f19e462] [cursor=pointer]:
+            - /url: /process
+          - link "Trade Privacy" [ref=f19e463] [cursor=pointer]:
+            - /url: /contact
+  - link "Chat directly on WhatsApp with eSailor Export Desk" [ref=f19e465] [cursor=pointer]:
+    - /url: https://wa.me/919876543210?text=Hello%20eSailor%20export%20team%2C%0A%0AI%20am%20interested%20in%20eSailor%20Jute%20Bags.%0A%0APlease%20provide%20quotation%20details%20regarding%3A%0A-%20Wholesale%20FOB%20Pricing%0A-%20Minimum%20Order%20Quantity%20(MOQ)%0A-%20Custom%20Branding%20%2F%20Dimensions%0A-%20Current%20Production%20Lead%20Time%0A%0AThank%20you!
+  - button "Open Next.js Dev Tools" [ref=f19e474] [cursor=pointer]

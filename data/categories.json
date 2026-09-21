@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "cat-jute-bags",
+    "_type": "category",
+    "name": "Jute Bags",
+    "slug": {
+      "_type": "slug",
+      "current": "jute-bags"
+    },
+    "description": "Eco-friendly jute bags for various applications",
+    "displayOrder": 1,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "cat-tote-bags",
+    "_type": "category",
+    "name": "Tote Bags",
+    "slug": {
+      "_type": "slug",
+      "current": "tote-bags"
+    },
+    "description": "Versatile tote bags for shopping and daily use",
+    "displayOrder": 2,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "cat-shopping-bags",
+    "_type": "category",
+    "name": "Shopping Bags",
+    "slug": {
+      "_type": "slug",
+      "current": "shopping-bags"
+    },
+    "description": "Durable shopping bags for retail and grocery use",
+    "displayOrder": 3,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "cat-promotional-bags",
+    "_type": "category",
+    "name": "Promotional Bags",
+    "slug": {
+      "_type": "slug",
+      "current": "promotional-bags"
+    },
+    "description": "Customizable bags for promotional and branding purposes",
+    "displayOrder": 4,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "cat-luxury-bags",
+    "_type": "category",
+    "name": "Luxury Bags",
+    "slug": {
+      "_type": "slug",
+      "current": "luxury-bags"
+    },
+    "description": "Premium quality bags for high-end retail and gifting",
+    "displayOrder": 5,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  }
+]

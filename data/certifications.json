@@ -1,0 +1,92 @@
+[
+  {
+    "_id": "cert-gots",
+    "_type": "certification",
+    "name": "Global Organic Textile Standard (GOTS)",
+    "code": "GOTS-CU-850123",
+    "slug": {
+      "_type": "slug",
+      "current": "gots"
+    },
+    "issuingBody": "Control Union Certifications B.V. / Global Standard GmbH",
+    "description": "Certified organic processing standard for ecological and social criteria across the entire jute and cotton supply chain. Confirms non-toxic inputs, zero child labor, and verified organic origin.",
+    "dateObtained": "2024-04-10",
+    "issueDate": "2024-04-10",
+    "expiryDate": "2027-04-10",
+    "documentUrl": "/certificates/compliance-dossier.pdf",
+    "isActive": true,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "cert-oeko-tex",
+    "_type": "certification",
+    "name": "OEKO-TEX® Standard 100",
+    "code": "OEKO-HIN-90124",
+    "slug": {
+      "_type": "slug",
+      "current": "oeko-tex-standard-100"
+    },
+    "issuingBody": "Hohenstein Textile Testing Institute GmbH",
+    "description": "Internationally verified testing for harmful substances according to STANDARD 100 by OEKO-TEX® (Product Class 1: safe for food contact and sensitive touch).",
+    "dateObtained": "2024-08-01",
+    "issueDate": "2024-08-01",
+    "expiryDate": "2027-08-01",
+    "documentUrl": "/certificates/compliance-dossier.pdf",
+    "isActive": true,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "cert-sedex-smeta",
+    "_type": "certification",
+    "name": "Sedex Members Ethical Trade Audit (SMETA 4-Pillar)",
+    "code": "SEDEX-SMETA-2024-092",
+    "slug": {
+      "_type": "slug",
+      "current": "sedex-smeta"
+    },
+    "issuingBody": "Sedex Information Exchange Ltd (SGS Audited)",
+    "description": "Four-pillar ethical audit covering Labor Standards, Health & Safety, Environmental Assessment, and Business Ethics for global export compliance.",
+    "dateObtained": "2024-01-15",
+    "issueDate": "2024-01-15",
+    "expiryDate": "2028-01-15",
+    "documentUrl": "/certificates/compliance-dossier.pdf",
+    "isActive": true,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "cert-iso-9001",
+    "_type": "certification",
+    "name": "ISO 9001:2015 Quality Management System",
+    "code": "ISO-9001-01-100-18290",
+    "slug": {
+      "_type": "slug",
+      "current": "iso-9001-2015"
+    },
+    "issuingBody": "TÜV Rheinland Cert GmbH",
+    "description": "Quality management certification governing precision manufacturing, yarn inspection, automated cutting, and export packaging repeatability.",
+    "dateObtained": "2023-11-20",
+    "issueDate": "2023-11-20",
+    "expiryDate": "2027-11-20",
+    "documentUrl": "/certificates/compliance-dossier.pdf",
+    "isActive": true,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "cert-iso-14001",
+    "_type": "certification",
+    "name": "ISO 14001:2015 Environmental Management",
+    "code": "ISO-14001-01-104-18290",
+    "slug": {
+      "_type": "slug",
+      "current": "iso-14001-2015"
+    },
+    "issuingBody": "TÜV Rheinland Cert GmbH",
+    "description": "Environmental compliance standard certifying zero-effluent discharge, solar-assisted drying, zero single-use plastics, and waste fiber composting.",
+    "dateObtained": "2024-02-18",
+    "issueDate": "2024-02-18",
+    "expiryDate": "2028-02-18",
+    "documentUrl": "/certificates/compliance-dossier.pdf",
+    "isActive": true,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  }
+]

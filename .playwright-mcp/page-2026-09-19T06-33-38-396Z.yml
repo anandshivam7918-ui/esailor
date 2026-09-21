@@ -1,0 +1,224 @@
+- generic [active] [ref=f9e1]:
+  - banner [ref=f9e2]:
+    - generic [ref=f9e4]:
+      - generic [ref=f9e5]:
+        - generic [ref=f9e6]: Direct Factory Dispatch • West Bengal, India
+        - generic [ref=f9e8]: "|"
+        - generic [ref=f9e9]: IEC Registered Indian Star Export House
+      - generic [ref=f9e10]:
+        - generic [ref=f9e11]:
+          - generic [ref=f9e12]: "Trade Quotes:"
+          - button "USD ($)" [ref=f9e13]
+          - button "EUR (€)" [ref=f9e14]
+          - button "GBP (£)" [ref=f9e15]
+        - generic [ref=f9e16]: "|"
+        - link "📞 +91 (0) 33 2280 4400" [ref=f9e17] [cursor=pointer]:
+          - /url: tel:+919830000000
+          - generic [ref=f9e18]: 📞
+          - text: +91 (0) 33 2280 4400
+    - generic [ref=f9e20]:
+      - link "eS eSailor .in Certified Jute Exporters" [ref=f9e22] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f9e23]: eS
+        - generic [ref=f9e24]:
+          - generic [ref=f9e25]:
+            - text: eSailor
+            - generic [ref=f9e26]: .in
+          - generic [ref=f9e27]: Certified Jute Exporters
+      - navigation [ref=f9e28]:
+        - link "B2B Catalog" [ref=f9e29] [cursor=pointer]:
+          - /url: /catalog
+        - link "Certifications Verified active audits" [ref=f9e30] [cursor=pointer]:
+          - /url: /certifications
+          - generic [ref=f9e31]: Certifications
+          - generic "Verified active audits" [ref=f9e32]
+        - link "Manufacturing & QC" [ref=f9e33] [cursor=pointer]:
+          - /url: /process
+        - link "About Factory" [ref=f9e34] [cursor=pointer]:
+          - /url: /about
+        - link "Global Desk" [ref=f9e35] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f9e36]:
+        - link "📄 Download Catalogue" [ref=f9e37] [cursor=pointer]:
+          - /url: /catalog.pdf
+          - generic [ref=f9e38]: 📄
+          - generic [ref=f9e39]: Download Catalogue
+        - link "Request Quote" [ref=f9e40] [cursor=pointer]:
+          - /url: /quote-request
+  - main [ref=f9e42]:
+    - generic [ref=f9e43]:
+      - paragraph [ref=f9e44]: Quality & Compliance
+      - heading "Certifications & Standards" [level=1] [ref=f9e45]
+      - paragraph [ref=f9e46]: eSailor maintains rigorous compliance with global textile standards, fair trade practices, and environmental benchmarks to guarantee export-grade quality.
+    - generic [ref=f9e48]:
+      - generic [ref=f9e49]: 🛡️
+      - generic [ref=f9e50]:
+        - heading "Strict Verification & Credibility Standard" [level=2] [ref=f9e51]
+        - paragraph [ref=f9e52]: All displayed certifications are verified against active issuing bodies. Expired, unrenewed, or pending certifications are automatically excluded from our active roster to guarantee zero false claims to international buyers.
+    - generic [ref=f9e53]:
+      - generic [ref=f9e54]:
+        - heading "Active Accreditations (3)" [level=2] [ref=f9e55]
+        - generic [ref=f9e56]: Verified Current
+      - generic [ref=f9e58]:
+        - article [ref=f9e59]:
+          - generic [ref=f9e60]:
+            - generic [ref=f9e62]:
+              - generic [ref=f9e63]: 🏅
+              - generic [ref=f9e64]: Sedex Information Exchange
+            - generic [ref=f9e65]: Active
+            - heading "Sedex Members Ethical Trade Audit (SMETA)" [level=3] [ref=f9e67]
+            - paragraph [ref=f9e68]: "Issued by: Sedex Information Exchange"
+          - generic [ref=f9e69]:
+            - generic [ref=f9e70]:
+              - generic [ref=f9e71]: "Date Obtained:"
+              - generic [ref=f9e72]: 2023-11-08
+            - generic [ref=f9e73]:
+              - generic [ref=f9e74]: "Validity:"
+              - generic [ref=f9e75]: Ongoing Audit
+        - article [ref=f9e76]:
+          - generic [ref=f9e77]:
+            - generic [ref=f9e79]:
+              - generic [ref=f9e80]: 🏅
+              - generic [ref=f9e81]: Global Standard GmbH
+            - generic [ref=f9e82]: Active
+            - heading "Global Organic Textile Standard (GOTS)" [level=3] [ref=f9e84]
+            - paragraph [ref=f9e85]: "Issued by: Global Standard GmbH"
+          - generic [ref=f9e86]:
+            - generic [ref=f9e87]:
+              - generic [ref=f9e88]: "Date Obtained:"
+              - generic [ref=f9e89]: 2024-04-10
+            - generic [ref=f9e90]:
+              - generic [ref=f9e91]: "Validity:"
+              - generic [ref=f9e92]: Until 2027-04-10
+        - article [ref=f9e93]:
+          - generic [ref=f9e94]:
+            - generic [ref=f9e96]:
+              - generic [ref=f9e97]: 🏅
+              - generic [ref=f9e98]: OEKO-TEX® Association
+            - generic [ref=f9e99]: Active
+            - heading "OEKO-TEX® Standard 100" [level=3] [ref=f9e101]
+            - paragraph [ref=f9e102]: "Issued by: OEKO-TEX® Association"
+          - generic [ref=f9e103]:
+            - generic [ref=f9e104]:
+              - generic [ref=f9e105]: "Date Obtained:"
+              - generic [ref=f9e106]: 2024-08-01
+            - generic [ref=f9e107]:
+              - generic [ref=f9e108]: "Validity:"
+              - generic [ref=f9e109]: Until 2027-08-01
+    - generic [ref=f9e110]:
+      - heading "Export Registrations & Statutory Credibility" [level=2] [ref=f9e111]
+      - paragraph [ref=f9e112]: Official export registration identifiers for commercial verification and bank trade compliance.
+      - generic [ref=f9e113]:
+        - generic [ref=f9e114]:
+          - text: Import Export Code (IEC)
+          - paragraph [ref=f9e115]: AVAILABLE ON REQUEST
+          - paragraph [ref=f9e116]: DGFT Ministry of Commerce
+        - generic [ref=f9e117]:
+          - text: GSTIN Registration
+          - paragraph [ref=f9e118]: VERIFIED (INDIA)
+          - paragraph [ref=f9e119]: Goods & Services Tax Network
+        - generic [ref=f9e120]:
+          - text: MSME / Udyam
+          - paragraph [ref=f9e121]: REGISTERED ENTERPRISE
+          - paragraph [ref=f9e122]: Govt. of India Recognized
+        - generic [ref=f9e123]:
+          - text: Export Export Council
+          - paragraph [ref=f9e124]: JMDC / FIEO MEMBER
+          - paragraph [ref=f9e125]: Jute Manufactures Development
+    - generic [ref=f9e126]:
+      - heading "Need Audit Reports or Specification Sheets?" [level=2] [ref=f9e127]
+      - paragraph [ref=f9e128]: We provide full compliance dossiers, lab test results, and buyer compliance audit summaries with our formal quotation packages.
+      - generic [ref=f9e129]:
+        - link "Request Official Quotation & Audit Docs" [ref=f9e130] [cursor=pointer]:
+          - /url: /quote-request
+        - link "Explore Certified Catalog" [ref=f9e131] [cursor=pointer]:
+          - /url: /catalog
+  - contentinfo [ref=f9e132]:
+    - generic [ref=f9e134]:
+      - generic [ref=f9e135]:
+        - text: Global Procurement Hotline
+        - heading "Need custom branded samples or container volume pricing?" [level=3] [ref=f9e136]
+        - paragraph [ref=f9e137]: Our export engineering team delivers itemized FOB/CIF estimates within 24 hours. Custom CAD drawings and fabric swatches available upon request.
+      - generic [ref=f9e138]:
+        - link "Request Fast Quote →" [ref=f9e139] [cursor=pointer]:
+          - /url: /quote-request
+        - link "WhatsApp Trade Desk" [ref=f9e140] [cursor=pointer]:
+          - /url: https://wa.me/919830000000?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20b2b%20jute%20bags%20export
+    - generic [ref=f9e141]:
+      - generic [ref=f9e142]:
+        - generic [ref=f9e143]:
+          - generic [ref=f9e144]:
+            - generic [ref=f9e145]: eS
+            - generic [ref=f9e146]: eSailor.in
+          - paragraph [ref=f9e147]: Direct manufacturer & government-recognized star export house specializing in certified organic jute packaging, retail shoppers, and hydrocarbon-free commodity burlap.
+          - generic [ref=f9e148]:
+            - paragraph [ref=f9e149]:
+              - generic [ref=f9e150]: 🏭
+              - text: "Bengal Delta Manufacturing Facility:"
+            - paragraph [ref=f9e151]: NH-12 Industrial Manufacturing Corridor, Barasat, North 24 Parganas, West Bengal 700124, India
+            - generic [ref=f9e152]:
+              - generic [ref=f9e153]: "IEC: 0219481900"
+              - generic [ref=f9e154]: "Port: CCU / NSA Direct"
+        - generic [ref=f9e155]:
+          - heading "B2B Collections" [level=4] [ref=f9e156]
+          - navigation [ref=f9e157]:
+            - link "Retail Shopping Totes" [ref=f9e158] [cursor=pointer]:
+              - /url: /catalog?category=jute-shopping-bags
+            - link "Juco Fashion & Promo Bags" [ref=f9e159] [cursor=pointer]:
+              - /url: /catalog?category=canvas-jute-totes
+            - link "Wine & Gourmet Bottle Carriers" [ref=f9e160] [cursor=pointer]:
+              - /url: /catalog?category=gift-bottle-bags
+            - link "Agro Commodity Burlap Sacks" [ref=f9e161] [cursor=pointer]:
+              - /url: /catalog?category=industrial-burlap-sacks
+            - link "Cosmetic & Jewelry Pouches" [ref=f9e162] [cursor=pointer]:
+              - /url: /catalog?category=drawstring-pouches
+            - link "View All Models (40+) →" [ref=f9e163] [cursor=pointer]:
+              - /url: /catalog
+        - generic [ref=f9e164]:
+          - heading "Compliance & Supply" [level=4] [ref=f9e165]
+          - navigation [ref=f9e166]:
+            - link "GOTS & OEKO-TEX Standard" [ref=f9e167] [cursor=pointer]:
+              - /url: /certifications
+            - link "Sedex SMETA 4-Pillar Audit" [ref=f9e168] [cursor=pointer]:
+              - /url: /certifications
+            - link "12-Step Manufacturing Journey" [ref=f9e169] [cursor=pointer]:
+              - /url: /process
+            - link "Box-X Handle Load Testing" [ref=f9e170] [cursor=pointer]:
+              - /url: /process
+            - link "Delta Cooperative Sourcing" [ref=f9e171] [cursor=pointer]:
+              - /url: /about
+            - link "📑 Audit Dossier (PDF)" [ref=f9e172] [cursor=pointer]:
+              - /url: /certificates/compliance-dossier.pdf
+              - generic [ref=f9e173]: 📑
+              - text: Audit Dossier (PDF)
+        - generic [ref=f9e174]:
+          - heading "Accredited Quality" [level=4] [ref=f9e175]
+          - generic [ref=f9e176]:
+            - generic [ref=f9e179]:
+              - paragraph [ref=f9e180]: GOTS
+              - paragraph [ref=f9e181]: Global Organic Standard
+            - generic [ref=f9e184]:
+              - paragraph [ref=f9e185]: OEKO
+              - paragraph [ref=f9e186]: OEKO-TEX Standard 100
+            - generic [ref=f9e189]:
+              - paragraph [ref=f9e190]: SEDEX
+              - paragraph [ref=f9e191]: SMETA 4-Pillar Audited
+            - generic [ref=f9e194]:
+              - paragraph [ref=f9e195]: ISO
+              - paragraph [ref=f9e196]: ISO 9001:2015 Certified
+          - generic [ref=f9e197]:
+            - paragraph [ref=f9e198]: "Incoterms Supported:"
+            - paragraph [ref=f9e199]: FOB Kolkata, CIF Worldwide, DDP North America & EU
+      - generic [ref=f9e200]:
+        - generic [ref=f9e201]:
+          - generic [ref=f9e202]: © 2026 eSailor.in. All rights reserved.
+          - generic [ref=f9e203]: •
+          - generic [ref=f9e204]: Registered Under Directorate General of Foreign Trade (DGFT), Govt of India.
+        - generic [ref=f9e205]:
+          - link "Chain of Custody" [ref=f9e206] [cursor=pointer]:
+            - /url: /certifications
+          - link "Zero-Defect QA Policy" [ref=f9e207] [cursor=pointer]:
+            - /url: /process
+          - link "Trade Privacy" [ref=f9e208] [cursor=pointer]:
+            - /url: /contact
+  - button "Open Next.js Dev Tools" [ref=f9e214] [cursor=pointer]

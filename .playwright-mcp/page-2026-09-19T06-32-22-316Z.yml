@@ -1,0 +1,326 @@
+- generic [active] [ref=f7e1]:
+  - banner [ref=f7e2]:
+    - generic [ref=f7e4]:
+      - generic [ref=f7e5]:
+        - generic [ref=f7e6]: Direct Factory Dispatch • West Bengal, India
+        - generic [ref=f7e8]: "|"
+        - generic [ref=f7e9]: IEC Registered Indian Star Export House
+      - generic [ref=f7e10]:
+        - generic [ref=f7e11]:
+          - generic [ref=f7e12]: "Trade Quotes:"
+          - button "USD ($)" [ref=f7e13]
+          - button "EUR (€)" [ref=f7e14]
+          - button "GBP (£)" [ref=f7e15]
+        - generic [ref=f7e16]: "|"
+        - link "📞 +91 (0) 33 2280 4400" [ref=f7e17] [cursor=pointer]:
+          - /url: tel:+919830000000
+          - generic [ref=f7e18]: 📞
+          - text: +91 (0) 33 2280 4400
+    - generic [ref=f7e20]:
+      - link "eS eSailor .in Certified Jute Exporters" [ref=f7e22] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f7e23]: eS
+        - generic [ref=f7e24]:
+          - generic [ref=f7e25]:
+            - text: eSailor
+            - generic [ref=f7e26]: .in
+          - generic [ref=f7e27]: Certified Jute Exporters
+      - navigation [ref=f7e28]:
+        - link "B2B Catalog" [ref=f7e29] [cursor=pointer]:
+          - /url: /catalog
+        - link "Certifications Verified active audits" [ref=f7e30] [cursor=pointer]:
+          - /url: /certifications
+          - generic [ref=f7e31]: Certifications
+          - generic "Verified active audits" [ref=f7e32]
+        - link "Manufacturing & QC" [ref=f7e33] [cursor=pointer]:
+          - /url: /process
+        - link "About Factory" [ref=f7e34] [cursor=pointer]:
+          - /url: /about
+        - link "Global Desk" [ref=f7e35] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f7e36]:
+        - link "📄 Download Catalogue" [ref=f7e37] [cursor=pointer]:
+          - /url: /catalog.pdf
+          - generic [ref=f7e38]: 📄
+          - generic [ref=f7e39]: Download Catalogue
+        - link "Request Quote" [ref=f7e40] [cursor=pointer]:
+          - /url: /quote-request
+  - main [ref=f7e42]:
+    - generic [ref=f7e43]:
+      - paragraph [ref=f7e44]: Engineering Sustainability
+      - heading "Our Manufacturing Process" [level=1] [ref=f7e45]
+      - paragraph [ref=f7e46]: From unrefined golden jute stalks to high-durability export retail bags, explore the disciplined steps, sustainable machinery, and strict quality control behind every eSailor order.
+    - generic [ref=f7e47]:
+      - generic [ref=f7e48]:
+        - paragraph [ref=f7e49]: 500,000+
+        - paragraph [ref=f7e50]: Monthly Bag Capacity
+        - paragraph [ref=f7e51]: Scalable for global retail volume
+      - generic [ref=f7e52]:
+        - paragraph [ref=f7e53]: 25 kg+
+        - paragraph [ref=f7e54]: Load-Bearing Rating
+        - paragraph [ref=f7e55]: Tested on reinforced X-box seams
+      - generic [ref=f7e56]:
+        - paragraph [ref=f7e57]: 100%
+        - paragraph [ref=f7e58]: Biodegradable Base
+        - paragraph [ref=f7e59]: Natural renewable golden fiber
+      - generic [ref=f7e60]:
+        - paragraph [ref=f7e61]: AQL 2.5
+        - paragraph [ref=f7e62]: Quality Inspection Level
+        - paragraph [ref=f7e63]: Strict international trade standard
+    - generic [ref=f7e64]:
+      - generic [ref=f7e65]:
+        - generic [ref=f7e66]:
+          - heading "Stage-by-Stage Production Flow" [level=2] [ref=f7e67]
+          - paragraph [ref=f7e68]: Structured step sequence from raw materials to export-ready packaging.
+        - generic [ref=f7e69]: ISO & Sedex Audited Process
+      - generic [ref=f7e71]:
+        - article [ref=f7e72]:
+          - generic [ref=f7e73]:
+            - generic [ref=f7e74]:
+              - img "Raw Jute Sourcing & Retting" [ref=f7e75]
+              - generic [ref=f7e76]: "1"
+              - generic [ref=f7e77]: 🌾 Stage 1
+            - paragraph [ref=f7e78]: 100% Biodegradable Plant Fibers
+            - heading "Raw Jute Sourcing & Retting" [level=3] [ref=f7e79]
+            - paragraph [ref=f7e80]: We source premium golden jute fibers directly from certified sustainable farming cooperatives in the Ganges Delta. The raw stalks undergo natural microbiological retting in slow-moving fresh water, separating pliable, high-tensile bast fibers without harsh synthetic chemicals.
+          - generic [ref=f7e81]:
+            - paragraph [ref=f7e82]: "Quality Benchmarks:"
+            - list [ref=f7e83]:
+              - listitem [ref=f7e84]:
+                - generic [ref=f7e85]: ✓
+                - generic [ref=f7e86]: "Grade: TD-4 / W-4 Export Standard"
+              - listitem [ref=f7e87]:
+                - generic [ref=f7e88]: ✓
+                - generic [ref=f7e89]: Naturally water-retted for 14–21 days
+              - listitem [ref=f7e90]:
+                - generic [ref=f7e91]: ✓
+                - generic [ref=f7e92]: Zero chlorine bleaching agents
+        - article [ref=f7e93]:
+          - generic [ref=f7e94]:
+            - generic [ref=f7e95]:
+              - img "Carding & Spinning into Yarn" [ref=f7e96]
+              - generic [ref=f7e97]: "2"
+              - generic [ref=f7e98]: 🧵 Stage 2
+            - paragraph [ref=f7e99]: High-Tensile Strength Spinning
+            - heading "Carding & Spinning into Yarn" [level=3] [ref=f7e100]
+            - paragraph [ref=f7e101]: Harvested fibers are conditioned with vegetable-based batching oil emulsion, combed through multiple carding passes to align filaments, and drawn into sliver. Precision ring spinning produces strong, uniform jute yarn tailored to specific ply and count requirements.
+          - generic [ref=f7e102]:
+            - paragraph [ref=f7e103]: "Quality Benchmarks:"
+            - list [ref=f7e104]:
+              - listitem [ref=f7e105]:
+                - generic [ref=f7e106]: ✓
+                - generic [ref=f7e107]: "Yarn count: 6 lbs to 28 lbs"
+              - listitem [ref=f7e108]:
+                - generic [ref=f7e109]: ✓
+                - generic [ref=f7e110]: Twist per inch (TPI) optimized for heavy loads
+              - listitem [ref=f7e111]:
+                - generic [ref=f7e112]: ✓
+                - generic [ref=f7e113]: Food-grade batching oil compliance
+        - article [ref=f7e114]:
+          - generic [ref=f7e115]:
+            - generic [ref=f7e116]:
+              - img "Weaving into Fabric (Hessian & Burlap)" [ref=f7e117]
+              - generic [ref=f7e118]: "3"
+              - generic [ref=f7e119]: 🧶 Stage 3
+            - paragraph [ref=f7e120]: High-Density Loom Weaving
+            - heading "Weaving into Fabric (Hessian & Burlap)" [level=3] [ref=f7e121]
+            - paragraph [ref=f7e122]: Modern automated shuttleless looms weave yarn into durable canvas, dense hessian, and laminated jute fabrics. We tightly monitor fabric density (picks and ends per inch) to ensure uniform surface texture, opacity, and extreme tear resistance.
+          - generic [ref=f7e123]:
+            - paragraph [ref=f7e124]: "Quality Benchmarks:"
+            - list [ref=f7e125]:
+              - listitem [ref=f7e126]:
+                - generic [ref=f7e127]: ✓
+                - generic [ref=f7e128]: "Fabric weight: 240 GSM to 450 GSM"
+              - listitem [ref=f7e129]:
+                - generic [ref=f7e130]: ✓
+                - generic [ref=f7e131]: Plain & twill weave configurations
+              - listitem [ref=f7e132]:
+                - generic [ref=f7e133]: ✓
+                - generic [ref=f7e134]: Optional biodegradable plant-laminate backing
+        - article [ref=f7e135]:
+          - generic [ref=f7e136]:
+            - generic [ref=f7e137]:
+              - img "Pattern Cutting & Heavy-Duty Stitching" [ref=f7e138]
+              - generic [ref=f7e139]: "4"
+              - generic [ref=f7e140]: ✂️ Stage 4
+            - paragraph [ref=f7e141]: Reinforced Load-Bearing Seams
+            - heading "Pattern Cutting & Heavy-Duty Stitching" [level=3] [ref=f7e142]
+            - paragraph [ref=f7e143]: Precision laser and die cutting machines cut fabric panels to exacting millimeter tolerances. Industrial lockstitch and overlock sewing lines construct bag bodies with double-folded top hems and reinforced "X-box" cross-stitching on all handle anchor points.
+          - generic [ref=f7e144]:
+            - paragraph [ref=f7e145]: "Quality Benchmarks:"
+            - list [ref=f7e146]:
+              - listitem [ref=f7e147]:
+                - generic [ref=f7e148]: ✓
+                - generic [ref=f7e149]: Industrial nylon/poly-blend bonded thread
+              - listitem [ref=f7e150]:
+                - generic [ref=f7e151]: ✓
+                - generic [ref=f7e152]: Box-X stitch reinforcement on handles
+              - listitem [ref=f7e153]:
+                - generic [ref=f7e154]: ✓
+                - generic [ref=f7e155]: "Handle options: Cotton rope, woven webbing, self-jute"
+        - article [ref=f7e156]:
+          - generic [ref=f7e157]:
+            - generic [ref=f7e158]:
+              - img "Eco-Friendly Custom Printing" [ref=f7e159]
+              - generic [ref=f7e160]: "5"
+              - generic [ref=f7e161]: 🎨 Stage 5
+            - paragraph [ref=f7e162]: Azo-Free Pigments & Sharp Branding
+            - heading "Eco-Friendly Custom Printing" [level=3] [ref=f7e163]
+            - paragraph [ref=f7e164]: Custom buyer branding, promotional graphics, and barcodes are applied using water-based, non-toxic pigment inks. We offer multi-color automatic carousel screen printing, sharp heat transfers, and fine embroidery that withstands repeated laundering and sun exposure.
+          - generic [ref=f7e165]:
+            - paragraph [ref=f7e166]: "Quality Benchmarks:"
+            - list [ref=f7e167]:
+              - listitem [ref=f7e168]:
+                - generic [ref=f7e169]: ✓
+                - generic [ref=f7e170]: OEKO-TEX compliant azo-free inks
+              - listitem [ref=f7e171]:
+                - generic [ref=f7e172]: ✓
+                - generic [ref=f7e173]: Up to 8-color screen printing capabilities
+              - listitem [ref=f7e174]:
+                - generic [ref=f7e175]: ✓
+                - generic [ref=f7e176]: Pantone PMS accurate color matching
+        - article [ref=f7e177]:
+          - generic [ref=f7e178]:
+            - generic [ref=f7e179]:
+              - img "Quality Inspection & Export Packing" [ref=f7e180]
+              - generic [ref=f7e181]: "6"
+              - generic [ref=f7e182]: 📦 Stage 6
+            - paragraph [ref=f7e183]: Rigorous 100% Pre-Shipment Audit
+            - heading "Quality Inspection & Export Packing" [level=3] [ref=f7e184]
+            - paragraph [ref=f7e185]: "Every finished unit passes our 4-tier inspection: dimension gauge verification, seam tensile pull-testing (up to 25 kg load capacity), visual defect audit, and needle detector screening. Approved bags are compressed into moisture-sealed export cartons or fumigated wooden pallets."
+          - generic [ref=f7e186]:
+            - paragraph [ref=f7e187]: "Quality Benchmarks:"
+            - list [ref=f7e188]:
+              - listitem [ref=f7e189]:
+                - generic [ref=f7e190]: ✓
+                - generic [ref=f7e191]: AQL 2.5 international inspection standard
+              - listitem [ref=f7e192]:
+                - generic [ref=f7e193]: ✓
+                - generic [ref=f7e194]: Tensile handle pull tests up to 25 kg
+              - listitem [ref=f7e195]:
+                - generic [ref=f7e196]: ✓
+                - generic [ref=f7e197]: Moisture barrier desiccant sealed cartons
+    - generic [ref=f7e199]:
+      - generic [ref=f7e200]:
+        - text: Quality Assurance Policy
+        - heading "Zero-Defect Commitment for Global Importers" [level=2] [ref=f7e201]
+        - paragraph [ref=f7e202]: "Export shipments must withstand transoceanic shipping, fluctuating humidity, and repeated retail handling. We apply standardized stress tests to every production run prior to bill of lading generation:"
+        - generic [ref=f7e203]:
+          - generic [ref=f7e204]:
+            - paragraph [ref=f7e205]: Handle Pull Test
+            - paragraph [ref=f7e206]: Deadweight load sustained up to 25 kg with zero seam tearing.
+          - generic [ref=f7e207]:
+            - paragraph [ref=f7e208]: Moisture Check
+            - paragraph [ref=f7e209]: Electronic hygrometer checks ensure fiber moisture stays below 14%.
+          - generic [ref=f7e210]:
+            - paragraph [ref=f7e211]: Needle Detection
+            - paragraph [ref=f7e212]: Full conveyer metal detection to safeguard retail consumers.
+          - generic [ref=f7e213]:
+            - paragraph [ref=f7e214]: Colorfastness Audit
+            - paragraph [ref=f7e215]: Rub-fastness and light-fastness verified for print longevity.
+      - generic [ref=f7e216]:
+        - text: 🏭
+        - heading "Visit or Audit Our Facility" [level=3] [ref=f7e217]
+        - paragraph [ref=f7e218]: We welcome buyer visits and third-party inspection agencies (SGS, Intertek, Bureau Veritas) for in-line and final random pre-shipment inspections.
+        - generic [ref=f7e219]:
+          - link "Schedule Facility Audit" [ref=f7e220] [cursor=pointer]:
+            - /url: /contact
+          - link "Request Custom Sample Run" [ref=f7e221] [cursor=pointer]:
+            - /url: /quote-request
+    - generic [ref=f7e222]:
+      - heading "Ready to Launch Your Custom Jute Bag Production?" [level=2] [ref=f7e223]
+      - paragraph [ref=f7e224]: Submit your design specifications, dimensions, and estimated quantities. Our technical production team will provide a comprehensive manufacturing quote within 24 hours.
+      - generic [ref=f7e225]:
+        - link "Request Manufacturing Quote" [ref=f7e226] [cursor=pointer]:
+          - /url: /quote-request
+        - link "Browse Production Styles" [ref=f7e227] [cursor=pointer]:
+          - /url: /catalog
+  - contentinfo [ref=f7e228]:
+    - generic [ref=f7e230]:
+      - generic [ref=f7e231]:
+        - text: Global Procurement Hotline
+        - heading "Need custom branded samples or container volume pricing?" [level=3] [ref=f7e232]
+        - paragraph [ref=f7e233]: Our export engineering team delivers itemized FOB/CIF estimates within 24 hours. Custom CAD drawings and fabric swatches available upon request.
+      - generic [ref=f7e234]:
+        - link "Request Fast Quote →" [ref=f7e235] [cursor=pointer]:
+          - /url: /quote-request
+        - link "WhatsApp Trade Desk" [ref=f7e236] [cursor=pointer]:
+          - /url: https://wa.me/919830000000?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20b2b%20jute%20bags%20export
+    - generic [ref=f7e237]:
+      - generic [ref=f7e238]:
+        - generic [ref=f7e239]:
+          - generic [ref=f7e240]:
+            - generic [ref=f7e241]: eS
+            - generic [ref=f7e242]: eSailor.in
+          - paragraph [ref=f7e243]: Direct manufacturer & government-recognized star export house specializing in certified organic jute packaging, retail shoppers, and hydrocarbon-free commodity burlap.
+          - generic [ref=f7e244]:
+            - paragraph [ref=f7e245]:
+              - generic [ref=f7e246]: 🏭
+              - text: "Bengal Delta Manufacturing Facility:"
+            - paragraph [ref=f7e247]: NH-12 Industrial Manufacturing Corridor, Barasat, North 24 Parganas, West Bengal 700124, India
+            - generic [ref=f7e248]:
+              - generic [ref=f7e249]: "IEC: 0219481900"
+              - generic [ref=f7e250]: "Port: CCU / NSA Direct"
+        - generic [ref=f7e251]:
+          - heading "B2B Collections" [level=4] [ref=f7e252]
+          - navigation [ref=f7e253]:
+            - link "Retail Shopping Totes" [ref=f7e254] [cursor=pointer]:
+              - /url: /catalog?category=jute-shopping-bags
+            - link "Juco Fashion & Promo Bags" [ref=f7e255] [cursor=pointer]:
+              - /url: /catalog?category=canvas-jute-totes
+            - link "Wine & Gourmet Bottle Carriers" [ref=f7e256] [cursor=pointer]:
+              - /url: /catalog?category=gift-bottle-bags
+            - link "Agro Commodity Burlap Sacks" [ref=f7e257] [cursor=pointer]:
+              - /url: /catalog?category=industrial-burlap-sacks
+            - link "Cosmetic & Jewelry Pouches" [ref=f7e258] [cursor=pointer]:
+              - /url: /catalog?category=drawstring-pouches
+            - link "View All Models (40+) →" [ref=f7e259] [cursor=pointer]:
+              - /url: /catalog
+        - generic [ref=f7e260]:
+          - heading "Compliance & Supply" [level=4] [ref=f7e261]
+          - navigation [ref=f7e262]:
+            - link "GOTS & OEKO-TEX Standard" [ref=f7e263] [cursor=pointer]:
+              - /url: /certifications
+            - link "Sedex SMETA 4-Pillar Audit" [ref=f7e264] [cursor=pointer]:
+              - /url: /certifications
+            - link "12-Step Manufacturing Journey" [ref=f7e265] [cursor=pointer]:
+              - /url: /process
+            - link "Box-X Handle Load Testing" [ref=f7e266] [cursor=pointer]:
+              - /url: /process
+            - link "Delta Cooperative Sourcing" [ref=f7e267] [cursor=pointer]:
+              - /url: /about
+            - link "📑 Audit Dossier (PDF)" [ref=f7e268] [cursor=pointer]:
+              - /url: /certificates/compliance-dossier.pdf
+              - generic [ref=f7e269]: 📑
+              - text: Audit Dossier (PDF)
+        - generic [ref=f7e270]:
+          - heading "Accredited Quality" [level=4] [ref=f7e271]
+          - generic [ref=f7e272]:
+            - generic [ref=f7e275]:
+              - paragraph [ref=f7e276]: GOTS
+              - paragraph [ref=f7e277]: Global Organic Standard
+            - generic [ref=f7e280]:
+              - paragraph [ref=f7e281]: OEKO
+              - paragraph [ref=f7e282]: OEKO-TEX Standard 100
+            - generic [ref=f7e285]:
+              - paragraph [ref=f7e286]: SEDEX
+              - paragraph [ref=f7e287]: SMETA 4-Pillar Audited
+            - generic [ref=f7e290]:
+              - paragraph [ref=f7e291]: ISO
+              - paragraph [ref=f7e292]: ISO 9001:2015 Certified
+          - generic [ref=f7e293]:
+            - paragraph [ref=f7e294]: "Incoterms Supported:"
+            - paragraph [ref=f7e295]: FOB Kolkata, CIF Worldwide, DDP North America & EU
+      - generic [ref=f7e296]:
+        - generic [ref=f7e297]:
+          - generic [ref=f7e298]: © 2026 eSailor.in. All rights reserved.
+          - generic [ref=f7e299]: •
+          - generic [ref=f7e300]: Registered Under Directorate General of Foreign Trade (DGFT), Govt of India.
+        - generic [ref=f7e301]:
+          - link "Chain of Custody" [ref=f7e302] [cursor=pointer]:
+            - /url: /certifications
+          - link "Zero-Defect QA Policy" [ref=f7e303] [cursor=pointer]:
+            - /url: /process
+          - link "Trade Privacy" [ref=f7e304] [cursor=pointer]:
+            - /url: /contact
+  - button "Open Next.js Dev Tools" [ref=f7e310] [cursor=pointer]

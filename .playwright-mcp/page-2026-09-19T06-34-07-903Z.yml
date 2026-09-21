@@ -1,0 +1,196 @@
+- generic [active] [ref=f10e1]:
+  - banner [ref=f10e2]:
+    - generic [ref=f10e4]:
+      - generic [ref=f10e5]:
+        - generic [ref=f10e6]: Direct Factory Dispatch • West Bengal, India
+        - generic [ref=f10e8]: "|"
+        - generic [ref=f10e9]: IEC Registered Indian Star Export House
+      - generic [ref=f10e10]:
+        - generic [ref=f10e11]:
+          - generic [ref=f10e12]: "Trade Quotes:"
+          - button "USD ($)" [ref=f10e13]
+          - button "EUR (€)" [ref=f10e14]
+          - button "GBP (£)" [ref=f10e15]
+        - generic [ref=f10e16]: "|"
+        - link "📞 +91 (0) 33 2280 4400" [ref=f10e17] [cursor=pointer]:
+          - /url: tel:+919830000000
+          - generic [ref=f10e18]: 📞
+          - text: +91 (0) 33 2280 4400
+    - generic [ref=f10e20]:
+      - link "eS eSailor .in Certified Jute Exporters" [ref=f10e22] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f10e23]: eS
+        - generic [ref=f10e24]:
+          - generic [ref=f10e25]:
+            - text: eSailor
+            - generic [ref=f10e26]: .in
+          - generic [ref=f10e27]: Certified Jute Exporters
+      - navigation [ref=f10e28]:
+        - link "B2B Catalog" [ref=f10e29] [cursor=pointer]:
+          - /url: /catalog
+        - link "Certifications Verified active audits" [ref=f10e30] [cursor=pointer]:
+          - /url: /certifications
+          - generic [ref=f10e31]: Certifications
+          - generic "Verified active audits" [ref=f10e32]
+        - link "Manufacturing & QC" [ref=f10e33] [cursor=pointer]:
+          - /url: /process
+        - link "About Factory" [ref=f10e34] [cursor=pointer]:
+          - /url: /about
+        - link "Global Desk" [ref=f10e35] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f10e36]:
+        - link "📄 Download Catalogue" [ref=f10e37] [cursor=pointer]:
+          - /url: /catalog.pdf
+          - generic [ref=f10e38]: 📄
+          - generic [ref=f10e39]: Download Catalogue
+        - link "Request Quote" [ref=f10e40] [cursor=pointer]:
+          - /url: /quote-request
+  - main [ref=f10e42]:
+    - generic [ref=f10e43]:
+      - paragraph [ref=f10e44]: Our Heritage & Story
+      - heading "Crafting the Future of Sustainable Packaging" [level=1] [ref=f10e45]
+      - paragraph [ref=f10e46]: eSailor is an export-focused manufacturer of eco-friendly jute bags and customized textile packaging, bridging sustainable farming with global commercial retail.
+    - generic [ref=f10e47]:
+      - generic [ref=f10e48]:
+        - heading "Roots in the Golden Fiber Belt" [level=2] [ref=f10e49]
+        - paragraph [ref=f10e50]: "Founded in West Bengal, India — the epicenter of the world's finest jute cultivation — eSailor began with a simple yet ambitious vision: to replace single-use plastic packaging with 100% natural, biodegradable, and durable jute products that withstand international commercial demands."
+        - paragraph [ref=f10e51]: Over the years, we have grown from a localized weaving unit into a comprehensive export facility equipped with modern semi-automated looms, precision laser cutting tables, non-toxic water-based screen printing setups, and rigorous multi-stage quality control laboratories.
+      - generic [ref=f10e52]:
+        - heading "Global Export Experience" [level=2] [ref=f10e53]
+        - paragraph [ref=f10e54]: With over 15 years of dedicated foreign trade experience, eSailor has delivered over 12 million custom bags to commercial importers, major supermarket chains, promotional marketing agencies, and luxury fashion brands across 25+ countries, including Germany, the United Kingdom, the United States, Japan, the UAE, and Australia.
+        - paragraph [ref=f10e55]: Our export desk possesses deep institutional knowledge of international trade documentation, Incoterms (FOB, CIF, CFR, DDP), Certificate of Origin procedures, and strict chemical compliance standards (REACH, GOTS, OEKO-TEX).
+      - generic [ref=f10e56]:
+        - heading "Strategic Location & Port Proximity" [level=2] [ref=f10e57]
+        - paragraph [ref=f10e58]: Our primary manufacturing operations and warehousing centers are located in the industrial corridor of Greater Kolkata, West Bengal, India.
+        - generic [ref=f10e59]:
+          - heading "Logistics Advantage" [level=3] [ref=f10e60]
+          - paragraph [ref=f10e61]: Situated within 45 kilometers of Kolkata's Syama Prasad Mookerjee Sea Port and Netaji Subhash Chandra Bose International Airport, our facility ensures rapid container loading, reduced inland haulage time, and dependable sailing schedules for 20ft and 40ft High Cube containers.
+      - generic [ref=f10e62]:
+        - heading "Commitment to People & Planet" [level=2] [ref=f10e63]
+        - generic [ref=f10e64]:
+          - generic [ref=f10e65]:
+            - text: 🌿
+            - heading "100% Biodegradable" [level=3] [ref=f10e66]
+            - paragraph [ref=f10e67]: Jute fibers naturally decompose within months without leaving toxic microplastics or chemical residue in soil or oceans.
+          - generic [ref=f10e68]:
+            - text: 🤝
+            - heading "Fair Ethical Labor" [level=3] [ref=f10e69]
+            - paragraph [ref=f10e70]: We operate under audited ethical trade frameworks (SMETA/Sedex), ensuring safe working environments, living wages, and fair opportunity.
+          - generic [ref=f10e71]:
+            - text: 💧
+            - heading "Zero Chemical Effluent" [level=3] [ref=f10e72]
+            - paragraph [ref=f10e73]: Our printing processes exclusively utilize water-based, azo-free pigments certified free from restricted heavy metals and carcinogenic amines.
+          - generic [ref=f10e74]:
+            - text: 🔍
+            - heading "Rigorous Quality Checks" [level=3] [ref=f10e75]
+            - paragraph [ref=f10e76]: Every batch undergoes tensile handle tests, fabric GSM verification, and metal detection prior to carton sealing.
+    - generic [ref=f10e78]:
+      - generic [ref=f10e79]:
+        - paragraph [ref=f10e80]: 15+
+        - paragraph [ref=f10e81]: Years of Export
+      - generic [ref=f10e82]:
+        - paragraph [ref=f10e83]: 25+
+        - paragraph [ref=f10e84]: Countries Served
+      - generic [ref=f10e85]:
+        - paragraph [ref=f10e86]: 12M+
+        - paragraph [ref=f10e87]: Bags Delivered
+      - generic [ref=f10e88]:
+        - paragraph [ref=f10e89]: 500k
+        - paragraph [ref=f10e90]: Monthly Capacity
+    - generic [ref=f10e91]:
+      - heading "Partner with an Experienced Jute Manufacturer" [level=2] [ref=f10e92]
+      - paragraph [ref=f10e93]: Whether you need a custom shopping tote program for national retail or customized burlap sacks for agricultural trade, our export team is ready to serve you.
+      - generic [ref=f10e94]:
+        - link "Explore Product Catalog" [ref=f10e95] [cursor=pointer]:
+          - /url: /catalog
+        - link "Get in Touch" [ref=f10e96] [cursor=pointer]:
+          - /url: /contact
+  - contentinfo [ref=f10e97]:
+    - generic [ref=f10e99]:
+      - generic [ref=f10e100]:
+        - text: Global Procurement Hotline
+        - heading "Need custom branded samples or container volume pricing?" [level=3] [ref=f10e101]
+        - paragraph [ref=f10e102]: Our export engineering team delivers itemized FOB/CIF estimates within 24 hours. Custom CAD drawings and fabric swatches available upon request.
+      - generic [ref=f10e103]:
+        - link "Request Fast Quote →" [ref=f10e104] [cursor=pointer]:
+          - /url: /quote-request
+        - link "WhatsApp Trade Desk" [ref=f10e105] [cursor=pointer]:
+          - /url: https://wa.me/919830000000?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20b2b%20jute%20bags%20export
+    - generic [ref=f10e106]:
+      - generic [ref=f10e107]:
+        - generic [ref=f10e108]:
+          - generic [ref=f10e109]:
+            - generic [ref=f10e110]: eS
+            - generic [ref=f10e111]: eSailor.in
+          - paragraph [ref=f10e112]: Direct manufacturer & government-recognized star export house specializing in certified organic jute packaging, retail shoppers, and hydrocarbon-free commodity burlap.
+          - generic [ref=f10e113]:
+            - paragraph [ref=f10e114]:
+              - generic [ref=f10e115]: 🏭
+              - text: "Bengal Delta Manufacturing Facility:"
+            - paragraph [ref=f10e116]: NH-12 Industrial Manufacturing Corridor, Barasat, North 24 Parganas, West Bengal 700124, India
+            - generic [ref=f10e117]:
+              - generic [ref=f10e118]: "IEC: 0219481900"
+              - generic [ref=f10e119]: "Port: CCU / NSA Direct"
+        - generic [ref=f10e120]:
+          - heading "B2B Collections" [level=4] [ref=f10e121]
+          - navigation [ref=f10e122]:
+            - link "Retail Shopping Totes" [ref=f10e123] [cursor=pointer]:
+              - /url: /catalog?category=jute-shopping-bags
+            - link "Juco Fashion & Promo Bags" [ref=f10e124] [cursor=pointer]:
+              - /url: /catalog?category=canvas-jute-totes
+            - link "Wine & Gourmet Bottle Carriers" [ref=f10e125] [cursor=pointer]:
+              - /url: /catalog?category=gift-bottle-bags
+            - link "Agro Commodity Burlap Sacks" [ref=f10e126] [cursor=pointer]:
+              - /url: /catalog?category=industrial-burlap-sacks
+            - link "Cosmetic & Jewelry Pouches" [ref=f10e127] [cursor=pointer]:
+              - /url: /catalog?category=drawstring-pouches
+            - link "View All Models (40+) →" [ref=f10e128] [cursor=pointer]:
+              - /url: /catalog
+        - generic [ref=f10e129]:
+          - heading "Compliance & Supply" [level=4] [ref=f10e130]
+          - navigation [ref=f10e131]:
+            - link "GOTS & OEKO-TEX Standard" [ref=f10e132] [cursor=pointer]:
+              - /url: /certifications
+            - link "Sedex SMETA 4-Pillar Audit" [ref=f10e133] [cursor=pointer]:
+              - /url: /certifications
+            - link "12-Step Manufacturing Journey" [ref=f10e134] [cursor=pointer]:
+              - /url: /process
+            - link "Box-X Handle Load Testing" [ref=f10e135] [cursor=pointer]:
+              - /url: /process
+            - link "Delta Cooperative Sourcing" [ref=f10e136] [cursor=pointer]:
+              - /url: /about
+            - link "📑 Audit Dossier (PDF)" [ref=f10e137] [cursor=pointer]:
+              - /url: /certificates/compliance-dossier.pdf
+              - generic [ref=f10e138]: 📑
+              - text: Audit Dossier (PDF)
+        - generic [ref=f10e139]:
+          - heading "Accredited Quality" [level=4] [ref=f10e140]
+          - generic [ref=f10e141]:
+            - generic [ref=f10e144]:
+              - paragraph [ref=f10e145]: GOTS
+              - paragraph [ref=f10e146]: Global Organic Standard
+            - generic [ref=f10e149]:
+              - paragraph [ref=f10e150]: OEKO
+              - paragraph [ref=f10e151]: OEKO-TEX Standard 100
+            - generic [ref=f10e154]:
+              - paragraph [ref=f10e155]: SEDEX
+              - paragraph [ref=f10e156]: SMETA 4-Pillar Audited
+            - generic [ref=f10e159]:
+              - paragraph [ref=f10e160]: ISO
+              - paragraph [ref=f10e161]: ISO 9001:2015 Certified
+          - generic [ref=f10e162]:
+            - paragraph [ref=f10e163]: "Incoterms Supported:"
+            - paragraph [ref=f10e164]: FOB Kolkata, CIF Worldwide, DDP North America & EU
+      - generic [ref=f10e165]:
+        - generic [ref=f10e166]:
+          - generic [ref=f10e167]: © 2026 eSailor.in. All rights reserved.
+          - generic [ref=f10e168]: •
+          - generic [ref=f10e169]: Registered Under Directorate General of Foreign Trade (DGFT), Govt of India.
+        - generic [ref=f10e170]:
+          - link "Chain of Custody" [ref=f10e171] [cursor=pointer]:
+            - /url: /certifications
+          - link "Zero-Defect QA Policy" [ref=f10e172] [cursor=pointer]:
+            - /url: /process
+          - link "Trade Privacy" [ref=f10e173] [cursor=pointer]:
+            - /url: /contact
+  - button "Open Next.js Dev Tools" [ref=f10e179] [cursor=pointer]

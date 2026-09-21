@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E8E2D2"/>
+      <stop offset="60%" stop-color="#FAF7F0"/>
+      <stop offset="100%" stop-color="#E0D7C2"/>
+    </linearGradient>
+    <linearGradient id="riverGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C5D1C3"/>
+      <stop offset="100%" stop-color="#A5B8A2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky & River Landscape -->
+  <rect width="800" height="400" fill="url(#skyGrad)"/>
+  <path d="M0,380 C200,360 400,410 800,370 L800,600 L0,600 Z" fill="url(#riverGrad)"/>
+
+  <!-- River bank silts -->
+  <path d="M0,450 C300,430 500,490 800,460 L800,600 L0,600 Z" fill="#8F7855" opacity="0.6"/>
+
+  <!-- Golden Jute Stalk Bundles Standing in River for Retting -->
+  <g transform="translate(140, 200)">
+    <!-- Jute Stalks Bundle 1 -->
+    <path d="M100,240 C95,120 110,40 100,0 C115,40 130,120 125,240 Z" fill="#C99846"/>
+    <path d="M120,240 C115,120 130,40 120,0 C135,40 150,120 145,240 Z" fill="#B58334"/>
+    <path d="M80,240 C85,120 90,40 85,0 C100,40 110,120 105,240 Z" fill="#D9A855"/>
+    <!-- Twine tie -->
+    <rect x="75" y="80" width="75" height="12" rx="3" fill="#6E4D1D"/>
+    <rect x="80" y="160" width="65" height="12" rx="3" fill="#6E4D1D"/>
+  </g>
+
+  <g transform="translate(340, 180)">
+    <!-- Jute Stalks Bundle 2 -->
+    <path d="M100,260 C95,130 110,40 100,0 C115,40 130,130 125,260 Z" fill="#D9A855"/>
+    <path d="M120,260 C115,130 130,40 120,0 C135,40 150,130 145,260 Z" fill="#C99846"/>
+    <path d="M80,260 C85,130 90,40 85,0 C100,40 110,130 105,260 Z" fill="#A8772D"/>
+    <!-- Twine tie -->
+    <rect x="75" y="90" width="75" height="12" rx="3" fill="#6E4D1D"/>
+    <rect x="80" y="170" width="65" height="12" rx="3" fill="#6E4D1D"/>
+  </g>
+
+  <g transform="translate(520, 220)">
+    <!-- Jute Stalks Bundle 3 -->
+    <path d="M100,220 C95,110 110,30 100,0 C115,30 130,110 125,220 Z" fill="#C99846"/>
+    <path d="M120,220 C115,110 130,30 120,0 C135,30 150,110 145,220 Z" fill="#E0B25E"/>
+    <!-- Twine tie -->
+    <rect x="85" y="70" width="55" height="10" rx="2" fill="#6E4D1D"/>
+    <rect x="88" y="140" width="50" height="10" rx="2" fill="#6E4D1D"/>
+  </g>
+
+  <!-- Water ripples -->
+  <ellipse cx="240" cy="460" rx="60" ry="6" fill="#FFFFFF" opacity="0.3"/>
+  <ellipse cx="440" cy="460" rx="80" ry="7" fill="#FFFFFF" opacity="0.3"/>
+
+  <!-- Info Overlay Badge -->
+  <g transform="translate(40, 40)">
+    <rect width="220" height="50" rx="6" fill="#FFFFFF" fill-opacity="0.9" stroke="#DDD4C4"/>
+    <text x="16" y="22" font-family="sans-serif" font-size="10" font-weight="bold" fill="#C17F42">BENGAL DELTA RETTING</text>
+    <text x="16" y="38" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2A241C">Natural Microbial Water Bath</text>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#202A24"/>
+  <rect x="120" y="70" width="360" height="260" rx="10" fill="#2D3B33" stroke="#52796F" stroke-width="2"/>
+  <!-- Silkscreen Mesh -->
+  <path d="M140 90 H460 V310 H140 Z" fill="#24332B" stroke="#3E5446" stroke-width="1.5"/>
+  <!-- Fabric Base beneath mesh -->
+  <rect x="160" y="110" width="280" height="200" rx="4" fill="#D49A5B" opacity="0.8"/>
+  <!-- Squeegee bar -->
+  <rect x="180" y="160" width="240" height="28" rx="4" fill="#C37D3E"/>
+  <rect x="175" y="185" width="250" height="8" rx="2" fill="#E08F47"/>
+  <!-- Brand logo printed in crisp water-based pigment -->
+  <rect x="230" y="220" width="140" height="60" rx="6" fill="#1C150E" opacity="0.9"/>
+  <text x="245" y="255" fill="#FAF7F2" font-family="serif" font-size="18" font-weight="bold" letter-spacing="2">SUSTAIN</text>
+  <!-- Non-toxic badge -->
+  <rect x="40" y="340" width="200" height="32" rx="6" fill="#FAF7F2" opacity="0.1"/>
+  <text x="50" y="361" fill="#74A892" font-family="sans-serif" font-size="12" font-weight="bold" letter-spacing="1">OEKO-TEX AZO-FREE INK</text>
+  <rect x="390" y="340" width="170" height="32" rx="6" fill="#FAF7F2" opacity="0.1"/>
+  <text x="400" y="361" fill="#E08F47" font-family="sans-serif" font-size="12" font-weight="bold" letter-spacing="1">PANTONE PMS MATCH</text>
+</svg>

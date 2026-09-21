@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDFBF7"/>
+      <stop offset="100%" stop-color="#ECE5D8"/>
+    </linearGradient>
+    <linearGradient id="cottonFace" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F2EFE9"/>
+      <stop offset="100%" stop-color="#E5DFD3"/>
+    </linearGradient>
+    <linearGradient id="juteGusset" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#AF7E42"/>
+      <stop offset="100%" stop-color="#C79354"/>
+    </linearGradient>
+    <pattern id="fineJuco" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0,4 L8,4 M4,0 L4,8" stroke="#D1C7B7" stroke-width="1"/>
+    </pattern>
+    <filter id="dropShadow3" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#2A241C" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad3)"/>
+  <ellipse cx="400" cy="510" rx="220" ry="20" fill="#2A241C" opacity="0.12"/>
+
+  <!-- Back Ribbon Handle -->
+  <path d="M330,230 C330,90 470,90 470,230" fill="none" stroke="#2B3D2F" stroke-width="20" stroke-linecap="round"/>
+
+  <!-- Bag Group -->
+  <g filter="url(#dropShadow3)">
+    <!-- Natural Jute Side Gusset -->
+    <polygon points="240,230 290,220 290,470 240,460" fill="url(#juteGusset)"/>
+
+    <!-- Organic Cotton Canvas Front Body -->
+    <polygon points="290,220 560,220 540,470 290,470" fill="url(#cottonFace)"/>
+    <polygon points="290,220 560,220 540,470 290,470" fill="url(#fineJuco)"/>
+
+    <!-- Front Ribbon Handle with Olive Green Color -->
+    <path d="M350,230 C350,110 450,110 450,230" fill="none" stroke="#2B3D2F" stroke-width="20" stroke-linecap="round"/>
+    <path d="M350,230 C350,110 450,110 450,230" fill="none" stroke="#FAF7F2" stroke-width="2" stroke-dasharray="4,4"/>
+
+    <!-- Handle Fasteners -->
+    <rect x="340" y="220" width="20" height="28" rx="2" fill="#202D23"/>
+    <rect x="440" y="220" width="20" height="28" rx="2" fill="#202D23"/>
+
+    <!-- Elegant Minimal Graphic / Botanical Branch Print -->
+    <g transform="translate(370, 290)" stroke="#2B3D2F" stroke-width="2.5" fill="none" stroke-linecap="round">
+      <path d="M50,120 C45,70 55,30 50,0"/>
+      <!-- Leaves -->
+      <path d="M50,20 C35,10 30,30 50,35" fill="#2B3D2F" fill-opacity="0.3"/>
+      <path d="M50,45 C65,35 70,55 50,60" fill="#2B3D2F" fill-opacity="0.3"/>
+      <path d="M50,75 C35,65 30,85 50,90" fill="#2B3D2F" fill-opacity="0.3"/>
+    </g>
+    <text x="420" y="445" font-family="'DM Serif Display', Georgia, serif" font-size="14" fill="#2B3D2F" font-weight="bold" text-anchor="middle" letter-spacing="2">BOTANICAL ATELIER</text>
+  </g>
+
+  <!-- Export Spec Badge -->
+  <g transform="translate(620, 40)">
+    <rect width="140" height="60" rx="8" fill="#FFFFFF" fill-opacity="0.9" stroke="#DDD4C4" stroke-width="1"/>
+    <text x="14" y="24" font-family="sans-serif" font-size="10" font-weight="bold" fill="#C17F42" letter-spacing="1">HYBRID SPEC</text>
+    <text x="14" y="44" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2A241C">290 GSM JUCO</text>
+  </g>
+</svg>

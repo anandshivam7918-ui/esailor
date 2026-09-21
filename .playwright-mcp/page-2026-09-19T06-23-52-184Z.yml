@@ -1,0 +1,381 @@
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e2]:
+    - generic [ref=f3e4]:
+      - generic [ref=f3e5]:
+        - generic [ref=f3e6]: Direct Factory Dispatch • West Bengal, India
+        - generic [ref=f3e8]: "|"
+        - generic [ref=f3e9]: IEC Registered Indian Star Export House
+      - generic [ref=f3e10]:
+        - generic [ref=f3e11]:
+          - generic [ref=f3e12]: "Trade Quotes:"
+          - button "USD ($)" [ref=f3e13]
+          - button "EUR (€)" [ref=f3e14]
+          - button "GBP (£)" [ref=f3e15]
+        - generic [ref=f3e16]: "|"
+        - link "📞 +91 (0) 33 2280 4400" [ref=f3e17] [cursor=pointer]:
+          - /url: tel:+919830000000
+          - generic [ref=f3e18]: 📞
+          - text: +91 (0) 33 2280 4400
+    - generic [ref=f3e20]:
+      - link "eS eSailor .in Certified Jute Exporters" [ref=f3e22] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f3e23]: eS
+        - generic [ref=f3e24]:
+          - generic [ref=f3e25]:
+            - text: eSailor
+            - generic [ref=f3e26]: .in
+          - generic [ref=f3e27]: Certified Jute Exporters
+      - navigation [ref=f3e28]:
+        - link "B2B Catalog" [ref=f3e29] [cursor=pointer]:
+          - /url: /catalog
+        - link "Certifications Verified active audits" [ref=f3e30] [cursor=pointer]:
+          - /url: /certifications
+          - generic [ref=f3e31]: Certifications
+          - generic "Verified active audits" [ref=f3e32]
+        - link "Manufacturing & QC" [ref=f3e33] [cursor=pointer]:
+          - /url: /process
+        - link "About Factory" [ref=f3e34] [cursor=pointer]:
+          - /url: /about
+        - link "Global Desk" [ref=f3e35] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f3e36]:
+        - link "📄 Download Catalogue" [ref=f3e37] [cursor=pointer]:
+          - /url: /catalog.pdf
+          - generic [ref=f3e38]: 📄
+          - generic [ref=f3e39]: Download Catalogue
+        - link "Request Quote" [ref=f3e40] [cursor=pointer]:
+          - /url: /quote-request
+  - generic [ref=f3e42]:
+    - generic [ref=f3e43]:
+      - generic [ref=f3e44]:
+        - paragraph [ref=f3e45]: Wholesale Catalog
+        - heading "Export Jute Bag Collection" [level=1] [ref=f3e46]
+        - paragraph [ref=f3e47]: Custom sizing, OEM branding, and international trade compliance available across all models.
+      - generic [ref=f3e50]:
+        - generic [ref=f3e51]: Search bags, materials...
+        - textbox "Search bags, materials..." [ref=f3e53]
+    - generic [ref=f3e55]:
+      - generic [ref=f3e56]:
+        - heading "Categories" [level=3] [ref=f3e58]
+        - generic [ref=f3e59]:
+          - button "All Categories" [ref=f3e60]
+          - button "Jute Bags" [ref=f3e61]
+          - button "Tote Bags" [ref=f3e62]
+          - button "Shopping Bags" [ref=f3e63]
+          - button "Promotional Bags" [ref=f3e64]
+          - button "Luxury Bags" [ref=f3e65]
+      - generic [ref=f3e66]:
+        - heading "Material Composition" [level=3] [ref=f3e68]
+        - generic [ref=f3e69]:
+          - button "All Materials" [ref=f3e70]
+          - button "100% Natural Golden Jute" [ref=f3e71]
+          - button "100% Unbleached Lightweight Jute Scrim" [ref=f3e72]
+          - button "Fine Grade Starched Jute with Satin Trim" [ref=f3e73]
+          - button "Fine Starched Jute with Cruelty-Free Vegan Leather Trim" [ref=f3e74]
+          - button "Food-Grade PP Laminated Natural Jute" [ref=f3e75]
+          - button "Heavy-Duty Laminated Jute" [ref=f3e76]
+          - button "Hydrocarbon-Free Plain Weave Hessian Jute" [ref=f3e77]
+          - button "Juco (75% Jute / 25% Organic Cotton)" [ref=f3e78]
+          - button "Organic Jute with 10 oz Cotton Front Pocket" [ref=f3e79]
+          - button "Refined Jute-Cotton Blend (Juco)" [ref=f3e80]
+    - paragraph [ref=f3e82]: Showing 10 products
+    - generic [ref=f3e83]:
+      - article [ref=f3e84]:
+        - generic [ref=f3e85]:
+          - link [ref=f3e86] [cursor=pointer]:
+            - /url: /product/natural-jute-tote-bag
+            - img "Natural Jute Tote Bag (Classic Golden Weave)" [ref=f3e88]
+          - generic [ref=f3e89]:
+            - generic [ref=f3e90]:
+              - generic [ref=f3e91]: Tote Bags
+              - generic [ref=f3e92]: 100% Natural Golden Jute
+            - heading [level=2] [ref=f3e93]:
+              - link "Natural Jute Tote Bag (Classic Golden Weave)" [ref=f3e94] [cursor=pointer]:
+                - /url: /product/natural-jute-tote-bag
+            - paragraph [ref=f3e95]: Our signature classic natural jute tote bag engineered for international eco-conscious retail brands. Crafted from 100% biodegradable, ethically farmed golden jute fibers, this bag combines rustic appeal with exceptional tensile durability.
+            - generic [ref=f3e96]:
+              - generic [ref=f3e97]: $1.5 - $2.5 / USD
+              - generic [ref=f3e98]: "MOQ: 100 units"
+          - generic [ref=f3e100]:
+            - link "View Specs" [ref=f3e101] [cursor=pointer]:
+              - /url: /product/natural-jute-tote-bag
+            - link "Enquire Quote" [ref=f3e102] [cursor=pointer]:
+              - /url: /quote-request?product=Natural%20Jute%20Tote%20Bag%20(Classic%20Golden%20Weave)
+      - article [ref=f3e103]:
+        - generic [ref=f3e104]:
+          - link [ref=f3e105] [cursor=pointer]:
+            - /url: /product/gusseted-supermarket-shopper
+            - img "Heavy-Duty Gusseted Supermarket Shopper" [ref=f3e107]
+          - generic [ref=f3e108]:
+            - generic [ref=f3e109]:
+              - generic [ref=f3e110]: Shopping Bags
+              - generic [ref=f3e111]: Heavy-Duty Laminated Jute
+            - heading [level=2] [ref=f3e112]:
+              - link "Heavy-Duty Gusseted Supermarket Shopper" [ref=f3e113] [cursor=pointer]:
+                - /url: /product/gusseted-supermarket-shopper
+            - paragraph [ref=f3e114]: Engineered specifically for international organic supermarket chains and zero-waste grocery cooperatives. Features an expansive 20 cm box bottom that stands upright at checkout counters.
+            - generic [ref=f3e115]:
+              - generic [ref=f3e116]: $1.8 - $2.8 / USD
+              - generic [ref=f3e117]: "MOQ: 250 units"
+          - generic [ref=f3e119]:
+            - link "View Specs" [ref=f3e120] [cursor=pointer]:
+              - /url: /product/gusseted-supermarket-shopper
+            - link "Enquire Quote" [ref=f3e121] [cursor=pointer]:
+              - /url: /quote-request?product=Heavy-Duty%20Gusseted%20Supermarket%20Shopper
+      - article [ref=f3e122]:
+        - generic [ref=f3e123]:
+          - link [ref=f3e124] [cursor=pointer]:
+            - /url: /product/printed-jute-promotional-bag
+            - img "Custom Printed Promotional Jute Bag" [ref=f3e126]
+          - generic [ref=f3e127]:
+            - generic [ref=f3e128]:
+              - generic [ref=f3e129]: Promotional Bags
+              - generic [ref=f3e130]: Refined Jute-Cotton Blend (Juco)
+            - heading [level=2] [ref=f3e131]:
+              - link "Custom Printed Promotional Jute Bag" [ref=f3e132] [cursor=pointer]:
+                - /url: /product/printed-jute-promotional-bag
+            - paragraph [ref=f3e133]: High-impact promotional jute bag optimized for corporate branding, trade expos, and annual symposiums. Features tight weave surface delivering crisp Pantone-matched logo reproduction.
+            - generic [ref=f3e134]:
+              - generic [ref=f3e135]: $1.75 - $2.9 / USD
+              - generic [ref=f3e136]: "MOQ: 200 units"
+          - generic [ref=f3e138]:
+            - link "View Specs" [ref=f3e139] [cursor=pointer]:
+              - /url: /product/printed-jute-promotional-bag
+            - link "Enquire Quote" [ref=f3e140] [cursor=pointer]:
+              - /url: /quote-request?product=Custom%20Printed%20Promotional%20Jute%20Bag
+      - article [ref=f3e141]:
+        - generic [ref=f3e142]:
+          - link [ref=f3e143] [cursor=pointer]:
+            - /url: /product/luxury-jute-wine-gift-bag
+            - img "Luxury Jute Wine & Gifting Bag with Satin Ribbon" [ref=f3e145]
+          - generic [ref=f3e146]:
+            - generic [ref=f3e147]:
+              - generic [ref=f3e148]: Luxury Bags
+              - generic [ref=f3e149]: Fine Grade Starched Jute with Satin Trim
+            - heading [level=2] [ref=f3e150]:
+              - link "Luxury Jute Wine & Gifting Bag with Satin Ribbon" [ref=f3e151] [cursor=pointer]:
+                - /url: /product/luxury-jute-wine-gift-bag
+            - paragraph [ref=f3e152]: Handcrafted luxury bottle and gift packaging tailored for vineyards, boutique distilleries, and luxury hospitality gifting. Includes interior velvet divider and satin ribbon closure.
+            - generic [ref=f3e153]:
+              - generic [ref=f3e154]: $2.2 - $3.8 / USD
+              - generic [ref=f3e155]: "MOQ: 100 units"
+          - generic [ref=f3e157]:
+            - link "View Specs" [ref=f3e158] [cursor=pointer]:
+              - /url: /product/luxury-jute-wine-gift-bag
+            - link "Enquire Quote" [ref=f3e159] [cursor=pointer]:
+              - /url: /quote-request?product=Luxury%20Jute%20Wine%20%26%20Gifting%20Bag%20with%20Satin%20Ribbon
+      - article [ref=f3e160]:
+        - generic [ref=f3e161]:
+          - link [ref=f3e162] [cursor=pointer]:
+            - /url: /product/juco-fine-weave-canvas-tote
+            - img "Juco Fine Weave Canvas Tote" [ref=f3e164]
+          - generic [ref=f3e165]:
+            - generic [ref=f3e166]:
+              - generic [ref=f3e167]: Tote Bags
+              - generic [ref=f3e168]: Juco (75% Jute / 25% Organic Cotton)
+            - heading [level=2] [ref=f3e169]:
+              - link "Juco Fine Weave Canvas Tote" [ref=f3e170] [cursor=pointer]:
+                - /url: /product/juco-fine-weave-canvas-tote
+            - paragraph [ref=f3e171]: Premium Juco fabric blending 75% natural jute with 25% virgin organic cotton. Offers the rigid structure of jute combined with the soft, smooth exterior finish of cotton canvas.
+            - generic [ref=f3e172]:
+              - generic [ref=f3e173]: $2.5 - $4.2 / USD
+              - generic [ref=f3e174]: "MOQ: 150 units"
+          - generic [ref=f3e176]:
+            - link "View Specs" [ref=f3e177] [cursor=pointer]:
+              - /url: /product/juco-fine-weave-canvas-tote
+            - link "Enquire Quote" [ref=f3e178] [cursor=pointer]:
+              - /url: /quote-request?product=Juco%20Fine%20Weave%20Canvas%20Tote
+      - article [ref=f3e179]:
+        - generic [ref=f3e180]:
+          - link [ref=f3e181] [cursor=pointer]:
+            - /url: /product/laminated-water-resistant-beach-bag
+            - img "Laminated Water-Resistant Jute Beach Bag" [ref=f3e183]
+          - generic [ref=f3e184]:
+            - generic [ref=f3e185]:
+              - generic [ref=f3e186]: Shopping Bags
+              - generic [ref=f3e187]: Food-Grade PP Laminated Natural Jute
+            - heading [level=2] [ref=f3e188]:
+              - link "Laminated Water-Resistant Jute Beach Bag" [ref=f3e189] [cursor=pointer]:
+                - /url: /product/laminated-water-resistant-beach-bag
+            - paragraph [ref=f3e190]: High-capacity oversized leisure bag with internal food-grade PP lamination, full top zipper closure, and zippered interior pocket for passports and valuables.
+            - generic [ref=f3e191]:
+              - generic [ref=f3e192]: $2.9 - $4.6 / USD
+              - generic [ref=f3e193]: "MOQ: 200 units"
+          - generic [ref=f3e195]:
+            - link "View Specs" [ref=f3e196] [cursor=pointer]:
+              - /url: /product/laminated-water-resistant-beach-bag
+            - link "Enquire Quote" [ref=f3e197] [cursor=pointer]:
+              - /url: /quote-request?product=Laminated%20Water-Resistant%20Jute%20Beach%20Bag
+      - article [ref=f3e198]:
+        - generic [ref=f3e199]:
+          - link [ref=f3e200] [cursor=pointer]:
+            - /url: /product/drawstring-eco-gift-pouch
+            - img "Drawstring Eco Gift & Sachet Pouch" [ref=f3e202]
+          - generic [ref=f3e203]:
+            - generic [ref=f3e204]:
+              - generic [ref=f3e205]: Promotional Bags
+              - generic [ref=f3e206]: 100% Unbleached Lightweight Jute Scrim
+            - heading [level=2] [ref=f3e207]:
+              - link "Drawstring Eco Gift & Sachet Pouch" [ref=f3e208] [cursor=pointer]:
+                - /url: /product/drawstring-eco-gift-pouch
+            - paragraph [ref=f3e209]: Small-format eco pouch ideal for handcrafted soaps, organic tea samplers, jewellery, and wedding favors. Biodegradable alternative to synthetic organza bags.
+            - generic [ref=f3e210]:
+              - generic [ref=f3e211]: $0.65 - $1.2 / USD
+              - generic [ref=f3e212]: "MOQ: 500 units"
+          - generic [ref=f3e214]:
+            - link "View Specs" [ref=f3e215] [cursor=pointer]:
+              - /url: /product/drawstring-eco-gift-pouch
+            - link "Enquire Quote" [ref=f3e216] [cursor=pointer]:
+              - /url: /quote-request?product=Drawstring%20Eco%20Gift%20%26%20Sachet%20Pouch
+      - article [ref=f3e217]:
+        - generic [ref=f3e218]:
+          - link [ref=f3e219] [cursor=pointer]:
+            - /url: /product/heavy-industrial-burlap-sacks
+            - img "Heavy Industrial Burlap Hessian Sacks" [ref=f3e221]
+          - generic [ref=f3e222]:
+            - generic [ref=f3e223]:
+              - generic [ref=f3e224]: Jute Bags
+              - generic [ref=f3e225]: Hydrocarbon-Free Plain Weave Hessian Jute
+            - heading [level=2] [ref=f3e226]:
+              - link "Heavy Industrial Burlap Hessian Sacks" [ref=f3e227] [cursor=pointer]:
+                - /url: /product/heavy-industrial-burlap-sacks
+            - paragraph [ref=f3e228]: Heavyweight export burlap sacks manufactured for green coffee beans, raw cocoa, pulses, and grain freight. 100% Hydrocarbon-Free, non-toxic, and breathable to prevent moisture mold.
+            - generic [ref=f3e229]:
+              - generic [ref=f3e230]: $1.1 - $1.85 / USD
+              - generic [ref=f3e231]: "MOQ: 1000 units"
+          - generic [ref=f3e233]:
+            - link "View Specs" [ref=f3e234] [cursor=pointer]:
+              - /url: /product/heavy-industrial-burlap-sacks
+            - link "Enquire Quote" [ref=f3e235] [cursor=pointer]:
+              - /url: /quote-request?product=Heavy%20Industrial%20Burlap%20Hessian%20Sacks
+      - article [ref=f3e236]:
+        - generic [ref=f3e237]:
+          - link [ref=f3e238] [cursor=pointer]:
+            - /url: /product/organic-cotton-jute-exhibition-bag
+            - img "Organic Cotton & Jute Exhibition Bag" [ref=f3e240]
+          - generic [ref=f3e241]:
+            - generic [ref=f3e242]:
+              - generic [ref=f3e243]: Promotional Bags
+              - generic [ref=f3e244]: Organic Jute with 10 oz Cotton Front Pocket
+            - heading [level=2] [ref=f3e245]:
+              - link "Organic Cotton & Jute Exhibition Bag" [ref=f3e246] [cursor=pointer]:
+                - /url: /product/organic-cotton-jute-exhibition-bag
+            - paragraph [ref=f3e247]: Lightweight flat tote featuring a reinforced 10 oz unbleached organic cotton front pocket for catalogs and business cards. Perfectly proportioned for European trade shows.
+            - generic [ref=f3e248]:
+              - generic [ref=f3e249]: $1.4 - $2.3 / USD
+              - generic [ref=f3e250]: "MOQ: 300 units"
+          - generic [ref=f3e252]:
+            - link "View Specs" [ref=f3e253] [cursor=pointer]:
+              - /url: /product/organic-cotton-jute-exhibition-bag
+            - link "Enquire Quote" [ref=f3e254] [cursor=pointer]:
+              - /url: /quote-request?product=Organic%20Cotton%20%26%20Jute%20Exhibition%20Bag
+      - article [ref=f3e255]:
+        - generic [ref=f3e256]:
+          - link [ref=f3e257] [cursor=pointer]:
+            - /url: /product/executive-conference-jute-portfolio
+            - img "Executive Conference & Seminar Jute Portfolio" [ref=f3e259]
+          - generic [ref=f3e260]:
+            - generic [ref=f3e261]:
+              - generic [ref=f3e262]: Luxury Bags
+              - generic [ref=f3e263]: Fine Starched Jute with Cruelty-Free Vegan Leather Trim
+            - heading [level=2] [ref=f3e264]:
+              - link "Executive Conference & Seminar Jute Portfolio" [ref=f3e265] [cursor=pointer]:
+                - /url: /product/executive-conference-jute-portfolio
+            - paragraph [ref=f3e266]: Sophisticated document tote featuring starched tight-weave jute fabric paired with vegan leather accent trimming and brass hardware latch. Fits 14-inch laptops, documents, and notebooks.
+            - generic [ref=f3e267]:
+              - generic [ref=f3e268]: $3.5 - $5.5 / USD
+              - generic [ref=f3e269]: "MOQ: 100 units"
+          - generic [ref=f3e271]:
+            - link "View Specs" [ref=f3e272] [cursor=pointer]:
+              - /url: /product/executive-conference-jute-portfolio
+            - link "Enquire Quote" [ref=f3e273] [cursor=pointer]:
+              - /url: /quote-request?product=Executive%20Conference%20%26%20Seminar%20Jute%20Portfolio
+  - contentinfo [ref=f3e274]:
+    - generic [ref=f3e276]:
+      - generic [ref=f3e277]:
+        - text: Global Procurement Hotline
+        - heading "Need custom branded samples or container volume pricing?" [level=3] [ref=f3e278]
+        - paragraph [ref=f3e279]: Our export engineering team delivers itemized FOB/CIF estimates within 24 hours. Custom CAD drawings and fabric swatches available upon request.
+      - generic [ref=f3e280]:
+        - link "Request Fast Quote →" [ref=f3e281] [cursor=pointer]:
+          - /url: /quote-request
+        - link "WhatsApp Trade Desk" [ref=f3e282] [cursor=pointer]:
+          - /url: https://wa.me/919830000000?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20b2b%20jute%20bags%20export
+    - generic [ref=f3e283]:
+      - generic [ref=f3e284]:
+        - generic [ref=f3e285]:
+          - generic [ref=f3e286]:
+            - generic [ref=f3e287]: eS
+            - generic [ref=f3e288]: eSailor.in
+          - paragraph [ref=f3e289]: Direct manufacturer & government-recognized star export house specializing in certified organic jute packaging, retail shoppers, and hydrocarbon-free commodity burlap.
+          - generic [ref=f3e290]:
+            - paragraph [ref=f3e291]:
+              - generic [ref=f3e292]: 🏭
+              - text: "Bengal Delta Manufacturing Facility:"
+            - paragraph [ref=f3e293]: NH-12 Industrial Manufacturing Corridor, Barasat, North 24 Parganas, West Bengal 700124, India
+            - generic [ref=f3e294]:
+              - generic [ref=f3e295]: "IEC: 0219481900"
+              - generic [ref=f3e296]: "Port: CCU / NSA Direct"
+        - generic [ref=f3e297]:
+          - heading "B2B Collections" [level=4] [ref=f3e298]
+          - navigation [ref=f3e299]:
+            - link "Retail Shopping Totes" [ref=f3e300] [cursor=pointer]:
+              - /url: /catalog?category=jute-shopping-bags
+            - link "Juco Fashion & Promo Bags" [ref=f3e301] [cursor=pointer]:
+              - /url: /catalog?category=canvas-jute-totes
+            - link "Wine & Gourmet Bottle Carriers" [ref=f3e302] [cursor=pointer]:
+              - /url: /catalog?category=gift-bottle-bags
+            - link "Agro Commodity Burlap Sacks" [ref=f3e303] [cursor=pointer]:
+              - /url: /catalog?category=industrial-burlap-sacks
+            - link "Cosmetic & Jewelry Pouches" [ref=f3e304] [cursor=pointer]:
+              - /url: /catalog?category=drawstring-pouches
+            - link "View All Models (40+) →" [ref=f3e305] [cursor=pointer]:
+              - /url: /catalog
+        - generic [ref=f3e306]:
+          - heading "Compliance & Supply" [level=4] [ref=f3e307]
+          - navigation [ref=f3e308]:
+            - link "GOTS & OEKO-TEX Standard" [ref=f3e309] [cursor=pointer]:
+              - /url: /certifications
+            - link "Sedex SMETA 4-Pillar Audit" [ref=f3e310] [cursor=pointer]:
+              - /url: /certifications
+            - link "12-Step Manufacturing Journey" [ref=f3e311] [cursor=pointer]:
+              - /url: /process
+            - link "Box-X Handle Load Testing" [ref=f3e312] [cursor=pointer]:
+              - /url: /process
+            - link "Delta Cooperative Sourcing" [ref=f3e313] [cursor=pointer]:
+              - /url: /about
+            - link "📑 Audit Dossier (PDF)" [ref=f3e314] [cursor=pointer]:
+              - /url: /certificates/compliance-dossier.pdf
+              - generic [ref=f3e315]: 📑
+              - text: Audit Dossier (PDF)
+        - generic [ref=f3e316]:
+          - heading "Accredited Quality" [level=4] [ref=f3e317]
+          - generic [ref=f3e318]:
+            - generic [ref=f3e321]:
+              - paragraph [ref=f3e322]: GOTS
+              - paragraph [ref=f3e323]: Global Organic Standard
+            - generic [ref=f3e326]:
+              - paragraph [ref=f3e327]: OEKO
+              - paragraph [ref=f3e328]: OEKO-TEX Standard 100
+            - generic [ref=f3e331]:
+              - paragraph [ref=f3e332]: SEDEX
+              - paragraph [ref=f3e333]: SMETA 4-Pillar Audited
+            - generic [ref=f3e336]:
+              - paragraph [ref=f3e337]: ISO
+              - paragraph [ref=f3e338]: ISO 9001:2015 Certified
+          - generic [ref=f3e339]:
+            - paragraph [ref=f3e340]: "Incoterms Supported:"
+            - paragraph [ref=f3e341]: FOB Kolkata, CIF Worldwide, DDP North America & EU
+      - generic [ref=f3e342]:
+        - generic [ref=f3e343]:
+          - generic [ref=f3e344]: © 2026 eSailor.in. All rights reserved.
+          - generic [ref=f3e345]: •
+          - generic [ref=f3e346]: Registered Under Directorate General of Foreign Trade (DGFT), Govt of India.
+        - generic [ref=f3e347]:
+          - link "Chain of Custody" [ref=f3e348] [cursor=pointer]:
+            - /url: /certifications
+          - link "Zero-Defect QA Policy" [ref=f3e349] [cursor=pointer]:
+            - /url: /process
+          - link "Trade Privacy" [ref=f3e350] [cursor=pointer]:
+            - /url: /contact
+  - button "Open Next.js Dev Tools" [ref=f3e356] [cursor=pointer]

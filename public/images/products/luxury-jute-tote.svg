@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7F3EB"/>
+      <stop offset="100%" stop-color="#EBE3D5"/>
+    </linearGradient>
+    <linearGradient id="juteGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C29253"/>
+      <stop offset="50%" stop-color="#D9A86C"/>
+      <stop offset="100%" stop-color="#B88647"/>
+    </linearGradient>
+    <linearGradient id="gussetGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9C6F34"/>
+      <stop offset="100%" stop-color="#B88647"/>
+    </linearGradient>
+    <linearGradient id="ropeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ECE6D8"/>
+      <stop offset="100%" stop-color="#D4C8B2"/>
+    </linearGradient>
+    <pattern id="juteWeave" width="12" height="12" patternUnits="userSpaceOnUse">
+      <rect width="12" height="12" fill="none"/>
+      <path d="M0,6 L12,6 M6,0 L6,12" stroke="#A87738" stroke-width="1.5" stroke-opacity="0.35"/>
+      <circle cx="3" cy="3" r="1" fill="#875E28" fill-opacity="0.2"/>
+      <circle cx="9" cy="9" r="1" fill="#875E28" fill-opacity="0.2"/>
+    </pattern>
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#382E1E" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Grid Accent -->
+  <g opacity="0.08" stroke="#2A241C" stroke-width="1">
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="450" x2="800" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+  </g>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="400" cy="520" rx="230" ry="24" fill="#3D301E" opacity="0.15"/>
+
+  <!-- Back Handle -->
+  <path d="M330,220 C330,80 470,80 470,220" fill="none" stroke="url(#ropeGrad)" stroke-width="26" stroke-linecap="round"/>
+  <path d="M330,220 C330,80 470,80 470,220" fill="none" stroke="#B8AA90" stroke-width="2" stroke-dasharray="6,6" stroke-linecap="round"/>
+
+  <!-- Main Bag Body Group with Shadow -->
+  <g filter="url(#dropShadow)">
+    <!-- Side Gusset -->
+    <polygon points="230,220 280,210 280,480 230,470" fill="url(#gussetGrad)"/>
+    <polygon points="230,220 280,210 280,480 230,470" fill="url(#juteWeave)"/>
+
+    <!-- Front Face -->
+    <polygon points="280,210 570,210 550,480 280,480" fill="url(#juteGrad)"/>
+    <polygon points="280,210 570,210 550,480 280,480" fill="url(#juteWeave)"/>
+
+    <!-- Bottom Fold Line -->
+    <line x1="280" y1="480" x2="550" y2="480" stroke="#7A5322" stroke-width="3"/>
+
+    <!-- Top Hem Border -->
+    <polygon points="278,210 572,210 570,230 279,230" fill="#996E33"/>
+    <line x1="279" y1="230" x2="570" y2="230" stroke="#543A15" stroke-width="2" stroke-dasharray="4,4"/>
+
+    <!-- Front Handle -->
+    <path d="M350,225 C350,105 450,105 450,225" fill="none" stroke="url(#ropeGrad)" stroke-width="26" stroke-linecap="round"/>
+    <path d="M350,225 C350,105 450,105 450,225" fill="none" stroke="#A89A80" stroke-width="2" stroke-dasharray="6,6" stroke-linecap="round"/>
+
+    <!-- Handle Reinforcement Patches (Box-X Stitch) -->
+    <!-- Left Patch -->
+    <rect x="337" y="215" width="26" height="36" rx="3" fill="#8F632B"/>
+    <rect x="339" y="217" width="22" height="32" fill="none" stroke="#F4ECD8" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <line x1="339" y1="217" x2="361" y2="249" stroke="#F4ECD8" stroke-width="1.5"/>
+    <line x1="361" y1="217" x2="339" y2="249" stroke="#F4ECD8" stroke-width="1.5"/>
+
+    <!-- Right Patch -->
+    <rect x="437" y="215" width="26" height="36" rx="3" fill="#8F632B"/>
+    <rect x="439" y="217" width="22" height="32" fill="none" stroke="#F4ECD8" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <line x1="439" y1="217" x2="461" y2="249" stroke="#F4ECD8" stroke-width="1.5"/>
+    <line x1="461" y1="217" x2="439" y2="249" stroke="#F4ECD8" stroke-width="1.5"/>
+
+    <!-- Brand Emblem Stamp on Front -->
+    <circle cx="415" cy="340" r="42" fill="none" stroke="#5E4018" stroke-width="2.5" stroke-opacity="0.6"/>
+    <circle cx="415" cy="340" r="37" fill="none" stroke="#5E4018" stroke-width="1" stroke-dasharray="3,3" stroke-opacity="0.6"/>
+    <text x="415" y="336" font-family="'DM Serif Display', Georgia, serif" font-size="16" font-weight="bold" fill="#5E4018" fill-opacity="0.75" text-anchor="middle">eSailor</text>
+    <text x="415" y="352" font-family="sans-serif" font-size="7.5" font-weight="bold" letter-spacing="2" fill="#5E4018" fill-opacity="0.65" text-anchor="middle">100% ORGANIC</text>
+  </g>
+
+  <!-- Technical Spec Badge in Top Corner -->
+  <g transform="translate(620, 40)">
+    <rect width="140" height="60" rx="8" fill="#FFFFFF" fill-opacity="0.9" stroke="#DDD4C4" stroke-width="1"/>
+    <text x="14" y="24" font-family="sans-serif" font-size="10" font-weight="bold" fill="#C17F42" letter-spacing="1">EXPORT SPEC</text>
+    <text x="14" y="44" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2A241C">340 GSM JUTE</text>
+  </g>
+</svg>

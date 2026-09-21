@@ -1,0 +1,3 @@
+- [Premium Professional Website Redesign](memory/project_brief.md) — Implemented exact design system from brief with colors, typography, spacing, radius, shadows
+- [Scroll Animation System](memory/scroll_animation.md) — Custom Intersection Observer utility for performant on-scroll effects
+- [Component Animations](memory/component_animations.md) — All components updated with staggered fade-in, hover effects, and count-up animations

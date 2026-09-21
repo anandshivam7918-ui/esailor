@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5EFE6"/>
+      <stop offset="100%" stop-color="#E8DEC8"/>
+    </linearGradient>
+    <linearGradient id="juteGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B88647"/>
+      <stop offset="50%" stop-color="#CF9A57"/>
+      <stop offset="100%" stop-color="#A67332"/>
+    </linearGradient>
+    <linearGradient id="caneHandle" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5A2B"/>
+      <stop offset="50%" stop-color="#D2995B"/>
+      <stop offset="100%" stop-color="#73441A"/>
+    </linearGradient>
+    <pattern id="juteWeave2" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M0,6 L12,6 M6,0 L6,12" stroke="#8A5C22" stroke-width="1.5" stroke-opacity="0.3"/>
+    </pattern>
+    <filter id="dropShadow2" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#2D2214" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad2)"/>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="400" cy="515" rx="180" ry="22" fill="#2D2214" opacity="0.18"/>
+
+  <!-- Main Tall Wine Bag Body -->
+  <g filter="url(#dropShadow2)">
+    <!-- Side Depth -->
+    <polygon points="290,180 340,165 340,480 290,490" fill="#8F5E24"/>
+    <polygon points="290,180 340,165 340,480 290,490" fill="url(#juteWeave2)"/>
+
+    <!-- Front Face -->
+    <polygon points="340,165 510,165 510,480 340,480" fill="url(#juteGrad2)"/>
+    <polygon points="340,165 510,165 510,480 340,480" fill="url(#juteWeave2)"/>
+
+    <!-- Internal Divider Stitch Line -->
+    <line x1="425" y1="165" x2="425" y2="480" stroke="#7A4C18" stroke-width="2" stroke-dasharray="6,4"/>
+
+    <!-- Die Cut Viewing Windows (Double Bottle) -->
+    <!-- Window 1 -->
+    <rect x="360" y="240" width="50" height="160" rx="12" fill="#FAF7F2" stroke="#664014" stroke-width="2"/>
+    <!-- Bottle silhouette inside window 1 -->
+    <path d="M380,260 L390,260 L390,290 L400,310 L400,390 L370,390 L370,310 L380,290 Z" fill="#2E4A35" opacity="0.8"/>
+    
+    <!-- Window 2 -->
+    <rect x="440" y="240" width="50" height="160" rx="12" fill="#FAF7F2" stroke="#664014" stroke-width="2"/>
+    <!-- Bottle silhouette inside window 2 -->
+    <path d="M460,260 L470,260 L470,290 L480,310 L480,390 L450,390 L450,310 L460,290 Z" fill="#5C2424" opacity="0.8"/>
+
+    <!-- Top Rigid Cane Handle -->
+    <path d="M375,165 C375,80 475,80 475,165" fill="none" stroke="url(#caneHandle)" stroke-width="20" stroke-linecap="round"/>
+    <path d="M375,165 C375,80 475,80 475,165" fill="none" stroke="#F5D7A1" stroke-width="3" stroke-dasharray="10,8" stroke-linecap="round"/>
+
+    <!-- Leather Brand Tag -->
+    <polygon points="410,420 440,420 440,455 425,445 410,455" fill="#8B4513"/>
+    <circle cx="425" cy="430" r="3" fill="#D4AF37"/>
+  </g>
+
+  <!-- Export Spec Badge -->
+  <g transform="translate(620, 40)">
+    <rect width="140" height="60" rx="8" fill="#FFFFFF" fill-opacity="0.9" stroke="#DDD4C4" stroke-width="1"/>
+    <text x="14" y="24" font-family="sans-serif" font-size="10" font-weight="bold" fill="#C17F42" letter-spacing="1">GIFT SPEC</text>
+    <text x="14" y="44" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2A241C">380 GSM RIGID</text>
+  </g>
+</svg>
