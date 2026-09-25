@@ -10,7 +10,7 @@
 
 Three rules, and why each one is non-negotiable for this specific product:
 
-1. **Proof before persuasion.** Every screen must put a verifiable credibility signal (certification, stat, export number) above or beside the persuasive copy, never below it. B2B buyers comparing multiple exporters (per PRD Persona 1, "Anna") make shortlist decisions in seconds based on trust signals, not adjectives. A hero that leads with a tagline and buries the ISO/GOTS badges below the fold loses the buyer before they scroll.
+1. **Proof before persuasion.** Every screen must put a verifiable credibility signal (registration, stat, export number) above or beside the persuasive copy, never below it. B2B buyers comparing multiple exporters (per PRD Persona 1, "Anna") make shortlist decisions in seconds based on trust signals, not adjectives. A hero that leads with a tagline and buries the RCMC/IEC/GST/Udyam registrations below the fold loses the buyer before they scroll.
 
 2. **Every visual choice must earn its place against a "so a buyer can act" test.** No decorative animation, gradient, or illustration exists unless it helps a buyer either understand a product spec or move toward a quote request. This product has no browsing-for-fun use case — unlike a D2C site, a bored scroll is not a success state here. If a design element doesn't reduce time-to-decision or time-to-enquiry, cut it.
 

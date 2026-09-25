@@ -23,9 +23,6 @@ export type CatalogProduct = {
   description?: string;
   materialComposition?: string;
   moq?: number;
-  indicativePriceRangeMin?: number;
-  indicativePriceRangeMax?: number;
-  currency?: string;
   category?: {
     _id?: string;
     name?: string;
@@ -44,20 +41,6 @@ export type CatalogProduct = {
 type CatalogPageClientProps = {
   categories: CatalogCategory[];
   products: CatalogProduct[];
-};
-
-const formatPriceRange = (product: CatalogProduct) => {
-  const currency = product.currency || 'USD';
-
-  if (product.indicativePriceRangeMin && product.indicativePriceRangeMax) {
-    return `$${product.indicativePriceRangeMin} - $${product.indicativePriceRangeMax} / ${currency}`;
-  }
-
-  if (product.indicativePriceRangeMin) {
-    return `From $${product.indicativePriceRangeMin} / ${currency}`;
-  }
-
-  return 'Price on inquiry';
 };
 
 const getProductDescription = (desc: any): string => {
@@ -416,10 +399,7 @@ export function CatalogPageClient({ categories, products }: CatalogPageClientPro
                         'Premium sustainable jute bag solution engineered for commercial retail and bulk branding.'}
                     </p>
 
-                    <div className="mt-4 flex items-center justify-between gap-3 border-t border-border pt-3">
-                      <span className="text-sm font-bold text-primary">
-                        {formatPriceRange(product)}
-                      </span>
+                    <div className="mt-4 flex items-center justify-end gap-3 border-t border-border pt-3">
                       {product.moq ? (
                         <span className="text-xs font-medium text-foreground/60">
                           MOQ: {product.moq} units

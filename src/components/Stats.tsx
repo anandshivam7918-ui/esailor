@@ -35,7 +35,7 @@ const METRIC_PROOF_POINTS: MetricProofPoint[] = [
     value: '99.8%',
     label: 'On-Spec Delivery Rating',
     headline: 'Industrial Grade Assurance',
-    operationalDetail: 'Dual-pass metal detection, Box-X handle stress verification, and ISO 9001 certified batch lot tracking.',
+    operationalDetail: 'Dual-pass metal detection, Box-X handle stress verification, and documented batch lot tracking.',
     assurancePill: 'AQL 1.5 Standard',
   },
   {

@@ -88,7 +88,7 @@ const processSteps: ProcessStep[] = [
     description:
       'Custom buyer branding, promotional graphics, and barcodes are applied using water-based, non-toxic pigment inks. We offer multi-color automatic carousel screen printing, sharp heat transfers, and fine embroidery that withstands repeated laundering and sun exposure.',
     keySpecs: [
-      'OEKO-TEX compliant azo-free inks',
+      'Azo-free water-based inks',
       'Up to 8-color screen printing capabilities',
       'Pantone PMS accurate color matching',
     ],
@@ -170,7 +170,7 @@ export default function ManufacturingProcessPage() {
             </p>
           </div>
           <span className="rounded-full border border-secondary/40 bg-secondary/10 px-4 py-1 text-xs font-semibold text-secondary">
-            ISO & Sedex Audited Process
+            IEC, GST & Udyam Registered
           </span>
         </div>
 

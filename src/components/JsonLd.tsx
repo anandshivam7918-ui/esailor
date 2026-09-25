@@ -12,7 +12,7 @@ export function JsonLd() {
         url: 'https://esailor.in',
         logo: 'https://esailor.in/images/logo.png',
         description:
-          'Direct manufacturer and international exporter of GOTS, OEKO-TEX, and Sedex certified eco-friendly jute bags, tote bags, shopping bags, and industrial burlap packaging.',
+          'Direct manufacturer and international exporter of eco-friendly jute bags, tote bags, shopping bags, and industrial burlap packaging. Registered with RCMC, IEC, GST, and Udyam.',
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Industrial Jute Park, Export Processing Zone',

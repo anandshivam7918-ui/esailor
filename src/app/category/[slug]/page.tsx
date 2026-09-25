@@ -162,12 +162,7 @@ export default async function CategoryPage({
                   <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-foreground/75">
                     {product.description || 'Premium sustainable jute bag engineered for commercial retail.'}
                   </p>
-                  <div className="mt-4 flex items-center justify-between border-t border-border pt-3 text-sm">
-                    <span className="font-bold text-primary">
-                      {product.indicativePriceRangeMin && product.indicativePriceRangeMax
-                        ? `$${product.indicativePriceRangeMin} - $${product.indicativePriceRangeMax}`
-                        : 'Price on inquiry'}
-                    </span>
+                  <div className="mt-4 flex items-center justify-end border-t border-border pt-3 text-sm">
                     <Link
                       href={`/product/${product.slug.current}`}
                       className="text-xs font-semibold text-accent hover:underline"

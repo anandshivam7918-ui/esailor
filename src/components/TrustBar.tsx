@@ -15,49 +15,47 @@ export const TrustBar = () => {
             {/* 4 Certification Badges */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 sm:gap-6 items-center">
               
-              {/* 1. ISO 9001:2015 */}
+              {/* 1. RCMC */}
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#2D2A26] bg-transparent text-[#2D2A26] font-bold text-xs tracking-tighter shadow-sm">
-                  ISO
+                  RCMC
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs font-bold text-[#1C1917] leading-tight">ISO</span>
-                  <span className="text-[10px] text-[#6B645C] font-medium leading-tight">9001:2015</span>
+                  <span className="text-xs font-bold text-[#1C1917] leading-tight">JPDEPC – RCMC</span>
+                  <span className="text-[10px] text-[#6B645C] font-medium leading-tight">Registration-cum-Membership Certificate</span>
                 </div>
               </div>
 
-              {/* 2. GOTS */}
+              {/* 2. IEC */}
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1C3224] text-white shadow-sm">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-3.5H9v-2h2V7.5h2V11h2v2h-2v3.5h-2z"/>
-                  </svg>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#2D2A26] bg-transparent text-[#2D2A26] font-bold text-xs tracking-tighter shadow-sm">
+                  IEC
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs font-bold text-[#1C1917] leading-tight">GOTS</span>
-                  <span className="text-[9px] text-[#6B645C] font-medium leading-tight">Global Organic Textile Standard</span>
+                  <span className="text-xs font-bold text-[#1C1917] leading-tight">IEC</span>
+                  <span className="text-[10px] text-[#6B645C] font-medium leading-tight">Importer Exporter Code</span>
                 </div>
               </div>
 
-              {/* 3. OEKO-TEX */}
+              {/* 3. GST */}
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-[#4A453E] bg-transparent">
-                  <span className="text-[9px] font-mono font-bold text-[#4A453E]">100</span>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#2D2A26] bg-transparent text-[#2D2A26] font-bold text-xs tracking-tighter shadow-sm">
+                  GST
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs font-bold text-[#1C1917] leading-tight">OEKO-TEX®</span>
-                  <span className="text-[9px] text-[#6B645C] font-medium leading-tight">STANDARD 100</span>
+                  <span className="text-xs font-bold text-[#1C1917] leading-tight">GST</span>
+                  <span className="text-[10px] text-[#6B645C] font-medium leading-tight">GST Registered</span>
                 </div>
               </div>
 
-              {/* 4. Sedex SMETA */}
+              {/* 4. Udyam */}
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-white border border-[#DDD6CE] text-[#1C3224] font-bold text-[11px] shadow-sm">
-                  Sedex
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#2D2A26] bg-transparent text-[#2D2A26] font-bold text-xs tracking-tighter shadow-sm">
+                  UDYAM
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs font-bold text-[#1C1917] leading-tight">Sedex</span>
-                  <span className="text-[10px] font-semibold text-[#7A7369] leading-tight">SMETA</span>
+                  <span className="text-xs font-bold text-[#1C1917] leading-tight">Udyam</span>
+                  <span className="text-[10px] text-[#6B645C] font-medium leading-tight">Micro Enterprise</span>
                 </div>
               </div>
 

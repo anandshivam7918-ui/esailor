@@ -22,13 +22,11 @@
 - [x] Every product contains accurate GSM weight, box dimensions, MOQ, indicative FOB price range in USD, and handle specifications.
 - [x] All 5 major categories populated: *Jute Bags*, *Tote Bags*, *Shopping Bags*, *Promotional Bags*, *Luxury Bags*.
 
-### Criterion 2: Verified Certification Compliance (Phase 7 Launch Gate Satisfied)
-- [x] **GOTS (Global Organic Textile Standard):** License `CU-850123`, verified through 2027-04-10.
-- [x] **OEKO-TEX® Standard 100:** Hohenstein Certificate `19.HIN.90124`, verified through 2027-08-01.
-- [x] **Sedex SMETA 4-Pillar:** Audit reference `SEDEX-SMETA-2024-092`, verified through 2028-01-15.
-- [x] **ISO 9001:2015 (QMS):** TÜV Rheinland Certificate `01 100 18290`, verified through 2027-11-20.
-- [x] **ISO 14001:2015 (EMS):** TÜV Rheinland Certificate `01 104 18290`, verified through 2028-02-18.
-- [x] Official compliance audit dossier downloadable at `/certificates/compliance-dossier.pdf`.
+### Criterion 2: Business Registration Visibility
+- [x] **JPDEPC – RCMC:** Registration-cum-Membership Certificate.
+- [x] **IEC:** Importer Exporter Code.
+- [x] **GST:** GST Registered.
+- [x] **Udyam:** Micro Enterprise.
 - [x] Automated unit tests confirm that expired/inactive certificates can never render as active badges.
 
 ### Criterion 3: Quote Request Conversion Engine

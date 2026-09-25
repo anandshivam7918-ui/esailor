@@ -9,7 +9,7 @@ import { JsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "eSailor.in | B2B Jute Bag Manufacturer & Global Exporter",
   description:
-    "Direct manufacturer and global exporter of certified eco-friendly jute bags, tote bags, shopping bags, and industrial burlap sacks. Certified GOTS, OEKO-TEX, and Sedex compliant for international B2B buyers.",
+    "Direct manufacturer and global exporter of eco-friendly jute bags, tote bags, shopping bags, and industrial burlap sacks. Registered with RCMC, IEC, GST, and Udyam for international B2B trade.",
   keywords: [
     "jute bags manufacturer",
     "b2b jute bags exporter",

@@ -59,7 +59,7 @@ export const Footer = () => {
                 <span className="text-[#D4A373]">🏭</span> Bengal Delta Manufacturing Facility:
               </p>
               <p className="text-[#FAF8F5]/70 leading-relaxed text-[11px]">
-                NH-12 Industrial Corridor, Barasat, North 24 Parganas, West Bengal 700124, India
+                Hari Abasan Phase 1, Hanapara, North 24 Parganas, Kolkata, West Bengal 700101, India
               </p>
               <div className="pt-2 border-t border-white/10 text-[10px] text-[#FAF8F5]/60 flex items-center justify-between">
                 <span>IEC: 0219481900</span>
@@ -151,10 +151,10 @@ export const Footer = () => {
             </h3>
             <nav className="flex flex-col space-y-2 text-xs text-[#FAF8F5]/75">
               <Link href="/certifications" className="hover:text-[#D4A373] transition-colors">
-                GOTS & OEKO-TEX Standard
+                JPDEPC – RCMC
               </Link>
               <Link href="/certifications" className="hover:text-[#D4A373] transition-colors">
-                Sedex SMETA 4-Pillar Audit
+                IEC, GST & Udyam Registrations
               </Link>
               <Link href="/process" className="hover:text-[#D4A373] transition-colors">
                 12-Step Manufacturing Journey
@@ -165,17 +165,9 @@ export const Footer = () => {
               <Link href="/about" className="hover:text-[#D4A373] transition-colors">
                 Delta Cooperative Sourcing
               </Link>
-              <a
-                href="/certificates/compliance-dossier.pdf"
-                download
-                className="text-[#A2BAA4] font-semibold pt-2 hover:underline inline-flex items-center gap-1.5"
-              >
-                <span>📑</span> Audit Dossier (PDF)
-              </a>
             </nav>
           </div>
 
-          {/* Col 4: Quick Links (2 cols on lg) */}
           <div className="lg:col-span-2 space-y-3.5">
             <h3 className="font-serif text-base font-normal text-white tracking-wide border-b border-white/10 pb-2">
               Quick Links

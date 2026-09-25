@@ -135,9 +135,9 @@ export default function ContactPage() {
                 <p className="mt-1 text-base">
                   eSailor Jute Mills & Export Unit
                   <br />
-                  NH-12 Industrial Corridor, Barasat
+                  Hari Abasan Phase 1, Hanapara
                   <br />
-                  Greater Kolkata, West Bengal 700124
+                  North 24 Parganas, Kolkata, West Bengal, 700101
                   <br />
                   India
                 </p>

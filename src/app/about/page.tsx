@@ -47,7 +47,7 @@ export default function AboutPage() {
           <p className="mt-4 text-base leading-relaxed text-foreground/80">
             Our export desk possesses deep institutional knowledge of international trade documentation,
             Incoterms (FOB, CIF, CFR, DDP), Certificate of Origin procedures, and strict chemical
-            compliance standards (REACH, GOTS, OEKO-TEX).
+            trade registrations and documentation, including RCMC, IEC, GST, and Udyam.
           </p>
         </section>
 
@@ -84,8 +84,8 @@ export default function AboutPage() {
               <span className="text-2xl">🤝</span>
               <h3 className="mt-2 text-lg font-bold text-primary">Fair Ethical Labor</h3>
               <p className="mt-1 text-xs leading-relaxed text-foreground/70">
-                We operate under audited ethical trade frameworks (SMETA/Sedex), ensuring safe working
-                environments, living wages, and fair opportunity.
+                We maintain documented workplace practices and responsible sourcing processes to support
+                dependable, transparent export operations.
               </p>
             </div>
             <div className="rounded-xl border border-border bg-surface-muted p-5">

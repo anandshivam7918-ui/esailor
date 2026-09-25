@@ -6,7 +6,9 @@ export const revalidate = 60; // Revalidate every minute
 
 interface CertificationItem {
   _id: string;
+  code?: string;
   name: string;
+  subtitle?: string;
   issuingBody: string;
   badgeImage?: { asset?: { _ref?: string; _id?: string } };
   description?: unknown;
@@ -17,29 +19,44 @@ interface CertificationItem {
 
 const fallbackCertifications: CertificationItem[] = [
   {
-    _id: 'cert-1',
-    name: 'Sedex Members Ethical Trade Audit (SMETA)',
-    issuingBody: 'Sedex Information Exchange',
-    dateObtained: '2023-11-08',
+    _id: 'cert-rcmc',
+    code: 'RCMC',
+    name: 'JPDEPC – RCMC',
+    subtitle: 'Registration-cum-Membership Certificate',
+    issuingBody: 'JPDEPC',
+    dateObtained: '',
     isActive: true,
   },
   {
-    _id: 'cert-2',
-    name: 'Global Organic Textile Standard (GOTS)',
-    issuingBody: 'Global Standard GmbH',
-    dateObtained: '2024-04-10',
-    expiryDate: '2027-04-10',
+    _id: 'cert-iec',
+    code: 'IEC',
+    name: 'IEC',
+    subtitle: 'Importer Exporter Code',
+    issuingBody: 'IEC',
+    dateObtained: '',
     isActive: true,
   },
   {
-    _id: 'cert-3',
-    name: 'OEKO-TEX® Standard 100',
-    issuingBody: 'OEKO-TEX® Association',
-    dateObtained: '2024-08-01',
-    expiryDate: '2027-08-01',
+    _id: 'cert-gst',
+    code: 'GST',
+    name: 'GST',
+    subtitle: 'GST Registered',
+    issuingBody: 'GST',
+    dateObtained: '',
+    isActive: true,
+  },
+  {
+    _id: 'cert-udyam',
+    code: 'UDYAM',
+    name: 'Udyam',
+    subtitle: 'Micro Enterprise',
+    issuingBody: 'Udyam',
+    dateObtained: '',
     isActive: true,
   },
 ];
+
+const actualCertificationNames = new Set(fallbackCertifications.map((cert) => cert.name));
 
 function renderDescription(desc: unknown) {
   if (!desc) return null;
@@ -67,7 +84,9 @@ export default async function CertificationsPage() {
     const data = await sanityClient.fetch<CertificationItem[]>(
       `*[_type == "certification"] | order(dateObtained desc) {
         _id,
+        code,
         name,
+        subtitle,
         issuingBody,
         badgeImage,
         description,
@@ -76,8 +95,9 @@ export default async function CertificationsPage() {
         isActive
       }`
     );
-    if (data && data.length > 0) {
-      allCertifications = data;
+    const actualCertifications = (data || []).filter((cert) => actualCertificationNames.has(cert.name));
+    if (actualCertifications.length > 0) {
+      allCertifications = actualCertifications;
     } else {
       allCertifications = fallbackCertifications;
     }
@@ -193,7 +213,7 @@ export default async function CertificationsPage() {
                     {/* Title & Body */}
                     <h3 className="text-xl font-bold text-primary">{cert.name}</h3>
                     <p className="mt-1 text-sm font-medium text-accent">
-                      Issued by: {cert.issuingBody}
+                      {cert.subtitle || cert.issuingBody}
                     </p>
 
                     {textDescription ? (
@@ -206,8 +226,12 @@ export default async function CertificationsPage() {
                   {/* Validity Footer */}
                   <div className="mt-6 border-t border-border pt-4 text-xs text-foreground/60">
                     <div className="flex justify-between py-1">
-                      <span>Date Obtained:</span>
-                      <span className="font-medium text-foreground">{cert.dateObtained}</span>
+                      {cert.dateObtained ? (
+                        <>
+                          <span>Date Obtained:</span>
+                          <span className="font-medium text-foreground">{cert.dateObtained}</span>
+                        </>
+                      ) : null}
                     </div>
                     <div className="flex justify-between py-1">
                       <span>Validity:</span>

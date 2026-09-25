@@ -1418,7 +1418,7 @@ export function AdminDashboardClient() {
                   type="text"
                   value={editingCert.code || ''}
                   onChange={(e) => setEditingCert({ ...editingCert, code: e.target.value })}
-                  placeholder="e.g. GOTS-CU-850123"
+                  placeholder="e.g. RCMC"
                   className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-white text-sm"
                 />
               </div>

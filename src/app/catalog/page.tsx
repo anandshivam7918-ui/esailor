@@ -6,11 +6,11 @@ import { sanityClient } from '@/lib/sanity';
 export const metadata: Metadata = {
   title: 'Export Jute Bag Catalog | eSailor.in Wholesale',
   description:
-    'Browse our complete export catalog of certified natural jute tote bags, heavy-duty shopping bags, promotional Juco bags, and industrial burlap sacks with customizable MOQs.',
+      'Browse our complete export catalog of certified natural jute tote bags, heavy-duty shopping bags, promotional Juco bags, and industrial burlap sacks.',
   openGraph: {
     title: 'Export Jute Bag Catalog | eSailor.in',
-    description:
-      'Explore certified eco-friendly jute bags, totes, and custom promotional packaging. Direct manufacturer pricing and global freight.',
+        description:
+          'Explore certified eco-friendly jute bags, totes, and custom promotional packaging.',
     url: 'https://esailor.in/catalog',
   },
 };
@@ -37,9 +37,6 @@ export default async function CatalogPage() {
           description,
           materialComposition,
           moq,
-          indicativePriceRangeMin,
-          indicativePriceRangeMax,
-          currency,
           category->{_id, name, slug},
           images[]{asset->{_ref, _id}}
         }`

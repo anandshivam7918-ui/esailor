@@ -25,7 +25,7 @@ The client currently has no digital presence that matches the scale and credibil
 ### Persona 1 — "Anna, the International Importer"
 - Buyer for a mid-size European retail chain or eco-lifestyle brand
 - Sources 5,000–50,000 units per order, evaluates 3–5 suppliers before shortlisting
-- Cares most about: certifications (GOTS, OEKO-TEX, Sedex), export track record, sample process, and clear lead times
+- Cares most about: business registrations (RCMC, IEC, GST, Udyam), export track record, sample process, and clear lead times
 - Browses primarily on desktop during business hours; wants to self-serve as much information as possible before contacting sales
 - Trigger to convert: a clear, credible "Request a Quote" path with visible MOQs and indicative pricing ranges
 
@@ -81,7 +81,7 @@ The client currently has no digital presence that matches the scale and credibil
 ### MVP
 - Homepage: hero, trust/certification bar, stats counters, featured categories, process teaser, CTA
 - Full product catalog with category hierarchy, filters (material, size, use-case, print/handle type), and individual product detail pages
-- Certifications & credibility page (ISO, GOTS, OEKO-TEX, Sedex, export stats, GSTIN/IEC visibility)
+- Certifications & credibility page (RCMC, IEC, GST, Udyam, export stats)
 - Manufacturing/process page (visual sequence: raw material → spinning → weaving → stitching → QC)
 - Quote Request form (multi-field: product, quantity, customization notes, buyer type, contact info)
 - WhatsApp CTA with pre-filled message, present on product pages and floating on all pages

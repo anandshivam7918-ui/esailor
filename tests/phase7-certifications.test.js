@@ -12,7 +12,7 @@ describe('Phase 7: Certification Expiry & Validity Logic Unit Tests', () => {
   describe('isCertificationActiveAndValid', () => {
     it('returns true for active certification with a future expiry date', () => {
       const cert = {
-        name: 'GOTS Certified',
+        name: 'IEC',
         isActive: true,
         expiryDate: '2027-01-01',
       };
@@ -21,7 +21,7 @@ describe('Phase 7: Certification Expiry & Validity Logic Unit Tests', () => {
 
     it('returns false for an expired certification (past expiry date)', () => {
       const cert = {
-        name: 'ISO 9001:2015',
+        name: 'GST',
         isActive: true,
         expiryDate: '2025-05-10',
       };
@@ -48,7 +48,7 @@ describe('Phase 7: Certification Expiry & Validity Logic Unit Tests', () => {
 
     it('returns true for ongoing active certification without expiry date', () => {
       const cert = {
-        name: 'Sedex SMETA Audit',
+        name: 'Udyam',
         isActive: true,
       };
       assert.equal(isCertificationActiveAndValid(cert, referenceDate), true);

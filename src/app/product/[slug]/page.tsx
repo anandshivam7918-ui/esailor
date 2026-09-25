@@ -3,9 +3,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { sanityClient, urlFor } from '@/lib/sanity';
 import { getProductById, getProducts } from '@/lib/admin-store';
-import { PremiumButton } from '@/components/ui/PremiumButton';
-import { ExpandableSection } from '@/components/ui/ExpandableSection';
-import { CertificationBadge } from '@/components/ui/CertificationBadge';
 
 interface SanityImageRef {
   asset?: {
@@ -243,15 +240,9 @@ export default async function ProductDetailPage({
     ['Internal Lamination', 'Plant-based biodegradable PLA or 20µ LDPE barrier'],
     ['Handle Type', product.handleType || 'Padded Organic Cotton Webbing with Box-X stitch'],
     ['Minimum Order Quantity', product.moq ? `${product.moq} units` : '250 units'],
-    [
-      'Indicative Wholesale Range',
-      product.indicativePriceRangeMin && product.indicativePriceRangeMax
-        ? `$${product.indicativePriceRangeMin} - $${product.indicativePriceRangeMax} ${product.currency || 'USD'} / unit (FOB Kolkata)`
-        : '$1.45 - $2.85 USD / unit (Volume Dependent)',
-    ],
     ['Printing & Customization', 'Azo-Free Reactive Screen Print / Heat Transfer / Embroidery'],
     ['Export Ports', 'Kolkata Sea Port (CCU) / Nhava Sheva (NSA) Direct'],
-    ['Accreditation Compliance', 'GOTS Organic, OEKO-TEX Standard 100, Sedex SMETA Audited'],
+    ['Business Registrations', 'JPDEPC – RCMC, IEC, GST Registered, Udyam Micro Enterprise'],
   ];
 
   return (
@@ -364,7 +355,7 @@ export default async function ProductDetailPage({
           <div>
             <div className="flex items-center gap-2">
               <span className="rounded-full bg-secondary/15 px-2.5 py-0.5 text-[10px] font-bold text-secondary uppercase tracking-wider">
-                GOTS & OEKO-TEX Standard
+                RCMC, IEC, GST & Udyam Registered
               </span>
               <span className="text-xs text-foreground/60 font-mono">
                 SKU: {product._id.slice(0, 10).toUpperCase()}
@@ -374,24 +365,6 @@ export default async function ProductDetailPage({
             <h1 className="mt-3 font-serif text-3xl sm:text-4xl font-bold text-primary tracking-tight">
               {product.name}
             </h1>
-
-            {/* Wholesale Price Range Indicator */}
-            <div className="mt-4 rounded-xl border border-accent/40 bg-surface-dark p-4">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-accent block">
-                Wholesale Factory Direct Pricing
-              </span>
-              <div className="font-serif text-2xl sm:text-3xl font-bold text-primary mt-0.5">
-                {product.indicativePriceRangeMin && product.indicativePriceRangeMax
-                  ? `$${product.indicativePriceRangeMin} - $${product.indicativePriceRangeMax}`
-                  : '$1.45 - $2.85'}{' '}
-                <span className="text-sm font-sans font-normal text-foreground/70">
-                  / unit FOB
-                </span>
-              </div>
-              <p className="text-[11px] text-foreground/60 mt-1">
-                Tiered volume discounts apply at 1,000 / 5,000 / 25,000+ units. Sea/Air freight quoted separately.
-              </p>
-            </div>
 
             <p className="mt-5 text-sm leading-relaxed text-foreground/85">
               {safeDescription(product.description)}
