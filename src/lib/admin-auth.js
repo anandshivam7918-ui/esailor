@@ -1,8 +1,8 @@
 import crypto from 'node:crypto';
 
 const SESSION_SECRET = process.env.SESSION_SECRET || 'esailor-super-secret-admin-key-2026';
-const ADMIN_USER = process.env.ADMIN_USER || 'admin';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'esailor2026!';
+const ADMIN_USER = process.env.ADMIN_USER || 'EsailorAdmin';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'Esailor.Xpertnote';
 const SESSION_COOKIE_NAME = 'esailor_admin_session';
 
 /**
@@ -11,7 +11,7 @@ const SESSION_COOKIE_NAME = 'esailor_admin_session';
  * @param {string} role
  * @returns {string} Signed token
  */
-export function createAdminSessionToken(username = 'admin', role = 'admin') {
+export function createAdminSessionToken(username = 'EsailorAdmin', role = 'admin') {
   const payload = {
     username,
     role,

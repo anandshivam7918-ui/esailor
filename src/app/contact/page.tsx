@@ -124,37 +124,16 @@ export default function ContactPage() {
         {/* Right Column: Physical Facility Location & Port Logistics */}
         <div className="space-y-6">
           <div className="rounded-2xl border border-border bg-surface p-6 shadow-sm sm:p-8">
-            <span className="text-3xl">🏭</span>
-            <h2 className="mt-3 text-2xl font-bold text-primary">Manufacturing Facility & Head Office</h2>
+            <span className="text-3xl">🏢</span>
+            <h2 className="mt-3 text-2xl font-bold text-primary">Corporate Export Office</h2>
 
             <div className="mt-5 space-y-4 text-foreground/80">
-              <div>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-accent">
-                  Works & Manufacturing Mill:
-                </h3>
-                <p className="mt-1 text-base">
-                  eSailor Jute Mills & Export Unit
-                  <br />
-                  Hari Abasan Phase 1, Hanapara
-                  <br />
-                  North 24 Parganas, Kolkata, West Bengal, 700101
-                  <br />
-                  India
-                </p>
-              </div>
-
               <div>
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-accent">
                   Corporate Export Office:
                 </h3>
                 <p className="mt-1 text-base">
-                  eSailor Trade House
-                  <br />
-                  Sector V, Salt Lake City
-                  <br />
-                  Kolkata, West Bengal 700091
-                  <br />
-                  India
+                  NH-12 Industrial Corridor, Barasat, North 24 Parganas, West Bengal 700124, India
                 </p>
               </div>
             </div>

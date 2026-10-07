@@ -31,9 +31,9 @@ describe('Phase 11: Admin CMS & Dashboard Functional & Integration Tests', () =>
   // ========================================================
   describe('1. Admin Authentication & Session Management', () => {
     it('verifies valid admin credentials and rejects invalid ones', () => {
-      assert.equal(verifyAdminCredentials('admin', 'esailor2026!'), true);
-      assert.equal(verifyAdminCredentials('admin', 'wrong-pass'), false);
-      assert.equal(verifyAdminCredentials('stranger', 'esailor2026!'), false);
+      assert.equal(verifyAdminCredentials('EsailorAdmin', 'Esailor.Xpertnote'), true);
+      assert.equal(verifyAdminCredentials('EsailorAdmin', 'wrong-pass'), false);
+      assert.equal(verifyAdminCredentials('stranger', 'Esailor.Xpertnote'), false);
       assert.equal(verifyAdminCredentials('', ''), false);
     });
 

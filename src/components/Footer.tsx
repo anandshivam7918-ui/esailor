@@ -56,10 +56,10 @@ export const Footer = () => {
             {/* Industrial Plant Details Box */}
             <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 text-xs space-y-2 max-w-sm backdrop-blur-xs">
               <p className="font-semibold text-white flex items-center gap-1.5">
-                <span className="text-[#D4A373]">🏭</span> Bengal Delta Manufacturing Facility:
+                <span className="text-[#D4A373]">🏢</span> Corporate Export Office:
               </p>
               <p className="text-[#FAF8F5]/70 leading-relaxed text-[11px]">
-                Hari Abasan Phase 1, Hanapara, North 24 Parganas, Kolkata, West Bengal 700101, India
+                NH-12 Industrial Corridor, Barasat, North 24 Parganas, West Bengal 700124, India
               </p>
               <div className="pt-2 border-t border-white/10 text-[10px] text-[#FAF8F5]/60 flex items-center justify-between">
                 <span>IEC: 0219481900</span>

@@ -78,8 +78,8 @@ export function AdminDashboardClient() {
   // Auth State
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [user, setUser] = useState<AdminUser | null>(null);
-  const [usernameInput, setUsernameInput] = useState('admin');
-  const [passwordInput, setPasswordInput] = useState('esailor2026!');
+  const [usernameInput, setUsernameInput] = useState('');
+  const [passwordInput, setPasswordInput] = useState('');
   const [authError, setAuthError] = useState('');
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 
@@ -485,6 +485,7 @@ export function AdminDashboardClient() {
                 type="text"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
+                placeholder="Enter username"
                 required
                 className="w-full px-4 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
               />
@@ -498,6 +499,7 @@ export function AdminDashboardClient() {
                 type="password"
                 value={passwordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
+                placeholder="Enter password"
                 required
                 className="w-full px-4 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
               />
@@ -511,12 +513,6 @@ export function AdminDashboardClient() {
               {isLoggingIn ? 'Authenticating...' : 'Sign In to Dashboard'}
             </button>
           </form>
-
-          <div className="mt-6 pt-6 border-t border-slate-700/60 text-center">
-            <p className="text-xs text-slate-400">
-              Demo Credentials: <span className="text-emerald-400 font-mono">admin</span> / <span className="text-emerald-400 font-mono">esailor2026!</span>
-            </p>
-          </div>
         </div>
       </div>
     );
