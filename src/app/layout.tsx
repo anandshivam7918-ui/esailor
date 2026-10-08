@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { MainSiteWrapper } from "@/components/MainSiteWrapper";
 import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
@@ -27,6 +24,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  icons: {
+    icon: "/images/esailor-logo.png",
+    shortcut: "/images/esailor-logo.png",
+    apple: "/images/esailor-logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -35,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full scroll-smooth antialiased font-sans">
+    <html lang="en" data-scroll-behavior="smooth" className="h-full scroll-smooth antialiased font-sans">
       <head>
         {/* Google Fonts for DM Serif Display and Manrope */}
         <link
@@ -55,9 +57,7 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body className="flex min-h-full flex-col bg-background text-foreground">
-        <Header />
-        <div className="flex-1">{children}</div>
-        <Footer />
+        <MainSiteWrapper>{children}</MainSiteWrapper>
       </body>
     </html>
   );

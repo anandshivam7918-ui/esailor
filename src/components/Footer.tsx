@@ -29,20 +29,20 @@ export const Footer = () => {
           {/* Col 1: Brand & Exporter Identity (4 cols on lg) */}
           <div className="sm:col-span-2 lg:col-span-4 space-y-4">
             {/* Brand Logo */}
-            <Link href="/" className="group inline-flex items-center gap-2.5">
-              <div className="flex items-center justify-center text-[#D4A373] transition-transform group-hover:scale-105">
-                <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
-                  <path d="M7 23C7 23 7 13 17 9C17 9 17 19 7 23Z" fill="#D4A373"/>
-                  <path d="M14 25C14 25 14 17 24 13C24 13 24 21 14 25Z" fill="#A2BAA4"/>
-                  <path d="M7 23C11 20 15 16 17 9" stroke="#122318" strokeWidth="1"/>
-                </svg>
+            <Link href="/" className="group inline-flex items-center gap-3.5" aria-label="eSailor Home Page">
+              <div className="w-[68px] h-[68px] sm:w-[72px] sm:h-[72px] bg-white/95 p-2 rounded-xl shadow-md border border-white/20 flex items-center justify-center shrink-0 transition-transform group-hover:scale-105">
+                <img
+                  src="/images/esailor-logo.png"
+                  alt="eSailor Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-2xl font-bold tracking-tight text-white leading-none">
-                  JuteCraft
+                  eSailor
                 </span>
-                <span className="text-[8px] font-bold tracking-[0.24em] uppercase text-[#D4A373] mt-1">
-                  NATURAL | DURABLE | SUSTAINABLE
+                <span className="text-[8px] font-bold tracking-[0.24em] uppercase text-[#D4A373] mt-1.5">
+                  NAVIGATING GLOBAL TRADE
                 </span>
               </div>
             </Link>
@@ -67,50 +67,57 @@ export const Footer = () => {
               </div>
             </div>
 
-            {/* Social Media Icons */}
+            {/* Social Media Icons with Exact Destinations */}
             <div className="flex items-center gap-3 pt-1">
+              {/* 1. Instagram */}
               <a
-                href="https://linkedin.com"
+                href="https://www.instagram.com/p/DdjNLojGVG3/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[#D4A373] hover:bg-[#D4A373] hover:text-[#122318] transition-colors"
-              >
-                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                </svg>
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter / X"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[#D4A373] hover:bg-[#D4A373] hover:text-[#122318] transition-colors"
-              >
-                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[#D4A373] hover:bg-[#D4A373] hover:text-[#122318] transition-colors"
+                aria-label="Visit eSailor on Instagram"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[#D4A373] hover:bg-[#D4A373] hover:text-[#122318] transition-colors duration-200"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
               </a>
+
+              {/* 2. Facebook */}
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/p/1JeDj2nH2m/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[#D4A373] hover:bg-[#D4A373] hover:text-[#122318] transition-colors"
+                aria-label="Visit eSailor on Facebook"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[#D4A373] hover:bg-[#D4A373] hover:text-[#122318] transition-colors duration-200"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                   <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.808C10.592 0 9 1.583 9 4.615V8z"/>
+                </svg>
+              </a>
+
+              {/* 3. YouTube */}
+              <a
+                href="http://youtube.com/post/UgkxD8Hqf3VLNsqkRsePpEq5_A82bXu_WwbG?si=bPQrTCFPB-IM23Sr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit eSailor on YouTube"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[#D4A373] hover:bg-[#D4A373] hover:text-[#122318] transition-colors duration-200"
+              >
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+
+              {/* 4. LinkedIn */}
+              <a
+                href="https://www.linkedin.com/feed/update/urn:li:activity:7507783767982440448"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit eSailor on LinkedIn"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[#D4A373] hover:bg-[#D4A373] hover:text-[#122318] transition-colors duration-200"
+              >
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
                 </svg>
               </a>
             </div>
@@ -310,9 +317,9 @@ export const Footer = () => {
           
           {/* Left Copyright */}
           <div className="text-center md:text-left text-[11px]">
-            <span>© {new Date().getFullYear()} JuteCraft. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} eSailor.in. All rights reserved.</span>
             <span className="mx-2 text-white/20">•</span>
-            <span>A unit of eSailor.in</span>
+            <span>Navigating Global Trade</span>
           </div>
 
           {/* Center Links */}

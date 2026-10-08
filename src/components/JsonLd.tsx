@@ -10,7 +10,7 @@ export function JsonLd() {
         name: 'eSailor.in',
         legalName: 'eSailor Bags India Private Limited',
         url: 'https://esailor.in',
-        logo: 'https://esailor.in/images/logo.png',
+        logo: 'https://esailor.in/images/esailor-logo.png',
         description:
           'Direct manufacturer and international exporter of eco-friendly jute bags, tote bags, shopping bags, and industrial burlap packaging. Registered with RCMC, IEC, GST, and Udyam.',
         address: {

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, redirect, RedirectType } from 'next/navigation';
 import { sanityClient, urlFor } from '@/lib/sanity';
-import { getProductById, getProducts } from '@/lib/admin-store';
+import { getProductById, getProducts, resolveRedirectSlug } from '@/lib/admin-store';
 
 interface SanityImageRef {
   asset?: {
@@ -78,7 +78,13 @@ const getCuratedFallbackImages = (categoryName?: string) => {
   ];
 };
 
-async function fetchProduct(slug: string): Promise<ProductDetailData | null> {
+async function fetchProduct(slug: string): Promise<{ product: ProductDetailData | null; redirectedSlug?: string }> {
+  // Check slug history for automatic redirects
+  const redirected = await resolveRedirectSlug(slug);
+  if (redirected) {
+    return { product: null, redirectedSlug: redirected };
+  }
+
   // 1. Try Sanity
   try {
     const data = await sanityClient.fetch<ProductDetailData | null>(
@@ -102,68 +108,41 @@ async function fetchProduct(slug: string): Promise<ProductDetailData | null> {
       }`,
       { slug }
     );
-    if (data) return data;
+    if (data) return { product: data };
   } catch (err) {
     // Sanity offline / unconfigured
   }
 
-  // 2. Fallback to local admin store
+  // 2. Fallback to single source of truth admin store
   try {
     const local = await getProductById(slug);
-    if (local) {
+    if (local && (local.status === 'Published' || local.isActive !== false)) {
       return {
-        _id: local._id,
-        name: local.name,
-        slug: typeof local.slug === 'string' ? { current: local.slug } : local.slug || { current: slug },
-        description: local.description,
-        materialComposition: local.materialComposition,
-        gsmWeight: local.gsmWeight,
-        dimensions: local.dimensions,
-        colorOptions: local.colorOptions,
-        printOptions: local.printOptions,
-        handleType: local.handleType,
-        moq: local.moq,
-        indicativePriceRangeMin: local.indicativePriceRangeMin,
-        indicativePriceRangeMax: local.indicativePriceRangeMax,
-        currency: local.currency || 'USD',
-        category: typeof local.category === 'object' ? local.category : { _id: 'cat-1', name: 'Jute Bags', slug: { current: 'jute-bags' } },
-        images: Array.isArray(local.images) ? local.images : [],
-      };
-    }
-
-    // Relaxed search across all local products
-    const all = await getProducts();
-    const match = all.find(
-      (p: any) =>
-        p.slug?.current === slug ||
-        p._id === slug ||
-        p.name?.toLowerCase().replace(/\s+/g, '-') === slug.toLowerCase()
-    );
-    if (match) {
-      return {
-        _id: match._id,
-        name: match.name,
-        slug: typeof match.slug === 'string' ? { current: match.slug } : match.slug || { current: slug },
-        description: match.description,
-        materialComposition: match.materialComposition,
-        gsmWeight: match.gsmWeight,
-        dimensions: match.dimensions,
-        colorOptions: match.colorOptions,
-        printOptions: match.printOptions,
-        handleType: match.handleType,
-        moq: match.moq,
-        indicativePriceRangeMin: match.indicativePriceRangeMin,
-        indicativePriceRangeMax: match.indicativePriceRangeMax,
-        currency: match.currency || 'USD',
-        category: typeof match.category === 'object' ? match.category : { _id: 'cat-1', name: 'Jute Bags', slug: { current: 'jute-bags' } },
-        images: Array.isArray(match.images) ? match.images : [],
+        product: {
+          _id: local._id,
+          name: local.name,
+          slug: typeof local.slug === 'string' ? { current: local.slug } : local.slug || { current: slug },
+          description: local.description,
+          materialComposition: local.materialComposition,
+          gsmWeight: local.gsmWeight,
+          dimensions: local.dimensions,
+          colorOptions: local.colorOptions,
+          printOptions: local.printOptions,
+          handleType: local.handleType,
+          moq: local.moq,
+          indicativePriceRangeMin: local.indicativePriceRangeMin,
+          indicativePriceRangeMax: local.indicativePriceRangeMax,
+          currency: local.currency || 'USD',
+          category: typeof local.category === 'object' ? local.category : { _id: 'cat-1', name: 'Jute Bags', slug: { current: 'jute-bags' } },
+          images: Array.isArray(local.images) ? local.images : [],
+        },
       };
     }
   } catch (err) {
     // Store read failure
   }
 
-  return null;
+  return { product: null };
 }
 
 export async function generateMetadata({
@@ -172,7 +151,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }> | { slug: string };
 }): Promise<Metadata> {
   const { slug } = await Promise.resolve(params);
-  const product = await fetchProduct(slug);
+  const { product } = await fetchProduct(slug);
 
   if (!product) {
     return {
@@ -203,7 +182,11 @@ export default async function ProductDetailPage({
     notFound();
   }
 
-  const product = await fetchProduct(slug);
+  const { product, redirectedSlug } = await fetchProduct(slug);
+
+  if (redirectedSlug) {
+    redirect(`/product/${redirectedSlug}`, RedirectType.replace);
+  }
 
   if (!product) {
     notFound();

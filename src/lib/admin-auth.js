@@ -105,5 +105,10 @@ export function getAdminSessionFromRequest(request) {
   return { valid: false, error: 'Unauthenticated: No admin session found' };
 }
 
+export function getAdminSession(request) {
+  const result = getAdminSessionFromRequest(request);
+  return result.valid ? result.user : null;
+}
+
 export { SESSION_COOKIE_NAME, ADMIN_USER, ADMIN_PASSWORD };
 

@@ -159,6 +159,20 @@ export async function persistQuoteRequest(data) {
       existingRecords.unshift(localRecord);
       await fs.writeFile(filePath, JSON.stringify(existingRecords, null, 2), 'utf-8');
 
+      try {
+        const { createAuditLog, invalidateWebsiteCache } = await import('./admin-store.js');
+        await createAuditLog({
+          user: `${data.buyerName} (Public Website)`,
+          action: 'SUBMIT_PUBLIC_ENQUIRY',
+          entity: 'Enquiry',
+          entityId: quoteRefId,
+          newValue: { company: data.companyName, product: data.product, qty: data.quantity, country: data.country },
+        });
+        invalidateWebsiteCache(['/admin']);
+      } catch {
+        // ignore
+      }
+
       return {
         id: quoteRefId,
         persistedTo: 'local',

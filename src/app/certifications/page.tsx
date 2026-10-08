@@ -186,7 +186,7 @@ export default async function CertificationsPage() {
                 >
                   <div>
                     {/* Badge / Icon */}
-                    <div className="mb-5 flex h-32 w-full items-center justify-center rounded-xl bg-surface-muted p-4">
+                    <div className="mb-5 flex h-28 w-full items-center justify-center rounded-xl bg-[#FAF8F5] border border-[#E0DACF] p-4">
                       {imageUrl ? (
                         <img
                           src={imageUrl}
@@ -194,10 +194,10 @@ export default async function CertificationsPage() {
                           className="max-h-full max-w-full object-contain"
                         />
                       ) : (
-                        <div className="flex flex-col items-center justify-center text-center">
-                          <span className="text-4xl">🏅</span>
-                          <span className="mt-2 text-xs font-semibold uppercase tracking-wider text-primary/70">
-                            {cert.issuingBody}
+                        <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-[#1C3224] bg-white text-[#1C3224] font-bold text-sm tracking-tight shadow-xs">
+                          <span>{cert.code || cert.name.split(' ')[0]}</span>
+                          <span className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#1C3224] text-white text-[10px] font-bold">
+                            ✓
                           </span>
                         </div>
                       )}

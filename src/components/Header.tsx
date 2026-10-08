@@ -47,22 +47,12 @@ export const Header = () => {
           <div className="flex items-center justify-between py-3.5 sm:py-4 gap-4 sm:gap-6 min-h-[64px]">
 
             {/* Brand Logo */}
-            <Link href="/" className="group flex items-center gap-2 sm:gap-2.5 shrink-0">
-              <div className="flex items-center justify-center text-[#24402F] transition-transform group-hover:scale-105">
-                <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 32 32" fill="none">
-                  <path d="M7 23C7 23 7 13 17 9C17 9 17 19 7 23Z" fill="#1C3224" />
-                  <path d="M14 25C14 25 14 17 24 13C24 13 24 21 14 25Z" fill="#4B6A45" />
-                  <path d="M7 23C11 20 15 16 17 9" stroke="#EFEBE3" strokeWidth="1" />
-                </svg>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#1C1917] leading-none">
-                  Esailor
-                </span>
-                <span className="text-[7px] sm:text-[8px] font-bold tracking-[0.2em] sm:tracking-[0.22em] uppercase text-[#7A7369] mt-0.5 sm:mt-1">
-                  NATURAL. DURABLE. GLOBAL.
-                </span>
-              </div>
+            <Link href="/" className="group flex items-center shrink-0 my-auto transition-transform group-hover:scale-105" aria-label="eSailor Home Page">
+              <img
+                src="/images/esailor-logo.png"
+                alt="eSailor - Navigating Global Trade"
+                className="w-[82px] sm:w-[92px] lg:w-[105px] h-auto max-h-[50px] sm:max-h-[54px] object-contain"
+              />
             </Link>
 
             {/* Desktop Navigation Links (Visible on XL screens 1280px+) */}

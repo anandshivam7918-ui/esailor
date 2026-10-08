@@ -1,0 +1,92 @@
+{
+  "hero": {
+    "title": "Certified B2B Jute Bag Manufacturer & Global Exporter",
+    "subtitle": "Direct manufacturing of premium eco-friendly jute totes, burlap sacks & promotional packaging with RCMC, IEC & GST compliance.",
+    "ctaPrimaryText": "Request Wholesale Quote",
+    "ctaPrimaryLink": "/quote-request",
+    "ctaSecondaryText": "Browse Catalog",
+    "ctaSecondaryLink": "/catalog",
+    "heroImageUrl": "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?q=80&w=1200&auto=format&fit=crop"
+  },
+  "stats": [
+    {
+      "label": "Countries Served",
+      "value": "50+",
+      "icon": "Globe"
+    },
+    {
+      "label": "Years Experience",
+      "value": "15+",
+      "icon": "Award"
+    },
+    {
+      "label": "Bags / Month Capacity",
+      "value": "2M+",
+      "icon": "Factory"
+    },
+    {
+      "label": "Government Registrations",
+      "value": "4",
+      "icon": "ShieldCheck"
+    }
+  ],
+  "manufacturingStages": [
+    {
+      "step": "01",
+      "title": "Raw Jute Sourcing",
+      "description": "Procuring 100% biodegradable golden jute fibre from verified West Bengal farms."
+    },
+    {
+      "step": "02",
+      "title": "Fibre Preparation & Softening",
+      "description": "Batching and emulsifying raw fibres for uniform tensile strength."
+    },
+    {
+      "step": "03",
+      "title": "Yarn Spinning & Winding",
+      "description": "Precision spinning into high-count jute yarn spools."
+    },
+    {
+      "step": "04",
+      "title": "Weaving & Lamination",
+      "description": "High-speed loom weaving with optional bio-PLA internal waterproofing."
+    },
+    {
+      "step": "05",
+      "title": "Precision Cutting & Printing",
+      "description": "Azo-free eco dye screen printing and automated laser cutting."
+    },
+    {
+      "step": "06",
+      "title": "Stitching & Quality Inspection",
+      "description": "Reinforced Box-X handle stitching with dual metal-detector scanning."
+    }
+  ],
+  "globalReach": [
+    {
+      "country": "Germany",
+      "region": "Europe",
+      "status": "Active"
+    },
+    {
+      "country": "United States",
+      "region": "North America",
+      "status": "Active"
+    },
+    {
+      "country": "United Kingdom",
+      "region": "Europe",
+      "status": "Active"
+    },
+    {
+      "country": "United Arab Emirates",
+      "region": "Middle East",
+      "status": "Active"
+    },
+    {
+      "country": "Australia",
+      "region": "Oceania",
+      "status": "Active"
+    }
+  ]
+}

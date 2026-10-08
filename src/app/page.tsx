@@ -1,3 +1,4 @@
+import React from 'react';
 import { Hero } from '@/components/Hero';
 import { TrustBar } from '@/components/TrustBar';
 import { FeaturedCategories } from '@/components/FeaturedCategories';
@@ -5,8 +6,22 @@ import { ProcessTeaser } from '@/components/ProcessTeaser';
 import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { PopularProducts } from '@/components/PopularProducts';
 import Link from 'next/link';
+import { getSiteContent } from '@/lib/admin-store';
 
-export default function Home() {
+export default async function Home() {
+  let siteContent;
+  try {
+    siteContent = await getSiteContent();
+  } catch {
+    siteContent = null;
+  }
+
+  const stats = siteContent?.stats || [
+    { label: 'Countries Served', value: '50+' },
+    { label: 'Years Experience', value: '15+' },
+    { label: 'Bags / Month Capacity', value: '2M+' },
+  ];
+
   return (
     <main className="min-h-screen bg-[#FAF7F2]">
       {/* 1. Hero */}
@@ -40,7 +55,6 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-
             {/* Left Headline */}
             <div>
               <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#A2BAA4] block mb-1">
@@ -51,31 +65,24 @@ export default function Home() {
               </h2>
             </div>
 
-            {/* Right: 3 Stats with vertical dividers */}
+            {/* Right: Dynamic Stats from Admin Store */}
             <div className="flex items-center gap-6 sm:gap-10">
-              <div className="text-left">
-                <p className="font-serif text-2xl sm:text-3xl font-normal text-white leading-none">50+</p>
-                <p className="text-[11px] text-[#A2BAA4] mt-1">Countries Served</p>
-              </div>
-              <div className="h-9 border-r border-white/20" />
-              <div className="text-left">
-                <p className="font-serif text-2xl sm:text-3xl font-normal text-white leading-none">15+</p>
-                <p className="text-[11px] text-[#A2BAA4] mt-1">Years Experience</p>
-              </div>
-              <div className="h-9 border-r border-white/20" />
-              <div className="text-left">
-                <p className="font-serif text-2xl sm:text-3xl font-normal text-white leading-none">2M+</p>
-                <p className="text-[11px] text-[#A2BAA4] mt-1">Bags / Month Capacity</p>
-              </div>
+              {stats.slice(0, 3).map((st: any, idx: number) => (
+                <React.Fragment key={st.label || idx}>
+                  <div className="text-left">
+                    <p className="font-serif text-2xl sm:text-3xl font-normal text-white leading-none">{st.value}</p>
+                    <p className="text-[11px] text-[#A2BAA4] mt-1">{st.label}</p>
+                  </div>
+                  {idx < 2 && <div className="h-9 border-r border-white/20" />}
+                </React.Fragment>
+              ))}
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* 8. Ready to Discuss Your Requirements? CTA Strip */}
+      {/* 8. CTA Strip */}
       <section className="relative overflow-hidden bg-[#181411] text-white py-14 sm:py-20 border-b border-black/20">
-        {/* Dark natural jute texture background */}
         <div 
           className="absolute inset-0 opacity-40 mix-blend-multiply bg-cover bg-center pointer-events-none"
           style={{ backgroundImage: `url('/images/jute-texture-banner.jpg')` }}
