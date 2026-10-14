@@ -7,6 +7,10 @@
       "_type": "slug",
       "current": "natural-jute-tote-bag"
     },
+    "aliases": [
+      "classic-jute-tote",
+      "jute-shopping-bag"
+    ],
     "category": {
       "_ref": "cat-tote-bags",
       "_id": "cat-tote-bags",
@@ -35,7 +39,7 @@
     "currency": "USD",
     "images": [
       {
-        "url": "/images/products/jute-tote-hero.webp",
+        "url": "/images/products/jute-tote-studio.jpg",
         "alt": "Natural Jute Tote Bag"
       }
     ],
@@ -50,6 +54,9 @@
       "_type": "slug",
       "current": "gusseted-supermarket-shopper"
     },
+    "aliases": [
+      "jute-supermarket-shopper"
+    ],
     "category": {
       "_ref": "cat-shopping-bags",
       "_id": "cat-shopping-bags",
@@ -78,7 +85,7 @@
     "currency": "USD",
     "images": [
       {
-        "url": "/images/products/jute-tote-hero.webp",
+        "url": "/images/products/jute-tote-studio.jpg",
         "alt": "Heavy-Duty Gusseted Supermarket Shopper"
       }
     ],
@@ -93,6 +100,9 @@
       "_type": "slug",
       "current": "printed-jute-promotional-bag"
     },
+    "aliases": [
+      "printed-designer-tote"
+    ],
     "category": {
       "_ref": "cat-promotional-bags",
       "_id": "cat-promotional-bags",
@@ -121,7 +131,7 @@
     "currency": "USD",
     "images": [
       {
-        "url": "/images/products/jute-tote-hero.webp",
+        "url": "/images/products/printed-designer-tote.jpg",
         "alt": "Custom Printed Promotional Jute Bag"
       }
     ],
@@ -136,6 +146,10 @@
       "_type": "slug",
       "current": "luxury-jute-wine-gift-bag"
     },
+    "aliases": [
+      "wine-bottle-carrier",
+      "wine-bottle-bag"
+    ],
     "category": {
       "_ref": "cat-luxury-bags",
       "_id": "cat-luxury-bags",
@@ -164,7 +178,7 @@
     "currency": "USD",
     "images": [
       {
-        "url": "/images/products/jute-tote-hero.webp",
+        "url": "/images/products/wine-bottle-carrier.jpg",
         "alt": "Luxury Jute Wine & Gifting Bag"
       }
     ],
@@ -179,6 +193,10 @@
       "_type": "slug",
       "current": "juco-fine-weave-canvas-tote"
     },
+    "aliases": [
+      "juco-fashion-shopper",
+      "promotional-bag"
+    ],
     "category": {
       "_ref": "cat-tote-bags",
       "_id": "cat-tote-bags",
@@ -207,7 +225,7 @@
     "currency": "USD",
     "images": [
       {
-        "url": "/images/products/jute-tote-hero.webp",
+        "url": "/images/products/juco-fashion-shopper.jpg",
         "alt": "Juco Fine Weave Canvas Tote"
       }
     ],
@@ -249,7 +267,7 @@
     "currency": "USD",
     "images": [
       {
-        "url": "/images/products/jute-tote-hero.webp",
+        "url": "/images/products/jute-tote-studio.jpg",
         "alt": "Laminated Water-Resistant Jute Beach Bag"
       }
     ],
@@ -264,6 +282,9 @@
       "_type": "slug",
       "current": "drawstring-eco-gift-pouch"
     },
+    "aliases": [
+      "jute-drawstring-bag"
+    ],
     "category": {
       "_ref": "cat-promotional-bags",
       "_id": "cat-promotional-bags",
@@ -291,7 +312,7 @@
     "currency": "USD",
     "images": [
       {
-        "url": "/images/products/jute-tote-hero.webp",
+        "url": "/images/products/juco-fashion-shopper.jpg",
         "alt": "Drawstring Eco Gift & Sachet Pouch"
       }
     ],
@@ -306,6 +327,10 @@
       "_type": "slug",
       "current": "heavy-industrial-burlap-sacks"
     },
+    "aliases": [
+      "agro-burlap-sack",
+      "industrial-burlap-sack"
+    ],
     "category": {
       "_ref": "cat-jute-bags",
       "_id": "cat-jute-bags",
@@ -331,7 +356,7 @@
     "currency": "USD",
     "images": [
       {
-        "url": "/images/products/jute-tote-hero.webp",
+        "url": "/images/products/agro-burlap-sack.jpg",
         "alt": "Heavy Industrial Burlap Hessian Sacks"
       }
     ],
@@ -371,7 +396,7 @@
     "currency": "USD",
     "images": [
       {
-        "url": "/images/products/jute-tote-hero.webp",
+        "url": "/images/products/printed-designer-tote.jpg",
         "alt": "Organic Cotton & Jute Exhibition Bag"
       }
     ],
@@ -413,7 +438,7 @@
     "currency": "USD",
     "images": [
       {
-        "url": "/images/products/jute-tote-hero.webp",
+        "url": "/images/products/juco-fashion-shopper.jpg",
         "alt": "Executive Conference & Seminar Jute Portfolio"
       }
     ],

@@ -71,7 +71,7 @@ export const Footer = () => {
             <div className="flex items-center gap-3 pt-1">
               {/* 1. Instagram */}
               <a
-                href="https://www.instagram.com/p/DdjNLojGVG3/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+                href="https://www.instagram.com/esailorofficial/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit eSailor on Instagram"
@@ -84,7 +84,7 @@ export const Footer = () => {
 
               {/* 2. Facebook */}
               <a
-                href="https://www.facebook.com/share/p/1JeDj2nH2m/"
+                href="https://www.facebook.com/esailor.in/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit eSailor on Facebook"
@@ -97,7 +97,7 @@ export const Footer = () => {
 
               {/* 3. YouTube */}
               <a
-                href="http://youtube.com/post/UgkxD8Hqf3VLNsqkRsePpEq5_A82bXu_WwbG?si=bPQrTCFPB-IM23Sr"
+                href="https://www.youtube.com/@ESailorOfficial"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit eSailor on YouTube"
@@ -110,7 +110,7 @@ export const Footer = () => {
 
               {/* 4. LinkedIn */}
               <a
-                href="https://www.linkedin.com/feed/update/urn:li:activity:7507783767982440448"
+                href="https://www.linkedin.com/company/https-esailor.in-"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit eSailor on LinkedIn"

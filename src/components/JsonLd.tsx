@@ -29,6 +29,12 @@ export function JsonLd() {
           areaServed: 'Worldwide',
           availableLanguage: ['English', 'German', 'French', 'Spanish'],
         },
+        sameAs: [
+          'https://www.instagram.com/esailorofficial/',
+          'https://www.facebook.com/esailor.in/',
+          'https://www.linkedin.com/company/https-esailor.in-',
+          'https://www.youtube.com/@ESailorOfficial',
+        ],
       },
       {
         '@type': 'WebSite',

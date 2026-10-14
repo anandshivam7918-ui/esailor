@@ -15,7 +15,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function CatalogPage() {
+export default async function CatalogPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ category?: string }> | { category?: string };
+}) {
+  const resolvedSearchParams = searchParams ? await Promise.resolve(searchParams) : {};
+  const initialCategory = resolvedSearchParams?.category || '';
+
   let categories: any[] = [];
   let products: any[] = [];
 
@@ -55,5 +62,5 @@ export default async function CatalogPage() {
     products = await getProducts();
   }
 
-  return <CatalogPageClient categories={categories} products={products} />;
+  return <CatalogPageClient categories={categories} products={products} initialCategory={initialCategory} />;
 }

@@ -41,6 +41,7 @@ export type CatalogProduct = {
 type CatalogPageClientProps = {
   categories: CatalogCategory[];
   products: CatalogProduct[];
+  initialCategory?: string;
 };
 
 const getProductDescription = (desc: any): string => {
@@ -69,7 +70,7 @@ const getProductSlug = (product: any): string => {
 const getProductImage = (product: CatalogProduct) => {
   const firstImage = product.images?.[0];
 
-  if (firstImage && (firstImage as any).url && !(firstImage as any).url.startsWith('/images/products')) {
+  if (firstImage && (firstImage as any).url && !(firstImage as any).url.includes('jute-tote-hero.webp')) {
     return (firstImage as any).url;
   }
 
@@ -81,24 +82,36 @@ const getProductImage = (product: CatalogProduct) => {
 
   const name = (product.name || '').toLowerCase();
   const cat = (product.category?.name || '').toLowerCase();
+  const slug = getProductSlug(product).toLowerCase();
 
-  if (name.includes('wine') || name.includes('bottle') || cat.includes('wine')) {
+  if (name.includes('wine') || name.includes('bottle') || cat.includes('wine') || slug.includes('wine')) {
     return '/images/products/wine-bottle-carrier.jpg';
   }
-  if (name.includes('burlap') || name.includes('sack') || cat.includes('burlap')) {
+  if (name.includes('burlap') || name.includes('sack') || cat.includes('burlap') || slug.includes('burlap') || slug.includes('agro')) {
     return '/images/products/agro-burlap-sack.jpg';
   }
-  if (name.includes('print') || name.includes('floral') || name.includes('botanical') || name.includes('custom')) {
+  if (name.includes('print') || name.includes('floral') || name.includes('botanical') || name.includes('custom') || slug.includes('print')) {
     return '/images/products/printed-designer-tote.jpg';
   }
-  if (name.includes('canvas') || name.includes('juco') || name.includes('shopper')) {
+  if (name.includes('canvas') || name.includes('juco') || name.includes('shopper') || slug.includes('juco')) {
     return '/images/products/juco-fashion-shopper.jpg';
   }
   return '/images/products/jute-tote-studio.jpg';
 };
 
-export function CatalogPageClient({ categories, products }: CatalogPageClientProps) {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+export function CatalogPageClient({ categories, products, initialCategory }: CatalogPageClientProps) {
+  const [selectedCategory, setSelectedCategory] = useState(() => {
+    if (!initialCategory || initialCategory === 'all') return 'all';
+    const cleanInit = initialCategory.toLowerCase().trim();
+    const match = categories.find((c) => {
+      if (c._id && c._id.toLowerCase() === cleanInit) return true;
+      if (c.slug?.current && c.slug.current.toLowerCase() === cleanInit) return true;
+      if (c.name && c.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === cleanInit) return true;
+      if (c.slug?.current && cleanInit.includes(c.slug.current.toLowerCase())) return true;
+      return false;
+    });
+    return match ? match._id : 'all';
+  });
   const [selectedMaterial, setSelectedMaterial] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);

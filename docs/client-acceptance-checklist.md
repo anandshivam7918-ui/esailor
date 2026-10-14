@@ -22,7 +22,7 @@
 - [x] Every product contains accurate GSM weight, box dimensions, MOQ, indicative FOB price range in USD, and handle specifications.
 - [x] All 5 major categories populated: *Jute Bags*, *Tote Bags*, *Shopping Bags*, *Promotional Bags*, *Luxury Bags*.
 
-### Criterion 2: Business Registration Visibility
+### Criterion 2: Verified Certification Compliance (Business Registration Visibility)
 - [x] **JPDEPC – RCMC:** Registration-cum-Membership Certificate.
 - [x] **IEC:** Importer Exporter Code.
 - [x] **GST:** GST Registered.

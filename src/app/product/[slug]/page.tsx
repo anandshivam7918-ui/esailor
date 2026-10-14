@@ -51,21 +51,27 @@ const safeDescription = (desc: any): string => {
   return String(desc);
 };
 
-const getCuratedFallbackImages = (categoryName?: string) => {
-  const cat = (categoryName || '').toLowerCase();
-  if (cat.includes('wine') || cat.includes('bottle')) {
+const getCuratedFallbackImages = (productName?: string, categoryName?: string, slug?: string) => {
+  const query = `${productName || ''} ${categoryName || ''} ${slug || ''}`.toLowerCase();
+  if (query.includes('wine') || query.includes('bottle')) {
     return [
       '/images/products/wine-bottle-carrier.jpg',
       '/images/products/jute-tote-studio.jpg',
     ];
   }
-  if (cat.includes('burlap') || cat.includes('sack') || cat.includes('industrial')) {
+  if (query.includes('burlap') || query.includes('sack') || query.includes('industrial') || query.includes('agro')) {
     return [
       '/images/products/agro-burlap-sack.jpg',
       '/images/products/jute-tote-studio.jpg',
     ];
   }
-  if (cat.includes('canvas') || cat.includes('tote') || cat.includes('promo')) {
+  if (query.includes('print') || query.includes('designer') || query.includes('exhibition') || query.includes('botanical')) {
+    return [
+      '/images/products/printed-designer-tote.jpg',
+      '/images/products/juco-fashion-shopper.jpg',
+    ];
+  }
+  if (query.includes('canvas') || query.includes('juco') || query.includes('shopper') || query.includes('promo') || query.includes('pouch') || query.includes('drawstring')) {
     return [
       '/images/products/juco-fashion-shopper.jpg',
       '/images/products/printed-designer-tote.jpg',
@@ -73,16 +79,68 @@ const getCuratedFallbackImages = (categoryName?: string) => {
   }
   return [
     '/images/products/jute-tote-studio.jpg',
-    '/images/hero-jute-tote.jpg',
     '/images/products/juco-fashion-shopper.jpg',
   ];
 };
 
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  try {
+    const products = await getProducts(true);
+    const paramsMap = new Map<string, { slug: string }>();
+
+    for (const p of products) {
+      const s = typeof p.slug === 'string' ? p.slug : p.slug?.current;
+      if (s) {
+        paramsMap.set(s, { slug: s });
+      }
+    }
+
+    const aliases = [
+      'agro-burlap-sack',
+      'classic-jute-tote',
+      'wine-bottle-carrier',
+      'printed-designer-tote',
+      'juco-fashion-shopper',
+      'heavy-industrial-burlap-sacks',
+      'natural-jute-tote-bag',
+      'luxury-jute-wine-gift-bag',
+      'printed-jute-promotional-bag',
+      'juco-fine-weave-canvas-tote',
+    ];
+    for (const a of aliases) {
+      paramsMap.set(a, { slug: a });
+    }
+
+    return Array.from(paramsMap.values());
+  } catch {
+    return [
+      { slug: 'agro-burlap-sack' },
+      { slug: 'classic-jute-tote' },
+      { slug: 'wine-bottle-carrier' },
+      { slug: 'printed-designer-tote' },
+      { slug: 'juco-fashion-shopper' },
+      { slug: 'heavy-industrial-burlap-sacks' },
+      { slug: 'natural-jute-tote-bag' },
+      { slug: 'luxury-jute-wine-gift-bag' },
+      { slug: 'printed-jute-promotional-bag' },
+      { slug: 'juco-fine-weave-canvas-tote' },
+    ];
+  }
+}
+
 async function fetchProduct(slug: string): Promise<{ product: ProductDetailData | null; redirectedSlug?: string }> {
+  if (!slug) return { product: null };
+
   // Check slug history for automatic redirects
-  const redirected = await resolveRedirectSlug(slug);
-  if (redirected) {
-    return { product: null, redirectedSlug: redirected };
+  try {
+    const redirected = await resolveRedirectSlug(slug);
+    if (redirected && redirected !== slug) {
+      return { product: null, redirectedSlug: redirected };
+    }
+  } catch {
+    // Redirect table read failure handled gracefully
   }
 
   // 1. Try Sanity
@@ -150,25 +208,32 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }> | { slug: string };
 }): Promise<Metadata> {
-  const { slug } = await Promise.resolve(params);
-  const { product } = await fetchProduct(slug);
+  try {
+    const { slug } = await Promise.resolve(params);
+    const { product } = await fetchProduct(slug);
 
-  if (!product) {
+    if (!product) {
+      return {
+        title: 'Product Details | eSailor.in',
+        description: 'Explore certified export-grade jute packaging bags from eSailor.in.',
+      };
+    }
+
+    return {
+      title: `${product.name} | B2B Wholesale Exporter | eSailor.in`,
+      description: `Export-grade ${product.name} (${product.materialComposition || '100% Eco Jute'}). Certified wholesale manufacturing with custom branding and international freight.`,
+      openGraph: {
+        title: `${product.name} | eSailor.in Wholesale`,
+        description: `Factory-direct pricing on ${product.name}. Inquire for custom volume quotes.`,
+        url: `https://esailor.in/product/${slug}`,
+      },
+    };
+  } catch {
     return {
       title: 'Product Catalog | eSailor.in',
       description: 'Explore certified export-grade jute packaging bags from eSailor.in.',
     };
   }
-
-  return {
-    title: `${product.name} | B2B Wholesale Exporter | eSailor.in`,
-    description: `Export-grade ${product.name} (${product.materialComposition || '100% Eco Jute'}). Certified wholesale manufacturing with custom branding and international freight.`,
-    openGraph: {
-      title: `${product.name} | eSailor.in Wholesale`,
-      description: `Factory-direct pricing on ${product.name}. Inquire for custom volume quotes.`,
-      url: `https://esailor.in/product/${slug}`,
-    },
-  };
 }
 
 export default async function ProductDetailPage({
@@ -196,11 +261,11 @@ export default async function ProductDetailPage({
   let resolvedImages: string[] = [];
   if (product.images && product.images.length > 0) {
     product.images.forEach((img: any) => {
-      if (typeof img === 'string') {
+      if (typeof img === 'string' && img.trim()) {
         resolvedImages.push(img);
-      } else if (img.url && !img.url.startsWith('/images/products')) {
+      } else if (img?.url && typeof img.url === 'string') {
         resolvedImages.push(img.url);
-      } else if (img.asset?._ref) {
+      } else if (img?.asset?._ref) {
         try {
           resolvedImages.push(urlFor(img).width(800).height(600).url());
         } catch {
@@ -213,7 +278,7 @@ export default async function ProductDetailPage({
   }
 
   if (resolvedImages.length === 0) {
-    resolvedImages = getCuratedFallbackImages(product.category?.name);
+    resolvedImages = getCuratedFallbackImages(product.name, product.category?.name, slug);
   }
 
   const specs: [string, string][] = [

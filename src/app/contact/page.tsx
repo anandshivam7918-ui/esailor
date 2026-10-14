@@ -103,6 +103,48 @@ export default function ContactPage() {
             </div>
           </div>
 
+          {/* Social Media Channels Card */}
+          <div className="rounded-2xl border border-border bg-surface p-6 shadow-sm">
+            <h3 className="text-lg font-bold text-primary">Official Social Media Channels</h3>
+            <p className="mt-2 text-sm text-foreground/75">
+              Follow our production updates, factory tours, and global export dispatches:
+            </p>
+            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <a
+                href="https://www.instagram.com/esailorofficial/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-xl border border-border bg-surface-muted/60 p-3 text-xs font-semibold text-foreground/85 transition hover:border-[#D4A373] hover:text-[#C17F42]"
+              >
+                <span>Instagram</span>
+              </a>
+              <a
+                href="https://www.facebook.com/esailor.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-xl border border-border bg-surface-muted/60 p-3 text-xs font-semibold text-foreground/85 transition hover:border-[#D4A373] hover:text-[#C17F42]"
+              >
+                <span>Facebook</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/https-esailor.in-"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-xl border border-border bg-surface-muted/60 p-3 text-xs font-semibold text-foreground/85 transition hover:border-[#D4A373] hover:text-[#C17F42]"
+              >
+                <span>LinkedIn</span>
+              </a>
+              <a
+                href="https://www.youtube.com/@ESailorOfficial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-xl border border-border bg-surface-muted/60 p-3 text-xs font-semibold text-foreground/85 transition hover:border-[#D4A373] hover:text-[#C17F42]"
+              >
+                <span>YouTube</span>
+              </a>
+            </div>
+          </div>
+
           {/* Formal Quote Request CTA Card */}
           <div className="rounded-2xl border border-primary/20 bg-surface-muted p-6 sm:p-8">
             <h3 className="text-xl font-bold text-primary">Need a Detailed Commercial FOB Quote?</h3>

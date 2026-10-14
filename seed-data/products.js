@@ -45,7 +45,7 @@ export const products = [
     indicativePriceRangeMin: 1.50,
     indicativePriceRangeMax: 2.50,
     currency: 'USD',
-    images: [{ url: '/images/products/jute-tote-hero.webp', alt: 'Natural Jute Tote Bag' }],
+    images: [{ url: '/images/products/jute-tote-studio.jpg', alt: 'Natural Jute Tote Bag' }],
     isActive: true
   },
   {
@@ -83,7 +83,7 @@ export const products = [
     indicativePriceRangeMin: 1.80,
     indicativePriceRangeMax: 2.80,
     currency: 'USD',
-    images: [{ url: '/images/products/jute-tote-hero.webp', alt: 'Heavy-Duty Gusseted Supermarket Shopper' }],
+    images: [{ url: '/images/products/jute-tote-studio.jpg', alt: 'Heavy-Duty Gusseted Supermarket Shopper' }],
     isActive: true
   },
   {
@@ -121,7 +121,7 @@ export const products = [
     indicativePriceRangeMin: 1.75,
     indicativePriceRangeMax: 2.90,
     currency: 'USD',
-    images: [{ url: '/images/products/jute-tote-hero.webp', alt: 'Custom Printed Promotional Jute Bag' }],
+    images: [{ url: '/images/products/printed-designer-tote.jpg', alt: 'Custom Printed Promotional Jute Bag' }],
     isActive: true
   },
   {
@@ -159,7 +159,7 @@ export const products = [
     indicativePriceRangeMin: 2.20,
     indicativePriceRangeMax: 3.80,
     currency: 'USD',
-    images: [{ url: '/images/products/jute-tote-hero.webp', alt: 'Luxury Jute Wine & Gifting Bag' }],
+    images: [{ url: '/images/products/wine-bottle-carrier.jpg', alt: 'Luxury Jute Wine & Gifting Bag' }],
     isActive: true
   },
   {
@@ -197,7 +197,7 @@ export const products = [
     indicativePriceRangeMin: 2.50,
     indicativePriceRangeMax: 4.20,
     currency: 'USD',
-    images: [{ url: '/images/products/jute-tote-hero.webp', alt: 'Juco Fine Weave Canvas Tote' }],
+    images: [{ url: '/images/products/juco-fashion-shopper.jpg', alt: 'Juco Fine Weave Canvas Tote' }],
     isActive: true
   },
   {
@@ -235,7 +235,7 @@ export const products = [
     indicativePriceRangeMin: 2.90,
     indicativePriceRangeMax: 4.60,
     currency: 'USD',
-    images: [{ url: '/images/products/jute-tote-hero.webp', alt: 'Laminated Water-Resistant Jute Beach Bag' }],
+    images: [{ url: '/images/products/jute-tote-studio.jpg', alt: 'Laminated Water-Resistant Jute Beach Bag' }],
     isActive: true
   },
   {
@@ -273,7 +273,7 @@ export const products = [
     indicativePriceRangeMin: 0.65,
     indicativePriceRangeMax: 1.20,
     currency: 'USD',
-    images: [{ url: '/images/products/jute-tote-hero.webp', alt: 'Drawstring Eco Gift & Sachet Pouch' }],
+    images: [{ url: '/images/products/juco-fashion-shopper.jpg', alt: 'Drawstring Eco Gift & Sachet Pouch' }],
     isActive: true
   },
   {
@@ -311,7 +311,7 @@ export const products = [
     indicativePriceRangeMin: 1.10,
     indicativePriceRangeMax: 1.85,
     currency: 'USD',
-    images: [{ url: '/images/products/jute-tote-hero.webp', alt: 'Heavy Industrial Burlap Hessian Sacks' }],
+    images: [{ url: '/images/products/agro-burlap-sack.jpg', alt: 'Heavy Industrial Burlap Hessian Sacks' }],
     isActive: true
   },
   {
@@ -349,7 +349,7 @@ export const products = [
     indicativePriceRangeMin: 1.40,
     indicativePriceRangeMax: 2.30,
     currency: 'USD',
-    images: [{ url: '/images/products/jute-tote-hero.webp', alt: 'Organic Cotton & Jute Exhibition Bag' }],
+    images: [{ url: '/images/products/printed-designer-tote.jpg', alt: 'Organic Cotton & Jute Exhibition Bag' }],
     isActive: true
   },
   {
@@ -387,7 +387,7 @@ export const products = [
     indicativePriceRangeMin: 3.50,
     indicativePriceRangeMax: 5.50,
     currency: 'USD',
-    images: [{ url: '/images/products/jute-tote-hero.webp', alt: 'Executive Conference & Seminar Jute Portfolio' }],
+    images: [{ url: '/images/products/juco-fashion-shopper.jpg', alt: 'Executive Conference & Seminar Jute Portfolio' }],
     isActive: true
   }
 ];

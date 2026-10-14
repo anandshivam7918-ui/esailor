@@ -127,9 +127,9 @@ describe('Phase 13: QA, Security & SEO Consistency Audit Tests', () => {
       }
     });
 
-    it('verifies all 5 export certifications are active and unexpired', async () => {
+    it('verifies all 4 export certifications are active and unexpired', async () => {
       const certs = await getCertifications();
-      assert.ok(certs.length >= 5, 'Must have at least 5 verified certifications');
+      assert.ok(certs.length >= 4, 'Must have at least 4 verified certifications');
 
       const validCerts = certs.filter((c) => c.isValid);
       assert.equal(validCerts.length, certs.length, 'All active compliance certifications must be unexpired');

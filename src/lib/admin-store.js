@@ -1,47 +1,96 @@
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
-import { revalidatePath } from 'next/cache';
 import { categories as seedCategories } from '../../seed-data/categories.js';
 import { products as seedProducts } from '../../seed-data/products.js';
 import { certifications as seedCertifications } from '../../seed-data/certifications.js';
 import { isCertificationActiveAndValid, getCertificationStatus } from './certifications.js';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
+const memStore = new Map();
+
+export const SLUG_ALIASES = {
+  'agro-burlap-sack': 'heavy-industrial-burlap-sacks',
+  'classic-jute-tote': 'natural-jute-tote-bag',
+  'wine-bottle-carrier': 'luxury-jute-wine-gift-bag',
+  'printed-designer-tote': 'printed-jute-promotional-bag',
+  'juco-fashion-shopper': 'juco-fine-weave-canvas-tote',
+  'jute-shopping-bag': 'natural-jute-tote-bag',
+  'jute-drawstring-bag': 'heavy-industrial-burlap-sacks',
+  'wine-bottle-bag': 'luxury-jute-wine-gift-bag',
+  'promotional-bag': 'juco-fine-weave-canvas-tote',
+};
 
 async function ensureDataDir() {
-  await fs.mkdir(DATA_DIR, { recursive: true });
+  try {
+    await fs.mkdir(DATA_DIR, { recursive: true });
+  } catch {
+    // Graceful handling for read-only serverless environments or existing folders
+  }
 }
 
 async function readJsonFile(filename, defaultData = []) {
-  await ensureDataDir();
+  if (memStore.has(filename)) {
+    return memStore.get(filename);
+  }
+
   const filePath = path.join(DATA_DIR, filename);
   try {
     const content = await fs.readFile(filePath, 'utf-8');
-    return JSON.parse(content);
+    const parsed = JSON.parse(content);
+    memStore.set(filename, parsed);
+    return parsed;
   } catch {
-    await fs.writeFile(filePath, JSON.stringify(defaultData, null, 2), 'utf-8');
+    // If reading failed (e.g. file missing on disk), try creating it once if filesystem permits
+    try {
+      await ensureDataDir();
+      await fs.writeFile(filePath, JSON.stringify(defaultData, null, 2), 'utf-8');
+    } catch {
+      // Ignored: read-only filesystem (e.g. Vercel serverless runtime)
+    }
+    memStore.set(filename, defaultData);
     return defaultData;
   }
 }
 
 async function writeJsonFile(filename, data) {
-  await ensureDataDir();
-  const filePath = path.join(DATA_DIR, filename);
-  await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
+  memStore.set(filename, data);
+  try {
+    await ensureDataDir();
+    const filePath = path.join(DATA_DIR, filename);
+    await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
+  } catch (err) {
+    // Serverless platforms have read-only filesystems outside /tmp
+    console.warn(`[admin-store] writeJsonFile skipped persisting ${filename} to disk:`, err?.message || 'read-only');
+  }
+}
+
+let cachedRevalidatePath = null;
+async function getRevalidatePath() {
+  if (cachedRevalidatePath) return cachedRevalidatePath;
+  try {
+    const mod = await import('next/cache');
+    cachedRevalidatePath = mod.revalidatePath;
+    return cachedRevalidatePath;
+  } catch {
+    return null;
+  }
 }
 
 /**
  * Trigger Next.js cache revalidation across public website routes
  */
-export function invalidateWebsiteCache(paths = ['/', '/catalog', '/certifications', '/process', '/admin']) {
+export async function invalidateWebsiteCache(paths = ['/', '/catalog', '/certifications', '/process', '/admin']) {
   try {
-    paths.forEach((p) => {
-      try {
-        revalidatePath(p);
-      } catch {
-        // Safe fallback in static contexts
-      }
-    });
+    const revalidate = await getRevalidatePath();
+    if (typeof revalidate === 'function') {
+      paths.forEach((p) => {
+        try {
+          revalidate(p);
+        } catch {
+          // Safe fallback in static contexts
+        }
+      });
+    }
   } catch {
     // Ignore static context warning
   }
@@ -97,9 +146,14 @@ export async function recordSlugChange(oldSlug, newSlug, entityType = 'product')
 }
 
 export async function resolveRedirectSlug(slug) {
-  const history = await getSlugHistory();
-  const match = history.find((h) => h.oldSlug === slug);
-  return match ? match.newSlug : null;
+  try {
+    const history = await getSlugHistory();
+    const match = history.find((h) => h.oldSlug === slug);
+    if (match) return match.newSlug;
+    return null;
+  } catch {
+    return null;
+  }
 }
 
 // ==========================================
@@ -301,8 +355,37 @@ export async function getProducts(includeAllStatuses = true) {
 }
 
 export async function getProductById(id) {
+  if (!id) return null;
   const products = await getProducts(true);
-  return products.find((p) => p._id === id || p.slug?.current === id) || null;
+
+  // 1. Direct match by _id or slug
+  let found = products.find((p) => p._id === id || p.slug?.current === id || p.slug === id);
+  if (found) return found;
+
+  // 2. Check alias map
+  const targetSlug = SLUG_ALIASES[id];
+  if (targetSlug) {
+    found = products.find((p) => p._id === targetSlug || p.slug?.current === targetSlug || p.slug === targetSlug);
+    if (found) {
+      return {
+        ...found,
+        slug: { current: id },
+        canonicalSlug: found.slug?.current || targetSlug,
+      };
+    }
+  }
+
+  // 3. Case-insensitive / trimmed match or alias array match
+  const cleanId = String(id).toLowerCase().trim();
+  found = products.find((p) => {
+    const s = typeof p.slug === 'string' ? p.slug : p.slug?.current;
+    if (s && s.toLowerCase() === cleanId) return true;
+    if (p._id && p._id.toLowerCase() === cleanId) return true;
+    if (Array.isArray(p.aliases) && p.aliases.some((a) => String(a).toLowerCase() === cleanId)) return true;
+    return false;
+  });
+
+  return found || null;
 }
 
 export function validateProductZeroImages(productData, isPublishing = true) {

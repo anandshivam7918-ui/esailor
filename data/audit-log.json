@@ -1,0 +1,322 @@
+[
+  {
+    "id": "log-1791957331004-433",
+    "user": "Admin",
+    "action": "CREATE_CATEGORY",
+    "entity": "Category",
+    "entityId": "cat-1791957331000-161",
+    "oldValue": null,
+    "newValue": {
+      "_id": "cat-1791957331000-161",
+      "_type": "category",
+      "name": "Test Luxury Jute mv7p4lr8",
+      "slug": {
+        "_type": "slug",
+        "current": "test-luxury-jute-mv7p4lr8"
+      },
+      "description": "Premium organic jute packaging for luxury exports",
+      "displayOrder": 99,
+      "createdAt": "2026-10-14T05:55:31.000Z"
+    },
+    "timestamp": "2026-10-14T05:55:31.004Z"
+  },
+  {
+    "id": "log-1791957331043-180",
+    "user": "Admin",
+    "action": "UPDATE_CATEGORY",
+    "entity": "Category",
+    "entityId": "cat-1791957331000-161",
+    "oldValue": {
+      "_id": "cat-1791957331000-161",
+      "_type": "category",
+      "name": "Test Luxury Jute mv7p4lr8",
+      "slug": {
+        "_type": "slug",
+        "current": "test-luxury-jute-mv7p4lr8"
+      },
+      "description": "Premium organic jute packaging for luxury exports",
+      "displayOrder": 99,
+      "createdAt": "2026-10-14T05:55:31.000Z"
+    },
+    "newValue": {
+      "_id": "cat-1791957331000-161",
+      "_type": "category",
+      "name": "Test Luxury Jute mv7p4lr8",
+      "slug": {
+        "_type": "slug",
+        "current": "test-luxury-jute-mv7p4lr8"
+      },
+      "description": "Updated luxury description for tests",
+      "displayOrder": 88,
+      "createdAt": "2026-10-14T05:55:31.000Z",
+      "updatedAt": "2026-10-14T05:55:31.034Z"
+    },
+    "timestamp": "2026-10-14T05:55:31.043Z"
+  },
+  {
+    "id": "log-1791957331058-178",
+    "user": "Admin",
+    "action": "CREATE_PRODUCT",
+    "entity": "Product",
+    "entityId": "prod-1791957331050-330",
+    "oldValue": null,
+    "newValue": {
+      "name": "Assigned Product 1791957331046",
+      "status": "Published",
+      "gsm": 280,
+      "moq": 200
+    },
+    "timestamp": "2026-10-14T05:55:31.058Z"
+  },
+  {
+    "id": "log-1791957331065-141",
+    "user": "Admin",
+    "action": "DELETE_PRODUCT",
+    "entity": "Product",
+    "entityId": "prod-1791957331050-330",
+    "oldValue": {
+      "name": "Assigned Product 1791957331046",
+      "slug": "assigned-product-1791957331046"
+    },
+    "newValue": null,
+    "timestamp": "2026-10-14T05:55:31.065Z"
+  },
+  {
+    "id": "log-1791957331070-923",
+    "user": "Admin",
+    "action": "DELETE_CATEGORY",
+    "entity": "Category",
+    "entityId": "cat-1791957331000-161",
+    "oldValue": {
+      "_id": "cat-1791957331000-161",
+      "_type": "category",
+      "name": "Test Luxury Jute mv7p4lr8",
+      "slug": {
+        "_type": "slug",
+        "current": "test-luxury-jute-mv7p4lr8"
+      },
+      "description": "Updated luxury description for tests",
+      "displayOrder": 88,
+      "createdAt": "2026-10-14T05:55:31.000Z",
+      "updatedAt": "2026-10-14T05:55:31.034Z"
+    },
+    "newValue": null,
+    "timestamp": "2026-10-14T05:55:31.070Z"
+  },
+  {
+    "id": "log-1791957331082-45",
+    "user": "Admin",
+    "action": "CREATE_PRODUCT",
+    "entity": "Product",
+    "entityId": "prod-1791957331078-0",
+    "oldValue": null,
+    "newValue": {
+      "name": "Override Product 1791957331078",
+      "status": "Published",
+      "gsm": 280,
+      "moq": 100
+    },
+    "timestamp": "2026-10-14T05:55:31.082Z"
+  },
+  {
+    "id": "log-1791957331088-725",
+    "user": "Admin",
+    "action": "CREATE_PRODUCT",
+    "entity": "Product",
+    "entityId": "prod-1791957331086-373",
+    "oldValue": null,
+    "newValue": {
+      "name": "Tote Bag With Image 1791957331086",
+      "status": "Published",
+      "gsm": 280,
+      "moq": 100
+    },
+    "timestamp": "2026-10-14T05:55:31.088Z"
+  },
+  {
+    "id": "log-1791957331094-475",
+    "user": "Admin",
+    "action": "DELETE_PRODUCT",
+    "entity": "Product",
+    "entityId": "prod-1791957331086-373",
+    "oldValue": {
+      "name": "Tote Bag With Image 1791957331086",
+      "slug": "tote-bag-with-image-1791957331086"
+    },
+    "newValue": null,
+    "timestamp": "2026-10-14T05:55:31.094Z"
+  },
+  {
+    "id": "log-1791957331099-969",
+    "user": "Admin",
+    "action": "UPDATE_PRODUCT",
+    "entity": "Product",
+    "entityId": "prod-1791957331078-0",
+    "oldValue": {
+      "name": "Override Product 1791957331078",
+      "status": "Published",
+      "gsm": 280,
+      "moq": 100
+    },
+    "newValue": {
+      "name": "Override Product 1791957331078",
+      "status": "Published",
+      "gsm": 280,
+      "moq": 1500
+    },
+    "timestamp": "2026-10-14T05:55:31.099Z"
+  },
+  {
+    "id": "log-1791957331104-971",
+    "user": "Admin",
+    "action": "DELETE_PRODUCT",
+    "entity": "Product",
+    "entityId": "prod-1791957331078-0",
+    "oldValue": {
+      "name": "Override Product 1791957331078",
+      "slug": "override-product-1791957331078"
+    },
+    "newValue": null,
+    "timestamp": "2026-10-14T05:55:31.104Z"
+  },
+  {
+    "id": "log-1791957331118-9",
+    "user": "Admin",
+    "action": "CREATE_CERTIFICATION",
+    "entity": "Certification",
+    "entityId": "cert-1791957331117-592",
+    "oldValue": null,
+    "newValue": {
+      "_id": "cert-1791957331117-592",
+      "_type": "certification",
+      "name": "Fair Trade Organic Standard",
+      "code": "FT-ORG-99",
+      "slug": {
+        "_type": "slug",
+        "current": "ft-org-99"
+      },
+      "issuingBody": "Fair Trade USA",
+      "issueDate": "2024-01-01",
+      "expiryDate": "2028-12-31",
+      "documentUrl": "",
+      "description": "",
+      "isActive": true,
+      "createdAt": "2026-10-14T05:55:31.117Z"
+    },
+    "timestamp": "2026-10-14T05:55:31.118Z"
+  },
+  {
+    "id": "log-1791957331122-85",
+    "user": "Admin",
+    "action": "UPDATE_CERTIFICATION",
+    "entity": "Certification",
+    "entityId": "cert-1791957331117-592",
+    "oldValue": {
+      "_id": "cert-1791957331117-592",
+      "_type": "certification",
+      "name": "Fair Trade Organic Standard",
+      "code": "FT-ORG-99",
+      "slug": {
+        "_type": "slug",
+        "current": "ft-org-99"
+      },
+      "issuingBody": "Fair Trade USA",
+      "issueDate": "2024-01-01",
+      "expiryDate": "2028-12-31",
+      "documentUrl": "",
+      "description": "",
+      "isActive": true,
+      "createdAt": "2026-10-14T05:55:31.117Z"
+    },
+    "newValue": {
+      "_id": "cert-1791957331117-592",
+      "_type": "certification",
+      "name": "Fair Trade Organic Standard",
+      "code": "FT-ORG-99",
+      "slug": {
+        "_type": "slug",
+        "current": "ft-org-99"
+      },
+      "issuingBody": "Fair Trade USA",
+      "issueDate": "2024-01-01",
+      "expiryDate": "2020-01-01",
+      "documentUrl": "",
+      "description": "",
+      "isActive": true,
+      "createdAt": "2026-10-14T05:55:31.117Z",
+      "updatedAt": "2026-10-14T05:55:31.121Z"
+    },
+    "timestamp": "2026-10-14T05:55:31.122Z"
+  },
+  {
+    "id": "log-1791957331127-596",
+    "user": "Admin",
+    "action": "DELETE_CERTIFICATION",
+    "entity": "Certification",
+    "entityId": "cert-1791957331117-592",
+    "oldValue": {
+      "_id": "cert-1791957331117-592",
+      "_type": "certification",
+      "name": "Fair Trade Organic Standard",
+      "code": "FT-ORG-99",
+      "slug": {
+        "_type": "slug",
+        "current": "ft-org-99"
+      },
+      "issuingBody": "Fair Trade USA",
+      "issueDate": "2024-01-01",
+      "expiryDate": "2020-01-01",
+      "documentUrl": "",
+      "description": "",
+      "isActive": true,
+      "createdAt": "2026-10-14T05:55:31.117Z",
+      "updatedAt": "2026-10-14T05:55:31.121Z"
+    },
+    "newValue": null,
+    "timestamp": "2026-10-14T05:55:31.127Z"
+  },
+  {
+    "id": "log-1791957331145-118",
+    "user": "Admin",
+    "action": "UPDATE_ENQUIRY_STATUS",
+    "entity": "Enquiry",
+    "entityId": "QR-MV7OH41Z-603",
+    "oldValue": {
+      "status": "contacted"
+    },
+    "newValue": {
+      "status": "contacted"
+    },
+    "timestamp": "2026-10-14T05:55:31.145Z"
+  },
+  {
+    "id": "log-1791957342728-558",
+    "user": "Alexander Wright (Public Website)",
+    "action": "SUBMIT_PUBLIC_ENQUIRY",
+    "entity": "Enquiry",
+    "entityId": "QR-MV7P4UKI-135",
+    "oldValue": null,
+    "newValue": {
+      "company": "Nordic Eco Living AB",
+      "product": "Heavy Duty Natural Jute Tote Bag",
+      "qty": 2500,
+      "country": "Sweden"
+    },
+    "timestamp": "2026-10-14T05:55:42.728Z"
+  },
+  {
+    "id": "log-1791957343194-352",
+    "user": "Alexander Wright (Public Website)",
+    "action": "SUBMIT_PUBLIC_ENQUIRY",
+    "entity": "Enquiry",
+    "entityId": "QR-MV7P4UTT-368",
+    "oldValue": null,
+    "newValue": {
+      "company": "Nordic Eco Living AB",
+      "product": "Heavy Duty Natural Jute Tote Bag",
+      "qty": 2500,
+      "country": "Sweden"
+    },
+    "timestamp": "2026-10-14T05:55:43.194Z"
+  }
+]
