@@ -37,7 +37,7 @@
 - [x] Error-recovery interface preserves entered data and provides one-click retry.
 
 ### Criterion 4: WhatsApp B2B CTA Routing
-- [x] Universal floating CTA and contextual product buttons configured with international phone format: `+91 98765 43210` (customizable via `NEXT_PUBLIC_WHATSAPP_NUMBER`).
+- [x] Universal floating CTA and contextual product buttons configured with the current WhatsApp contact number: `9007194347`.
 - [x] Contextual pre-filled message passes product name and enquiry reference directly into WhatsApp chat.
 
 ### Criterion 5: Responsive Mobile Experience

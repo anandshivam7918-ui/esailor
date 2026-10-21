@@ -7,6 +7,7 @@ import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { PopularProducts } from '@/components/PopularProducts';
 import Link from 'next/link';
 import { getSiteContent } from '@/lib/admin-store';
+import { WHATSAPP_URL } from '@/lib/contact-details';
 
 export default async function Home() {
   let siteContent;
@@ -105,7 +106,7 @@ export default async function Home() {
               Request a Quote
             </Link>
             <Link
-              href="https://wa.me/919830000000?text=Hello%2C%20I%20would%20like%20to%20discuss%20jute%20bag%20requirements"
+              href={`${WHATSAPP_URL}?text=Hello%2C%20I%20would%20like%20to%20discuss%20jute%20bag%20requirements`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm text-white text-xs sm:text-sm font-semibold hover:bg-black/60 transition-all hover:-translate-y-0.5"

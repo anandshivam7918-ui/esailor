@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { BUSINESS_ADDRESS } from '@/lib/contact-details';
 
 export const Footer = () => {
   const [email, setEmail] = useState("");
@@ -59,7 +60,7 @@ export const Footer = () => {
                 <span className="text-[#D4A373]">🏢</span> Corporate Export Office:
               </p>
               <p className="text-[#FAF8F5]/70 leading-relaxed text-[11px]">
-                NH-12 Industrial Corridor, Barasat, North 24 Parganas, West Bengal 700124, India
+                {BUSINESS_ADDRESS}
               </p>
               <div className="pt-2 border-t border-white/10 text-[10px] text-[#FAF8F5]/60 flex items-center justify-between">
                 <span>IEC: 0219481900</span>

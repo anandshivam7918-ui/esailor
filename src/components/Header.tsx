@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { WHATSAPP_URL } from '@/lib/contact-details';
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -186,7 +187,7 @@ export const Header = () => {
 
                 <div className="pt-3 border-t border-[#EFEBE3] flex flex-col gap-2.5">
                   <a
-                    href="https://wa.me/919830000000?text=Hello%2C%20I%20would%20like%20to%20request%20a%20B2B%20jute%20bags%20quote"
+                    href={`${WHATSAPP_URL}?text=Hello%2C%20I%20would%20like%20to%20request%20a%20B2B%20jute%20bags%20quote`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#25D366] text-white text-xs font-bold hover:bg-[#20ba59] transition-colors shadow-sm"

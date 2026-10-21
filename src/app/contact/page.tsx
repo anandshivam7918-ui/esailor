@@ -1,13 +1,18 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
+import {
+  BUSINESS_ADDRESS,
+  CONTACT_PHONE,
+  CONTACT_PHONE_LINK,
+  WHATSAPP_URL,
+} from '@/lib/contact-details';
 
 export default function ContactPage() {
-  const whatsappNumber = '919876543210';
   const whatsappMessage = encodeURIComponent(
     'Hello eSailor export team,\n\nI would like to inquire about your jute bag manufacturing capabilities and pricing.\n\nBest regards,'
   );
-  const directWhatsAppUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+  const directWhatsAppUrl = `${WHATSAPP_URL}?text=${whatsappMessage}`;
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -44,15 +49,15 @@ export default function ContactPage() {
                 className="inline-flex items-center justify-center gap-2 rounded-md bg-secondary px-6 py-3.5 text-base font-semibold text-background transition hover:bg-secondary/90 shadow"
               >
                 <span>💬</span>
-                Chat on WhatsApp (+91 98765 43210)
+                Chat on WhatsApp
               </a>
 
               <a
-                href="tel:+911234567890"
+                href={CONTACT_PHONE_LINK}
                 className="inline-flex items-center justify-center gap-2 rounded-md border border-primary px-5 py-3.5 text-base font-semibold text-primary transition hover:bg-primary/5"
               >
                 <span>📞</span>
-                Call Export Desk
+                Call {CONTACT_PHONE}
               </a>
             </div>
 
@@ -175,7 +180,7 @@ export default function ContactPage() {
                   Corporate Export Office:
                 </h3>
                 <p className="mt-1 text-base">
-                  NH-12 Industrial Corridor, Barasat, North 24 Parganas, West Bengal 700124, India
+                  {BUSINESS_ADDRESS}
                 </p>
               </div>
             </div>

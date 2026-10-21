@@ -1,5 +1,7 @@
 "use client";
 
+import { WHATSAPP_URL } from '@/lib/contact-details';
+
 export interface WhatsAppCTAProps {
   className?: string;
   variant?: 'fixed' | 'inline';
@@ -11,12 +13,11 @@ export const WhatsAppCTA = ({
   variant = 'fixed',
   productName = 'eSailor Jute Bags',
 }: WhatsAppCTAProps) => {
-  const whatsappNumber = "919876543210";
   const message = encodeURIComponent(
     `Hello eSailor export team,\n\nI am interested in ${productName}.\n\nPlease provide quotation details regarding:\n- Wholesale FOB Pricing\n- Minimum Order Quantity (MOQ)\n- Custom Branding / Dimensions\n- Current Production Lead Time\n\nThank you!`
   );
 
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+  const whatsappUrl = `${WHATSAPP_URL}?text=${message}`;
   const isInline = variant === 'inline';
 
   return (

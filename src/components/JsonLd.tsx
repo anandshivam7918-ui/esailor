@@ -1,4 +1,5 @@
 import React from 'react';
+import { CONTACT_PHONE } from '@/lib/contact-details';
 
 export function JsonLd() {
   const schema = {
@@ -15,15 +16,15 @@ export function JsonLd() {
           'Direct manufacturer and international exporter of eco-friendly jute bags, tote bags, shopping bags, and industrial burlap packaging. Registered with RCMC, IEC, GST, and Udyam.',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Industrial Jute Park, Export Processing Zone',
+          streetAddress: 'HARI ABASAN PHASE 1 HANAPARA',
           addressLocality: 'Kolkata',
-          addressRegion: 'West Bengal',
-          postalCode: '700001',
+          addressRegion: '24 PARAGANAS NORTH, WEST BENGAL',
+          postalCode: '700101',
           addressCountry: 'IN',
         },
         contactPoint: {
           '@type': 'ContactPoint',
-          telephone: '+91-98765-43210',
+          telephone: `+91-${CONTACT_PHONE}`,
           contactType: 'sales',
           email: 'export@esailor.in',
           areaServed: 'Worldwide',
