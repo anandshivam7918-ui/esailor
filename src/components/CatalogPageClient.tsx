@@ -17,10 +17,12 @@ export type CatalogCategory = {
 export type CatalogProduct = {
   _id: string;
   name: string;
-  slug: {
+  slug: string | {
     current: string;
   };
-  description?: string;
+  description?: string | Array<{
+    children?: Array<{ text?: string }>;
+  }>;
   materialComposition?: string;
   moq?: number;
   category?: {
@@ -31,9 +33,11 @@ export type CatalogProduct = {
     };
   } | null;
   images?: Array<{
+    url?: string;
     asset?: {
       _ref?: string;
       _id?: string;
+      url?: string;
     };
   }>;
 };
@@ -44,14 +48,14 @@ type CatalogPageClientProps = {
   initialCategory?: string;
 };
 
-const getProductDescription = (desc: any): string => {
+const getProductDescription = (desc: CatalogProduct['description']): string => {
   if (!desc) return '';
   if (typeof desc === 'string') return desc;
   if (Array.isArray(desc)) {
     return desc
       .map((block) =>
         Array.isArray(block.children)
-          ? block.children.map((child: any) => child.text || '').join('')
+          ? block.children.map((child) => child.text || '').join('')
           : ''
       )
       .join(' ')
@@ -60,7 +64,7 @@ const getProductDescription = (desc: any): string => {
   return '';
 };
 
-const getProductSlug = (product: any): string => {
+const getProductSlug = (product: CatalogProduct): string => {
   if (!product) return '';
   if (typeof product.slug === 'string') return product.slug;
   if (product.slug?.current) return product.slug.current;
@@ -70,9 +74,8 @@ const getProductSlug = (product: any): string => {
 const getProductImage = (product: CatalogProduct) => {
   const firstImage = product.images?.[0];
 
-  if (firstImage && (firstImage as any).url && !(firstImage as any).url.includes('jute-tote-hero.webp')) {
-    return (firstImage as any).url;
-  }
+  if (firstImage?.url) return firstImage.url;
+  if (firstImage?.asset?.url) return firstImage.asset.url;
 
   if (firstImage?.asset?._ref) {
     const ref = firstImage.asset._ref;

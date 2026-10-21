@@ -1,63 +1,79 @@
 import crypto from 'node:crypto';
 
-const SESSION_SECRET = process.env.SESSION_SECRET || 'esailor-super-secret-admin-key-2026';
-const ADMIN_USER = process.env.ADMIN_USER || 'EsailorAdmin';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'Esailor.Xpertnote';
 const SESSION_COOKIE_NAME = 'esailor_admin_session';
+const SESSION_TTL_MS = 24 * 60 * 60 * 1000;
 
-/**
- * Creates a signed session token for an authenticated admin user.
- * @param {string} username
- * @param {string} role
- * @returns {string} Signed token
- */
-export function createAdminSessionToken(username = 'EsailorAdmin', role = 'admin') {
-  const payload = {
-    username,
-    role,
-    createdAt: Date.now(),
-    expiresAt: Date.now() + 24 * 60 * 60 * 1000, // 24 hours
+function getAdminAuthConfig() {
+  return {
+    sessionSecret: process.env.SESSION_SECRET || '',
+    username: process.env.ADMIN_USER || '',
+    password: process.env.ADMIN_PASSWORD || '',
   };
-  const json = Buffer.from(JSON.stringify(payload)).toString('base64url');
-  const signature = crypto
-    .createHmac('sha256', SESSION_SECRET)
-    .update(json)
-    .digest('base64url');
-  return `${json}.${signature}`;
 }
 
-/**
- * Validates and decodes a session token.
- * @param {string} token
- * @returns {{ valid: boolean, user?: Object, error?: string }}
- */
-export function verifyAdminSessionToken(token) {
-  if (!token || typeof token !== 'string') {
-    return { valid: false, error: 'Missing token' };
+export function isAdminAuthConfigured() {
+  const config = getAdminAuthConfig();
+  return config.sessionSecret.length >= 32 && Boolean(config.username && config.password);
+}
+
+function constantTimeEqual(left, right) {
+  const leftBytes = Buffer.from(String(left), 'utf8');
+  const rightBytes = Buffer.from(String(right), 'utf8');
+  return leftBytes.length === rightBytes.length && crypto.timingSafeEqual(leftBytes, rightBytes);
+}
+
+export function createAdminSessionToken(username, role = 'admin') {
+  const config = getAdminAuthConfig();
+  if (!isAdminAuthConfigured()) throw new Error('Admin authentication is not configured.');
+  if (role !== 'admin' || !constantTimeEqual(String(username || '').trim(), config.username.trim())) {
+    throw new Error('Unable to create an admin session.');
   }
 
+  const now = Date.now();
+  const payload = {
+    username: config.username,
+    role,
+    issuedAt: now,
+    expiresAt: now + SESSION_TTL_MS,
+  };
+  const encodedPayload = Buffer.from(JSON.stringify(payload)).toString('base64url');
+  const signature = crypto
+    .createHmac('sha256', config.sessionSecret)
+    .update(encodedPayload)
+    .digest('base64url');
+  return encodedPayload + '.' + signature;
+}
+
+export function verifyAdminSessionToken(token) {
+  if (!isAdminAuthConfigured()) return { valid: false, error: 'Admin authentication is not configured' };
+  if (!token || typeof token !== 'string') return { valid: false, error: 'Missing token' };
+
   const parts = token.split('.');
-  if (parts.length !== 2) {
+  if (parts.length !== 2 || !parts[0] || !parts[1]) {
     return { valid: false, error: 'Malformed token' };
   }
 
-  const [json, signature] = parts;
+  const config = getAdminAuthConfig();
   const expectedSignature = crypto
-    .createHmac('sha256', SESSION_SECRET)
-    .update(json)
+    .createHmac('sha256', config.sessionSecret)
+    .update(parts[0])
     .digest('base64url');
-
-  if (signature !== expectedSignature) {
+  if (!constantTimeEqual(parts[1], expectedSignature)) {
     return { valid: false, error: 'Invalid token signature' };
   }
 
   try {
-    const payload = JSON.parse(Buffer.from(json, 'base64url').toString('utf8'));
-    if (payload.expiresAt && Date.now() > payload.expiresAt) {
-      return { valid: false, error: 'Session expired' };
-    }
-    if (payload.role !== 'admin') {
-      return { valid: false, error: 'Insufficient permissions' };
+    const payload = JSON.parse(Buffer.from(parts[0], 'base64url').toString('utf8'));
+    if (
+      !payload ||
+      typeof payload !== 'object' ||
+      payload.role !== 'admin' ||
+      typeof payload.username !== 'string' ||
+      !constantTimeEqual(payload.username, config.username) ||
+      !Number.isFinite(payload.expiresAt) ||
+      payload.expiresAt <= Date.now()
+    ) {
+      return { valid: false, error: 'Invalid or expired session' };
     }
     return { valid: true, user: payload };
   } catch {
@@ -65,41 +81,27 @@ export function verifyAdminSessionToken(token) {
   }
 }
 
-/**
- * Verifies admin credentials.
- * @param {string} username
- * @param {string} password
- * @returns {boolean}
- */
 export function verifyAdminCredentials(username, password) {
-  if (!username || !password) return false;
-  return username.trim() === ADMIN_USER && password.trim() === ADMIN_PASSWORD;
+  const config = getAdminAuthConfig();
+  if (!isAdminAuthConfigured() || typeof username !== 'string' || typeof password !== 'string') return false;
+  const usernameMatches = constantTimeEqual(username.trim(), config.username.trim());
+  const passwordMatches = constantTimeEqual(password, config.password);
+  return usernameMatches && passwordMatches;
 }
 
-/**
- * Extracts and verifies admin session from an incoming Request.
- * @param {Request} request
- * @returns {{ valid: boolean, user?: Object, error?: string }}
- */
 export function getAdminSessionFromRequest(request) {
   if (!request) return { valid: false, error: 'No request provided' };
-  
-  // Check authorization header first
+
   const authHeader = request.headers?.get?.('authorization');
-  if (authHeader && authHeader.startsWith('Bearer ')) {
-    const token = authHeader.substring(7).trim();
-    return verifyAdminSessionToken(token);
+  if (authHeader?.startsWith('Bearer ')) {
+    return verifyAdminSessionToken(authHeader.slice(7).trim());
   }
 
-  // Check cookie header
   const cookieHeader = request.headers?.get?.('cookie');
   if (cookieHeader) {
-    const cookies = cookieHeader.split(';').map(c => c.trim());
-    const sessionCookie = cookies.find(c => c.startsWith(`${SESSION_COOKIE_NAME}=`));
-    if (sessionCookie) {
-      const token = sessionCookie.split('=')[1];
-      return verifyAdminSessionToken(token);
-    }
+    const prefix = SESSION_COOKIE_NAME + '=';
+    const cookie = cookieHeader.split(';').map((part) => part.trim()).find((part) => part.startsWith(prefix));
+    if (cookie) return verifyAdminSessionToken(cookie.slice(prefix.length));
   }
 
   return { valid: false, error: 'Unauthenticated: No admin session found' };
@@ -110,5 +112,4 @@ export function getAdminSession(request) {
   return result.valid ? result.user : null;
 }
 
-export { SESSION_COOKIE_NAME, ADMIN_USER, ADMIN_PASSWORD };
-
+export { SESSION_COOKIE_NAME };

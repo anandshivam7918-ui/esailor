@@ -2,12 +2,21 @@ import { NextResponse } from 'next/server';
 import { getOrders, createOrder, updateOrderStatus } from '@/lib/admin-store';
 import { getAdminSession } from '@/lib/admin-auth';
 
-export async function GET() {
+function getErrorMessage(error: unknown) {
+  return error instanceof Error ? error.message : 'Unable to process order request.';
+}
+
+export async function GET(req: Request) {
+  const session = await getAdminSession(req);
+  if (!session) {
+    return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const orders = await getOrders();
     return NextResponse.json({ success: true, orders });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json({ success: false, error: getErrorMessage(error) }, { status: 500 });
   }
 }
 
@@ -18,11 +27,11 @@ export async function POST(req: Request) {
   }
 
   try {
-    const body = await req.json();
-    const newOrder = await createOrder(body, (session as any).username || 'Admin');
+    const body: Record<string, unknown> = await req.json();
+    const newOrder = await createOrder(body, (session as { username?: string }).username || 'Admin');
     return NextResponse.json({ success: true, order: newOrder }, { status: 201 });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 400 });
+  } catch (error: unknown) {
+    return NextResponse.json({ success: false, error: getErrorMessage(error) }, { status: 400 });
   }
 }
 
@@ -33,11 +42,11 @@ export async function PUT(req: Request) {
   }
 
   try {
-    const body = await req.json();
+    const body: Record<string, unknown> = await req.json();
     const { id, status } = body;
-    const updated = await updateOrderStatus(id, status, (session as any).username || 'Admin');
+    const updated = await updateOrderStatus(id, status, (session as { username?: string }).username || 'Admin');
     return NextResponse.json({ success: true, order: updated });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 400 });
+  } catch (error: unknown) {
+    return NextResponse.json({ success: false, error: getErrorMessage(error) }, { status: 400 });
   }
 }

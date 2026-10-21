@@ -1,46 +1,20 @@
-"use client";
-
 import Link from 'next/link';
+import { getCategories, getProducts } from '@/lib/admin-store';
 
-const CATEGORIES = [
-  {
-    id: 'shopping',
-    name: 'Shopping Bags',
-    subtitle: 'Durable & eco-friendly for everyday use',
-    image: '/images/products/jute-tote-studio.jpg',
-    href: '/catalog?category=jute-shopping-bags',
-  },
-  {
-    id: 'promotional',
-    name: 'Promotional Bags',
-    subtitle: 'Great for branding and events',
-    image: '/images/products/juco-fashion-shopper.jpg',
-    href: '/catalog?category=canvas-jute-totes',
-  },
-  {
-    id: 'wine',
-    name: 'Wine / Bottle Bags',
-    subtitle: 'Premium packaging for special occasions',
-    image: '/images/products/wine-bottle-carrier.jpg',
-    href: '/catalog?category=gift-bottle-bags',
-  },
-  {
-    id: 'grocery',
-    name: 'Grocery Bags',
-    subtitle: 'Strong, spacious and practical',
-    image: '/images/products/agro-burlap-sack.jpg',
-    href: '/catalog?category=industrial-burlap-sacks',
-  },
-  {
-    id: 'tote',
-    name: 'Tote Bags',
-    subtitle: 'Stylish & versatile for multiple uses',
-    image: '/images/products/printed-designer-tote.jpg',
-    href: '/catalog?category=printed-jute-bags',
-  },
-];
+type PublicCategory = { _id: string; name: string; slug?: { current?: string }; description?: string };
+type PublicProduct = { category?: string | { _id?: string; _ref?: string; slug?: { current?: string } }; images?: Array<{ url?: string; asset?: { url?: string } }> };
 
-export const FeaturedCategories = () => {
+export const FeaturedCategories = async () => {
+  const [categories, products] = await Promise.all([getCategories() as Promise<PublicCategory[]>, getProducts(false) as Promise<PublicProduct[]>]);
+  const featuredCategories = categories.map((category) => {
+    const match = products.find((product) => {
+      const relation = product.category;
+      if (!relation || typeof relation === 'string') return relation === category._id;
+      return relation?._id === category._id || relation?._ref === category._id || relation?.slug?.current === category.slug?.current;
+    });
+    const image = match?.images?.[0];
+    return { ...category, representativeImage: image?.url || image?.asset?.url, href: category.slug?.current ? `/category/${category.slug.current}` : `/catalog?category=${encodeURIComponent(category._id)}` };
+  }).slice(0, 5);
   return (
     <section className="py-16 sm:py-24 bg-[#FAF8F5] border-b border-[#EAE5DD] overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -74,19 +48,15 @@ export const FeaturedCategories = () => {
           {/* Right Area: 5 Category Cards */}
           <div className="lg:col-span-8 xl:col-span-8.5 relative">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4">
-              {CATEGORIES.map((cat) => (
+              {featuredCategories.map((cat) => (
                 <Link
-                  key={cat.id}
+                  key={cat._id}
                   href={cat.href}
                   className="group flex flex-col rounded-xl bg-[#F3EFE9] overflow-hidden border border-[#EBE6DD] transition-all duration-300 hover:shadow-md hover:-translate-y-1"
                 >
                   {/* Studio image container */}
                   <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#ECE7DF] flex items-center justify-center p-2.5 sm:p-3">
-                    <img
-                      src={cat.image}
-                      alt={cat.name}
-                      className="h-full w-full object-cover object-center rounded-md transition-transform duration-500 group-hover:scale-105"
-                    />
+                    {cat.representativeImage ? <img src={cat.representativeImage} alt={cat.name} className="h-full w-full object-cover object-center rounded-md transition-transform duration-500 group-hover:scale-105" /> : <span className="text-center text-xs text-slate-500">Explore {cat.name}</span>}
                   </div>
 
                   {/* Card Label & Subtitle */}
@@ -95,11 +65,12 @@ export const FeaturedCategories = () => {
                       {cat.name}
                     </h3>
                     <p className="text-[11px] sm:text-xs text-[#7A7369] mt-1.5 leading-snug">
-                      {cat.subtitle}
+                      {cat.description || 'Explore products in this category.'}
                     </p>
                   </div>
                 </Link>
               ))}
+              {featuredCategories.length === 0 && <p className="col-span-full rounded-xl border border-dashed border-[#D9D2C7] p-7 text-center text-sm text-[#6B645C]">Published product categories will appear here.</p>}
             </div>
 
             {/* Floating Carousel Navigation Arrow */}

@@ -444,5 +444,48 @@
     ],
     "isActive": true,
     "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "shortDescription": "",
+    "description": "",
+    "tags": [],
+    "colorOptions": [],
+    "printOptions": [],
+    "certifications": [],
+    "additionalSpecifications": [],
+    "moq": 10,
+    "unit": "pcs",
+    "pricingMode": "quote",
+    "currency": "USD",
+    "sampleAvailable": false,
+    "customizationAvailable": false,
+    "isFeatured": false,
+    "showOnHomepage": false,
+    "status": "Published",
+    "isActive": true,
+    "images": [
+      {
+        "url": "/admin-media/asset-4441672b-0af5-4824-9dc3-4768b583e222.webp",
+        "alt": "shopping"
+      }
+    ],
+    "name": "Linen Brown Jute Pouches",
+    "slug": {
+      "_type": "slug",
+      "current": "linen-brown-jute-pouches"
+    },
+    "category": {
+      "_ref": "cat-jute-bags",
+      "_id": "cat-jute-bags",
+      "name": "Jute Bags",
+      "slug": {
+        "_type": "slug",
+        "current": "jute-bags"
+      }
+    },
+    "_id": "prod-1792573391978-368",
+    "_type": "product",
+    "createdAt": "2026-10-21T09:03:11.685Z",
+    "updatedAt": "2026-10-21T09:03:11.685Z"
   }
 ]

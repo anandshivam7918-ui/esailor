@@ -4,9 +4,81 @@ import { categories as seedCategories } from '../../seed-data/categories.js';
 import { products as seedProducts } from '../../seed-data/products.js';
 import { certifications as seedCertifications } from '../../seed-data/certifications.js';
 import { isCertificationActiveAndValid, getCertificationStatus } from './certifications.js';
+import { sanityClient } from './sanity.js';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
 const memStore = new Map();
+const fileLocks = new Map();
+
+const hasSanityCatalogCredentials = () => Boolean(process.env.SANITY_API_TOKEN);
+const sanityCatalogClient = () => sanityClient.withConfig({ useCdn: false });
+
+async function sanityCatalogHasCategories() {
+  if (!hasSanityCatalogCredentials()) return false;
+  const categories = await sanityCatalogClient().fetch(sanityCategoriesQuery);
+  if (!Array.isArray(categories)) throw new Error('Sanity returned an invalid category catalog.');
+  return categories.length > 0;
+}
+
+export async function getProductCatalogSource() {
+  return await sanityCatalogHasCategories() ? 'sanity' : 'local';
+}
+
+const sanityProductsQuery = `*[_type == "product"] | order(_createdAt desc) {
+  ..., "createdAt": coalesce(createdAt, _createdAt), "updatedAt": coalesce(updatedAt, _updatedAt),
+  category->{_id, name, slug}, images[]{..., asset->{_ref, _id, url}}
+}`;
+
+const sanityCategoriesQuery = `*[_type == "category"] | order(displayOrder asc, name asc) {
+  ..., parentCategory->{_id, name, slug}
+}`;
+
+function categoryIdOf(category) {
+  if (typeof category === 'string') return category;
+  return category?._ref || category?._id || '';
+}
+
+function slugifyProduct(value) {
+  return String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+function validateOptionalNumber(value, label, { integer = false, min = 0 } = {}) {
+  if (value === undefined || value === null || value === '') return undefined;
+  const number = Number(value);
+  if (!Number.isFinite(number) || number < min || (integer && !Number.isInteger(number))) {
+    throw new Error(`${label} must be ${integer ? 'a whole number ' : ''}greater than or equal to ${min}.`);
+  }
+  return number;
+}
+
+function normalizeStringList(value, label) {
+  if (value === undefined) return undefined;
+  if (!Array.isArray(value) || value.some((item) => typeof item !== 'string' || !item.trim())) {
+    throw new Error(`${label} must be a list of non-empty values.`);
+  }
+  return [...new Set(value.map((item) => item.trim()))];
+}
+
+function cloneJsonValue(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+async function withFileLock(key, operation) {
+  const previous = fileLocks.get(key) || Promise.resolve();
+  let release;
+  const current = new Promise((resolve) => {
+    release = resolve;
+  });
+  fileLocks.set(key, current);
+  await previous;
+  try {
+    return await operation();
+  } finally {
+    release();
+    if (fileLocks.get(key) === current) fileLocks.delete(key);
+  }
+}
 
 export const SLUG_ALIASES = {
   'agro-burlap-sack': 'heavy-industrial-burlap-sacks',
@@ -30,37 +102,57 @@ async function ensureDataDir() {
 
 async function readJsonFile(filename, defaultData = []) {
   if (memStore.has(filename)) {
-    return memStore.get(filename);
+    return cloneJsonValue(memStore.get(filename));
   }
 
   const filePath = path.join(DATA_DIR, filename);
+  let content;
   try {
-    const content = await fs.readFile(filePath, 'utf-8');
-    const parsed = JSON.parse(content);
-    memStore.set(filename, parsed);
-    return parsed;
-  } catch {
-    // If reading failed (e.g. file missing on disk), try creating it once if filesystem permits
-    try {
-      await ensureDataDir();
-      await fs.writeFile(filePath, JSON.stringify(defaultData, null, 2), 'utf-8');
-    } catch {
-      // Ignored: read-only filesystem (e.g. Vercel serverless runtime)
+    content = await fs.readFile(filePath, 'utf-8');
+  } catch (error) {
+    if (error?.code !== 'ENOENT') {
+      throw new Error('Unable to read admin data. Check the server storage configuration.');
     }
-    memStore.set(filename, defaultData);
-    return defaultData;
+    const fallback = cloneJsonValue(defaultData);
+    memStore.set(filename, fallback);
+    return cloneJsonValue(fallback);
   }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(content);
+  } catch {
+    throw new Error('Admin data file is invalid JSON and was left unchanged.');
+  }
+  memStore.set(filename, parsed);
+  return cloneJsonValue(parsed);
 }
 
 async function writeJsonFile(filename, data) {
-  memStore.set(filename, data);
+  const filePath = path.join(DATA_DIR, filename);
+  const temporaryPath = path.join(
+    DATA_DIR,
+    '.' + filename + '.' + process.pid + '.' + Date.now() + '.' + Math.random().toString(36).slice(2) + '.tmp'
+  );
   try {
     await ensureDataDir();
-    const filePath = path.join(DATA_DIR, filename);
-    await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
-  } catch (err) {
-    // Serverless platforms have read-only filesystems outside /tmp
-    console.warn(`[admin-store] writeJsonFile skipped persisting ${filename} to disk:`, err?.message || 'read-only');
+    await fs.writeFile(temporaryPath, JSON.stringify(data, null, 2), { encoding: 'utf-8', flag: 'wx' });
+    try {
+      await fs.rename(temporaryPath, filePath);
+    } catch (error) {
+      // Windows may reject replacing an existing destination with rename().
+      if (process.platform !== 'win32' || !['EPERM', 'EEXIST'].includes(error?.code)) throw error;
+      await fs.copyFile(temporaryPath, filePath);
+      await fs.rm(temporaryPath, { force: true });
+    }
+    memStore.set(filename, cloneJsonValue(data));
+  } catch (error) {
+    try {
+      await fs.rm(temporaryPath, { force: true });
+    } catch {
+      // Keep the original persistence error as the user-visible failure.
+    }
+    throw new Error('Unable to persist admin changes. Check the server data storage configuration.', { cause: error });
   }
 }
 
@@ -173,6 +265,11 @@ function normalizeSeedCategories() {
 }
 
 export async function getCategories() {
+  if (hasSanityCatalogCredentials()) {
+    const categories = await sanityCatalogClient().fetch(sanityCategoriesQuery);
+    if (!Array.isArray(categories)) throw new Error('Sanity returned an invalid category catalog.');
+    if (categories.length > 0) return categories;
+  }
   return await readJsonFile('categories.json', normalizeSeedCategories());
 }
 
@@ -197,19 +294,22 @@ export async function createCategory(data, currentUser = 'Admin') {
     throw new Error(`Category with slug "${slugCurrent}" already exists.`);
   }
 
-  const newCategory = {
-    _id: `cat-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
-    _type: 'category',
+  const categoryFields = {
     name: data.name.trim(),
     slug: { _type: 'slug', current: slugCurrent },
     description: data.description ? data.description.trim() : '',
     displayOrder: Number(data.displayOrder) || categories.length + 1,
     createdAt: new Date().toISOString(),
   };
-
-  categories.push(newCategory);
-  categories.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
-  await writeJsonFile('categories.json', categories);
+  let newCategory;
+  if (await sanityCatalogHasCategories()) {
+    newCategory = await sanityCatalogClient().create({ _type: 'category', ...categoryFields });
+  } else {
+    newCategory = { _id: `cat-${Date.now()}-${Math.floor(Math.random() * 1000)}`, _type: 'category', ...categoryFields };
+    categories.push(newCategory);
+    categories.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+    await writeJsonFile('categories.json', categories);
+  }
 
   await createAuditLog({
     user: currentUser,
@@ -219,7 +319,7 @@ export async function createCategory(data, currentUser = 'Admin') {
     newValue: newCategory,
   });
 
-  invalidateWebsiteCache(['/catalog', '/admin']);
+  await invalidateWebsiteCache(['/catalog', '/admin', '/']);
   return newCategory;
 }
 
@@ -241,10 +341,6 @@ export async function updateCategory(id, data, currentUser = 'Admin') {
     newSlug = slugCurrent;
   }
 
-  if (existing.slug?.current && newSlug !== existing.slug?.current) {
-    await recordSlugChange(existing.slug.current, newSlug, 'category');
-  }
-
   const updated = {
     ...existing,
     name: data.name !== undefined ? data.name.trim() : existing.name,
@@ -254,21 +350,32 @@ export async function updateCategory(id, data, currentUser = 'Admin') {
     updatedAt: new Date().toISOString(),
   };
 
-  categories[index] = updated;
-  categories.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
-  await writeJsonFile('categories.json', categories);
+  let savedCategory;
+  if (await sanityCatalogHasCategories()) {
+    const patch = { ...updated };
+    delete patch._id;
+    delete patch._type;
+    savedCategory = await sanityCatalogClient().patch(existing._id).set(patch).commit();
+    savedCategory = { ...updated, ...savedCategory };
+  } else {
+    categories[index] = updated;
+    categories.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+    await writeJsonFile('categories.json', categories);
+    savedCategory = updated;
+  }
+  if (existing.slug?.current && newSlug !== existing.slug?.current) await recordSlugChange(existing.slug.current, newSlug, 'category');
 
   await createAuditLog({
     user: currentUser,
     action: 'UPDATE_CATEGORY',
     entity: 'Category',
-    entityId: updated._id,
+    entityId: savedCategory._id,
     oldValue: existing,
-    newValue: updated,
+    newValue: savedCategory,
   });
 
-  invalidateWebsiteCache(['/catalog', '/admin']);
-  return updated;
+  await invalidateWebsiteCache(['/catalog', `/category/${existing.slug?.current}`, `/category/${newSlug}`, '/admin', '/']);
+  return savedCategory;
 }
 
 export async function deleteCategory(id, currentUser = 'Admin') {
@@ -303,8 +410,12 @@ export async function deleteCategory(id, currentUser = 'Admin') {
     throw err;
   }
 
-  const filtered = categories.filter((c) => c._id !== targetCategory._id);
-  await writeJsonFile('categories.json', filtered);
+  if (await sanityCatalogHasCategories()) {
+    await sanityCatalogClient().delete(targetCategory._id);
+  } else {
+    const filtered = categories.filter((c) => c._id !== targetCategory._id);
+    await writeJsonFile('categories.json', filtered);
+  }
 
   await createAuditLog({
     user: currentUser,
@@ -314,7 +425,7 @@ export async function deleteCategory(id, currentUser = 'Admin') {
     oldValue: targetCategory,
   });
 
-  invalidateWebsiteCache(['/catalog', '/admin']);
+  await invalidateWebsiteCache(['/catalog', `/category/${targetCategory.slug?.current}`, '/admin', '/']);
   return { success: true, deletedId: targetCategory._id };
 }
 
@@ -348,15 +459,21 @@ function normalizeSeedProducts() {
 }
 
 export async function getProducts(includeAllStatuses = true) {
-  const products = await readJsonFile('products.json', normalizeSeedProducts());
+  const products = await sanityCatalogHasCategories()
+    ? await sanityCatalogClient().fetch(sanityProductsQuery)
+    : await readJsonFile('products.json', normalizeSeedProducts());
+  if (!Array.isArray(products)) throw new Error('The product catalog returned an invalid response.');
   if (includeAllStatuses) return products;
-  // Filter for public website: only return 'Published' or active products
-  return products.filter((p) => p.status === 'Published' || (p.isActive && (!p.status || p.status === 'Published')));
+  return products.filter((product) =>
+    product.status === 'Published'
+      ? product.isActive !== false
+      : !product.status && product.isActive !== false
+  );
 }
 
-export async function getProductById(id) {
+export async function getProductById(id, includeAllStatuses = true) {
   if (!id) return null;
-  const products = await getProducts(true);
+  const products = await getProducts(includeAllStatuses);
 
   // 1. Direct match by _id or slug
   let found = products.find((p) => p._id === id || p.slug?.current === id || p.slug === id);
@@ -404,61 +521,150 @@ export function validateProductZeroImages(productData, isPublishing = true) {
   return { valid: true };
 }
 
+const PRODUCT_WRITE_FIELDS = [
+  'sku', 'shortDescription', 'description', 'productType', 'collection', 'tags',
+  'materialComposition', 'gsmWeight', 'dimensions', 'length', 'width', 'gusset', 'depth',
+  'handleType', 'colorOptions', 'printOptions', 'finishType', 'weavingType',
+  'packagingDetails', 'certifications', 'additionalSpecifications', 'moq', 'unit',
+  'pricingMode', 'unitPrice', 'currency', 'priceTiers', 'indicativePriceRangeMin',
+  'indicativePriceRangeMax', 'sampleAvailable', 'customizationAvailable', 'productionLeadTime',
+  'isFeatured', 'showOnHomepage', 'seoTitle', 'seoDescription', 'status', 'isActive', 'images',
+];
+
+async function prepareProductWrite(data, existing, products) {
+  const useSanity = await sanityCatalogHasCategories();
+  const name = typeof data.name === 'string' ? data.name.trim() : existing?.name;
+  if (!name || name.length < 2) throw new Error('Product name is required (minimum 2 characters).');
+  for (const key of ['shortDescription', 'description', 'productType', 'collection', 'materialComposition', 'dimensions', 'handleType', 'finishType', 'weavingType', 'packagingDetails', 'unit', 'currency', 'productionLeadTime', 'seoTitle', 'seoDescription']) {
+    if (data[key] !== undefined && typeof data[key] !== 'string') throw new Error(`${key} must be text.`);
+  }
+  if (data.sku !== undefined && (typeof data.sku !== 'string' || data.sku.trim().length > 80)) throw new Error('SKU must be text up to 80 characters.');
+  if (data.isActive !== undefined && typeof data.isActive !== 'boolean') throw new Error('Availability must be true or false.');
+  for (const key of ['sampleAvailable', 'customizationAvailable', 'isFeatured', 'showOnHomepage']) {
+    if (data[key] !== undefined && typeof data[key] !== 'boolean') throw new Error(`${key} must be true or false.`);
+  }
+  const categoryValue = data.category !== undefined ? data.category : existing?.category;
+  if (!categoryValue) throw new Error('Choose a product category.');
+  const categories = await getCategories();
+  const categoryId = categoryIdOf(categoryValue);
+  const category = categories.find((item) => item._id === categoryId || item.slug?.current === categoryId || item.name === categoryId);
+  if (!category) throw new Error('Choose a category that exists in the catalog.');
+
+  const slugCurrent = slugifyProduct(data.slug || (data.name ? name : existing?.slug?.current || existing?.slug) || name);
+  if (!slugCurrent) throw new Error('Product slug must contain at least one letter or number.');
+  const sku = data.sku !== undefined ? String(data.sku).trim() : String(existing?.sku || '').trim();
+  const duplicate = products.find((item) => item._id !== existing?._id && (
+    slugifyProduct(item.slug?.current || item.slug) === slugCurrent ||
+    (sku && String(item.sku || '').trim().toLowerCase() === sku.toLowerCase())
+  ));
+  if (duplicate) throw new Error(duplicate.sku && sku && String(duplicate.sku).toLowerCase() === sku.toLowerCase() ? 'That SKU is already used by another product.' : 'That product URL slug is already in use.');
+
+  const status = data.status || existing?.status || (existing ? (existing.isActive === false ? 'Draft' : 'Published') : (data.isActive === false ? 'Draft' : 'Published'));
+  if (!['Draft', 'Published', 'Archived'].includes(status)) throw new Error('Choose Draft, Published, or Archived status.');
+  const isActive = data.isActive === undefined ? (existing ? existing.isActive !== false : true) : Boolean(data.isActive);
+  const images = data.images === undefined ? (existing?.images || []) : data.images;
+  if (!Array.isArray(images) || images.some((image) => !image || typeof image !== 'object' ||
+      (typeof image.url !== 'string' && typeof image.asset?._ref !== 'string'))) {
+    throw new Error('Product images must be valid uploaded media assets.');
+  }
+  if (images.some((image) => image.url && !image.url.startsWith('/images/') && !image.url.startsWith('/admin-media/') && !/^https?:\/\//i.test(image.url))) {
+    throw new Error('Product image URLs must use the site media library or a secure HTTP(S) URL.');
+  }
+  const imageValidation = validateProductZeroImages({ images, confirmZeroImages: data.confirmZeroImages }, status === 'Published' && isActive);
+  if (!imageValidation.valid) throw imageValidation.error;
+
+  const moq = validateOptionalNumber(data.moq !== undefined ? data.moq : existing?.moq, 'MOQ', { integer: true, min: 1 });
+  if (moq === undefined) throw new Error('Minimum order quantity must be a positive whole number.');
+  const gsmWeight = validateOptionalNumber(data.gsmWeight !== undefined ? data.gsmWeight : existing?.gsmWeight, 'GSM', { min: 0.01 });
+  const unitPrice = validateOptionalNumber(data.unitPrice !== undefined ? data.unitPrice : existing?.unitPrice, 'Unit price', { min: 0.01 });
+  const pricingMode = data.pricingMode ?? existing?.pricingMode ?? 'quote';
+  if (!['quote', 'fixed'].includes(pricingMode)) throw new Error('Pricing mode must be quote-based or fixed.');
+  if (pricingMode === 'fixed' && unitPrice === undefined) throw new Error('Enter a unit price for fixed pricing.');
+  const categoryForStore = useSanity
+    ? { _type: 'reference', _ref: category._id }
+    : { _ref: category._id, _id: category._id, name: category.name, slug: category.slug };
+  if (useSanity && images.some((image) => typeof image.asset?._ref !== 'string')) {
+    throw new Error('Product images must be uploaded to the configured Sanity image library.');
+  }
+
+  const values = { ...existing, ...Object.fromEntries(PRODUCT_WRITE_FIELDS.filter((key) => data[key] !== undefined).map((key) => [key, data[key]])) };
+  values.name = name;
+  values.slug = { _type: 'slug', current: slugCurrent };
+  values.category = categoryForStore;
+  values.sku = sku || undefined;
+  values.status = status;
+  values.isActive = isActive;
+  values.moq = moq;
+  values.gsmWeight = gsmWeight;
+  values.pricingMode = pricingMode;
+  values.unitPrice = pricingMode === 'fixed' ? unitPrice : undefined;
+  values.currency = values.currency || 'USD';
+  values.images = useSanity
+    ? images.map((image) => ({ _type: 'image', asset: { _type: 'reference', _ref: image.asset._ref }, ...(image.alt ? { alt: image.alt } : {}) }))
+    : images;
+
+  for (const key of ['tags', 'colorOptions', 'printOptions', 'certifications']) {
+    const normalized = normalizeStringList(values[key], key);
+    if (normalized !== undefined) values[key] = normalized;
+  }
+  if (values.additionalSpecifications !== undefined && (!Array.isArray(values.additionalSpecifications) || values.additionalSpecifications.some((item) => !item || typeof item.key !== 'string' || typeof item.value !== 'string'))) {
+    throw new Error('Additional specifications must have a name and value.');
+  }
+  if (values.additionalSpecifications?.some((item) => item.key.length > 80 || item.value.length > 500)) throw new Error('Additional specification names are limited to 80 characters and values to 500.');
+  if (values.currency && !/^[A-Z]{3}$/.test(values.currency)) throw new Error('Currency must be a three-letter currency code.');
+  for (const key of ['indicativePriceRangeMin', 'indicativePriceRangeMax', 'length', 'width', 'gusset', 'depth']) {
+    const number = validateOptionalNumber(values[key], key, { min: 0 });
+    if (number !== undefined) values[key] = number;
+  }
+  if (values.indicativePriceRangeMin !== undefined && values.indicativePriceRangeMax !== undefined && values.indicativePriceRangeMin > values.indicativePriceRangeMax) {
+    throw new Error('The minimum indicative price cannot exceed the maximum.');
+  }
+  if (values.pricingMode !== 'fixed') delete values.unitPrice;
+  return values;
+}
+
+function toSanityProductDocument(product) {
+  const document = { _type: 'product' };
+  for (const key of ['name', 'slug', 'category', ...PRODUCT_WRITE_FIELDS]) {
+    if (product[key] !== undefined) document[key] = product[key];
+  }
+  return document;
+}
+
 export async function createProduct(data, currentUser = 'Admin') {
-  if (!data?.name || data.name.trim().length < 2) {
-    throw new Error('Product name is required (minimum 2 characters).');
-  }
-
-  const status = data.status || (data.isActive !== false ? 'Published' : 'Draft');
-  const isPublishing = status === 'Published';
-
-  const imageValidation = validateProductZeroImages(data, isPublishing);
-  if (!imageValidation.valid) {
-    throw imageValidation.error;
-  }
-
   const products = await getProducts(true);
-  const slugCurrent = (data.slug || data.name)
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-
-  const newProduct = {
-    _id: `prod-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
-    _type: 'product',
-    name: data.name.trim(),
-    slug: { _type: 'slug', current: slugCurrent },
-    category: data.category || null,
-    description: data.description || '',
-    materialComposition: data.materialComposition || '100% Natural Jute',
-    gsmWeight: Number(data.gsmWeight) || 280,
-    dimensions: data.dimensions || '40x35x15 cm',
-    colorOptions: Array.isArray(data.colorOptions) ? data.colorOptions : ['Natural Beige'],
-    printOptions: Array.isArray(data.printOptions) ? data.printOptions : ['Screen Printing'],
-    handleType: data.handleType || 'Cotton Webbing',
-    moq: Number(data.moq) || 100,
-    indicativePriceRangeMin: Number(data.indicativePriceRangeMin) || 1.5,
-    indicativePriceRangeMax: Number(data.indicativePriceRangeMax) || 3.0,
-    currency: data.currency || 'USD',
-    images: Array.isArray(data.images) ? data.images : [],
-    status,
-    isActive: status === 'Published',
-    createdAt: new Date().toISOString(),
-  };
-
-  products.push(newProduct);
-  await writeJsonFile('products.json', products);
+  const fields = await prepareProductWrite(data || {}, null, products);
+  const now = new Date().toISOString();
+  let newProduct;
+  if (await sanityCatalogHasCategories()) {
+    newProduct = await sanityCatalogClient().create({
+      ...toSanityProductDocument(fields),
+      createdAt: now,
+      updatedAt: now,
+    });
+    newProduct = { ...fields, ...newProduct, category: (await getCategories()).find((category) => category._id === categoryIdOf(fields.category)) || fields.category };
+  } else {
+    newProduct = {
+      ...fields,
+      _id: `prod-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+      _type: 'product',
+      description: fields.description || '',
+      createdAt: now,
+      updatedAt: now,
+    };
+    products.push(newProduct);
+    await writeJsonFile('products.json', products);
+  }
 
   await createAuditLog({
     user: currentUser,
     action: 'CREATE_PRODUCT',
     entity: 'Product',
     entityId: newProduct._id,
-    newValue: { name: newProduct.name, status: newProduct.status, gsm: newProduct.gsmWeight, moq: newProduct.moq },
+    newValue: { name: newProduct.name, status: newProduct.status, sku: newProduct.sku || null, moq: newProduct.moq },
   });
 
-  invalidateWebsiteCache(['/', '/catalog', `/product/${slugCurrent}`, '/admin']);
+  await invalidateWebsiteCache(['/', '/catalog', `/product/${fields.slug.current}`, '/admin', '/sitemap.xml', ...((fields.category?.slug?.current) ? [`/category/${fields.category.slug.current}`] : [])]);
   return newProduct;
 }
 
@@ -470,59 +676,35 @@ export async function updateProduct(id, data, currentUser = 'Admin') {
   }
 
   const existing = products[index];
-  const targetStatus = data.status || (data.isActive !== undefined ? (data.isActive ? 'Published' : 'Draft') : existing.status || 'Published');
-  const targetImages = data.images !== undefined ? data.images : existing.images;
-
-  const imageValidation = validateProductZeroImages(
-    { images: targetImages, confirmZeroImages: data.confirmZeroImages },
-    targetStatus === 'Published'
-  );
-  if (!imageValidation.valid) {
-    throw imageValidation.error;
+  const fields = await prepareProductWrite(data || {}, existing, products);
+  const now = new Date().toISOString();
+  const previousSlug = existing.slug?.current || existing.slug;
+  const newSlug = fields.slug.current;
+  if (newSlug !== previousSlug) await recordSlugChange(previousSlug, newSlug, 'product');
+  let updated;
+  if (await sanityCatalogHasCategories()) {
+    const patch = { ...toSanityProductDocument(fields), updatedAt: now };
+    delete patch._type;
+    updated = await sanityCatalogClient().patch(existing._id).set(patch).commit();
+    updated = { ...fields, ...updated, category: (await getCategories()).find((category) => category._id === categoryIdOf(fields.category)) || fields.category };
+  } else {
+    updated = { ...existing, ...fields, _id: existing._id, _type: 'product', updatedAt: now };
+    products[index] = updated;
+    await writeJsonFile('products.json', products);
   }
-
-  let newSlug = existing.slug?.current;
-  if (data.name && data.name.trim() !== existing.name) {
-    const generatedSlug = data.name.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-');
-    if (generatedSlug !== existing.slug?.current) {
-      newSlug = generatedSlug;
-      await recordSlugChange(existing.slug.current, newSlug, 'product');
-    }
-  }
-  if (data.slug && typeof data.slug === 'string') {
-    const explicitSlug = data.slug.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-');
-    if (explicitSlug !== existing.slug?.current) {
-      newSlug = explicitSlug;
-      await recordSlugChange(existing.slug.current, newSlug, 'product');
-    }
-  }
-
-  const updated = {
-    ...existing,
-    ...data,
-    _id: existing._id,
-    _type: 'product',
-    name: data.name ? data.name.trim() : existing.name,
-    slug: { _type: 'slug', current: newSlug },
-    images: targetImages,
-    status: targetStatus,
-    isActive: targetStatus === 'Published',
-    updatedAt: new Date().toISOString(),
-  };
-
-  products[index] = updated;
-  await writeJsonFile('products.json', products);
 
   await createAuditLog({
     user: currentUser,
     action: 'UPDATE_PRODUCT',
     entity: 'Product',
     entityId: updated._id,
-    oldValue: { name: existing.name, status: existing.status, gsm: existing.gsmWeight, moq: existing.moq },
-    newValue: { name: updated.name, status: updated.status, gsm: updated.gsmWeight, moq: updated.moq },
+    oldValue: { name: existing.name, status: existing.status, sku: existing.sku || null, moq: existing.moq },
+    newValue: { name: updated.name, status: updated.status, sku: updated.sku || null, moq: updated.moq },
   });
 
-  invalidateWebsiteCache(['/', '/catalog', `/product/${existing.slug?.current}`, `/product/${newSlug}`, '/admin']);
+  const oldCategorySlug = existing.category?.slug?.current;
+  const newCategorySlug = fields.category?.slug?.current;
+  await invalidateWebsiteCache(['/', '/catalog', `/product/${previousSlug}`, `/product/${newSlug}`, '/admin', '/sitemap.xml', ...[oldCategorySlug, newCategorySlug].filter(Boolean).map((slug) => `/category/${slug}`)]);
   return updated;
 }
 
@@ -534,8 +716,16 @@ export async function deleteProduct(id, currentUser = 'Admin') {
   }
 
   const deleted = products[index];
-  const filtered = products.filter((p) => p._id !== deleted._id);
-  await writeJsonFile('products.json', filtered);
+  const [orders, quotes] = await Promise.all([getOrders(), getQuoteRequests()]);
+  const referencedByOrder = orders.some((order) => order.productId === deleted._id || order.productSlug === deleted.slug?.current || order.product === deleted.name);
+  const referencedByQuote = quotes.some((quote) => String(quote.productOfInterest || quote.product || '').split(/[,;\n]/).map((value) => value.trim()).includes(deleted.name));
+  if (referencedByOrder || referencedByQuote) throw new Error('This product is referenced by a saved order or quotation. Archive it instead to preserve business history.');
+  if (await sanityCatalogHasCategories()) {
+    await sanityCatalogClient().delete(deleted._id);
+  } else {
+    const filtered = products.filter((p) => p._id !== deleted._id);
+    await writeJsonFile('products.json', filtered);
+  }
 
   await createAuditLog({
     user: currentUser,
@@ -545,7 +735,7 @@ export async function deleteProduct(id, currentUser = 'Admin') {
     oldValue: { name: deleted.name, slug: deleted.slug?.current },
   });
 
-  invalidateWebsiteCache(['/', '/catalog', `/product/${deleted.slug?.current}`, '/admin']);
+  await invalidateWebsiteCache(['/', '/catalog', `/product/${deleted.slug?.current}`, '/admin', '/sitemap.xml', ...(deleted.category?.slug?.current ? [`/category/${deleted.category.slug.current}`] : [])]);
   return { success: true, deletedId: deleted._id };
 }
 
@@ -655,6 +845,11 @@ export async function createOrder(data, currentUser = 'Admin') {
 }
 
 export async function updateOrderStatus(id, status, currentUser = 'Admin') {
+  const validStatuses = ['Pending', 'Confirmed', 'In Production', 'Shipped', 'Delivered'];
+  if (!validStatuses.includes(status)) {
+    throw new Error('Order status is invalid.');
+  }
+
   const orders = await getOrders();
   const index = orders.findIndex((o) => o._id === id);
   if (index === -1) {
@@ -696,6 +891,12 @@ export async function getProductionItems() {
 }
 
 export async function updateProductionProgress(orderId, progress, status, currentUser = 'Admin') {
+  const numericProgress = Number(progress);
+  const validStatuses = ['Raw Material', 'Planning', 'Production', 'In Progress', 'Completed'];
+  if (!Number.isFinite(numericProgress) || numericProgress < 0 || numericProgress > 100) {
+    throw new Error('Production progress must be a number from 0 to 100.');
+  }
+
   const items = await getProductionItems();
   const index = items.findIndex((p) => p.orderId === orderId);
   if (index === -1) {
@@ -703,9 +904,12 @@ export async function updateProductionProgress(orderId, progress, status, curren
   }
 
   const existing = items[index];
+  if (status && !validStatuses.includes(status)) {
+    throw new Error('Production status is invalid.');
+  }
   items[index] = {
     ...existing,
-    progress: Number(progress),
+    progress: numericProgress,
     status: status || existing.status,
     updatedAt: new Date().toISOString(),
   };
@@ -741,36 +945,40 @@ export async function getInventory() {
 }
 
 export async function updateInventoryQty(id, qty, currentUser = 'Admin') {
-  const inv = await getInventory();
-  const index = inv.findIndex((i) => i.id === id || i.item === id);
-  if (index === -1) {
-    throw new Error(`Inventory item "${id}" not found.`);
+  const newQty = Number(qty);
+  if (!Number.isFinite(newQty) || newQty < 0) {
+    throw new Error('Inventory quantity must be a non-negative number.');
   }
 
-  const existing = inv[index];
-  const newQty = Number(qty);
-  const status = newQty <= existing.reorderLevel ? 'low' : 'normal';
+  return withFileLock('inventory.json', async () => {
+    const inv = await getInventory();
+    const index = inv.findIndex((i) => i.id === id || i.item === id);
+    if (index === -1) {
+      throw new Error('Inventory item was not found.');
+    }
 
-  inv[index] = {
-    ...existing,
-    qty: newQty,
-    status,
-    updatedAt: new Date().toISOString(),
-  };
+    const existing = inv[index];
+    const status = newQty <= Number(existing.reorderLevel || 0) ? 'low' : 'normal';
+    inv[index] = {
+      ...existing,
+      qty: newQty,
+      status,
+      updatedAt: new Date().toISOString(),
+    };
 
-  await writeJsonFile('inventory.json', inv);
+    await writeJsonFile('inventory.json', inv);
+    await createAuditLog({
+      user: currentUser,
+      action: 'UPDATE_INVENTORY_QTY',
+      entity: 'Inventory',
+      entityId: id,
+      oldValue: { qty: existing.qty },
+      newValue: { qty: newQty, status },
+    });
 
-  await createAuditLog({
-    user: currentUser,
-    action: 'UPDATE_INVENTORY_QTY',
-    entity: 'Inventory',
-    entityId: id,
-    oldValue: { qty: existing.qty },
-    newValue: { qty: newQty, status },
+    invalidateWebsiteCache(['/admin']);
+    return inv[index];
   });
-
-  invalidateWebsiteCache(['/admin']);
-  return inv[index];
 }
 
 // ==========================================
@@ -848,11 +1056,11 @@ export async function getDashboardCalculatedStats() {
     getProducts(true),
   ]);
 
-  const totalEnquiries = quotes.length || 124;
-  const quotesSent = quotes.filter((q) => q.status === 'quoted').length || 86;
-  const totalOrders = orders.length || 54;
-  const productionInProgress = productionItems.filter((p) => p.status === 'In Progress' || p.status === 'Production').length || 32;
-  const revenueEst = orders.reduce((sum, o) => sum + (Number(o.amount) || 0), 0) || 248500;
+  const totalEnquiries = quotes.length;
+  const quotesSent = quotes.filter((q) => q.status === 'quoted').length;
+  const totalOrders = orders.length;
+  const productionInProgress = productionItems.filter((p) => p.status === 'In Progress' || p.status === 'Production').length;
+  const revenueEst = orders.reduce((sum, o) => sum + (Number.isFinite(Number(o.amount)) ? Number(o.amount) : 0), 0);
 
   return {
     totalEnquiries,

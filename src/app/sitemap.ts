@@ -68,7 +68,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 3. Dynamic Active Products
   let productRoutes: MetadataRoute.Sitemap = [];
   try {
-    const products = await getProducts();
+    const products = await getProducts(false);
     productRoutes = products
       .filter((p: { isActive?: boolean; slug?: { current: string } }) => p.isActive !== false)
       .map((p: { slug?: { current: string } }) => ({

@@ -1,51 +1,16 @@
-"use client";
-
 import Link from 'next/link';
+import { getProducts } from '@/lib/admin-store';
 
-const POPULAR_PRODUCTS = [
-  {
-    id: 'prod-1',
-    name: 'Jute Shopping Bag',
-    specs: '250–350 GSM | 100% Natural Jute',
-    moq: 'MOQ: 1,000 pcs',
-    image: '/images/products/jute-tote-studio.jpg',
-    href: '/product/classic-jute-tote',
-  },
-  {
-    id: 'prod-2',
-    name: 'Jute Drawstring Bag',
-    specs: '200–300 GSM | 100% Natural Jute',
-    moq: 'MOQ: 2,000 pcs',
-    image: '/images/products/agro-burlap-sack.jpg',
-    href: '/product/agro-burlap-sack',
-  },
-  {
-    id: 'prod-3',
-    name: 'Wine Bottle Bag',
-    specs: '300–400 GSM | Jute + Cotton',
-    moq: 'MOQ: 1,000 pcs',
-    image: '/images/products/wine-bottle-carrier.jpg',
-    href: '/product/wine-bottle-carrier',
-  },
-  {
-    id: 'prod-4',
-    name: 'Tote Bag',
-    specs: '250–350 GSM | 100% Natural Jute',
-    moq: 'MOQ: 1,000 pcs',
-    image: '/images/products/printed-designer-tote.jpg',
-    href: '/product/printed-designer-tote',
-  },
-  {
-    id: 'prod-5',
-    name: 'Promotional Bag',
-    specs: '200–300 GSM | Custom Print',
-    moq: 'MOQ: 2,000 pcs',
-    image: '/images/products/juco-fashion-shopper.jpg',
-    href: '/product/juco-fashion-shopper',
-  },
-];
+type PublicProduct = {
+  _id: string; name: string; slug?: string | { current?: string }; isFeatured?: boolean; showOnHomepage?: boolean;
+  images?: Array<{ url?: string; alt?: string; asset?: { url?: string } }>;
+  gsmWeight?: number; materialComposition?: string; moq?: number; unit?: string;
+};
 
-export const PopularProducts = () => {
+export const PopularProducts = async () => {
+  const products = await getProducts(false) as PublicProduct[];
+  const featured = products.filter((product) => product.isFeatured || product.showOnHomepage);
+  const popular = (featured.length ? featured : products).slice(0, 5);
   return (
     <section className="py-14 sm:py-20 bg-[#FAF8F5] border-b border-[#EAE5DD] relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -85,18 +50,18 @@ export const PopularProducts = () => {
 
           {/* 5 Product Cards Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {POPULAR_PRODUCTS.map((product) => (
+            {popular.map((product) => {
+              const slug = typeof product.slug === 'string' ? product.slug : product.slug?.current || product._id;
+              const firstImage = product.images?.[0];
+              const image = firstImage?.url || firstImage?.asset?.url;
+              return (
               <div
-                key={product.id}
+                key={product._id}
                 className="group flex flex-col rounded-xl bg-white border border-[#EAE5DD] overflow-hidden shadow-xs hover:shadow-xl hover:border-[#1C3224]/30 transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Product Image on warm studio background */}
                 <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#F6F3ED] flex items-center justify-center p-3">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="h-full w-full object-cover object-center rounded-lg transition-transform duration-500 group-hover:scale-105"
-                  />
+                  {image ? <img src={image} alt={firstImage?.alt || product.name} className="h-full w-full object-cover object-center rounded-lg transition-transform duration-500 group-hover:scale-105" /> : <span className="text-xs text-slate-500">Image available on request</span>}
                 </div>
 
                 {/* Card Details matching ye kro.png */}
@@ -106,16 +71,16 @@ export const PopularProducts = () => {
                       {product.name}
                     </h3>
                     <p className="text-[11px] text-[#7A7369] mt-1">
-                      {product.specs}
+                      {[product.gsmWeight ? `${product.gsmWeight} GSM` : '', product.materialComposition || ''].filter(Boolean).join(' · ') || 'Product specifications available on request'}
                     </p>
                     <p className="text-[11px] text-[#7A7369] mt-0.5">
-                      {product.moq}
+                      {product.moq ? `MOQ: ${product.moq} ${product.unit || 'pcs'}` : 'MOQ: Confirm with sales'}
                     </p>
                   </div>
 
                   <div className="mt-3.5 pt-2.5 border-t border-[#F0EBE1]">
                     <Link
-                      href={product.href}
+                      href={`/product/${slug}`}
                       className="inline-flex items-center gap-1 text-xs font-semibold text-[#1C3224] hover:text-[#C17F42] transition-colors group-hover:underline"
                     >
                       <span>View Details</span>
@@ -124,7 +89,9 @@ export const PopularProducts = () => {
                   </div>
                 </div>
               </div>
-            ))}
+              );
+            })}
+            {popular.length === 0 && <p className="col-span-full rounded-xl border border-dashed border-[#D9D2C7] bg-white p-8 text-center text-sm text-[#6B645C]">Published products will appear here.</p>}
           </div>
 
           {/* Right Arrow Button */}

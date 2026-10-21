@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { sanityClient } from '@/lib/sanity';
+import { getCategories, getProducts } from '@/lib/admin-store';
 
 
 interface CategoryDoc {
@@ -23,7 +23,7 @@ interface CategoryProduct {
   indicativePriceRangeMax?: number;
   currency?: string;
   category?: { _id: string; name: string; slug: { current: string } };
-  images?: Array<{ asset?: { _ref?: string; _id?: string } }>;
+  images?: Array<{ url?: string; asset?: { _ref?: string; _id?: string; url?: string } }>;
 }
 
 export async function generateMetadata({
@@ -32,10 +32,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }> | { slug: string };
 }): Promise<Metadata> {
   const { slug } = await Promise.resolve(params);
-  const category = await sanityClient.fetch<CategoryDoc | null>(
-    `*[_type == "category" && slug.current == $slug][0] { name, description }`,
-    { slug }
-  );
+  const category = (await getCategories()).find((item: CategoryDoc) => item.slug?.current === slug);
 
   if (!category) {
     return {
@@ -68,37 +65,17 @@ export default async function CategoryPage({
     notFound();
   }
 
-  const category = await sanityClient.fetch<CategoryDoc | null>(
-    `*[_type == "category" && slug.current == $slug][0] {
-      _id,
-      name,
-      slug,
-      description,
-      parentCategory->{_id, name, slug}
-    }`,
-    { slug }
-  );
+  const category = (await getCategories()).find((item: CategoryDoc) => item.slug?.current === slug);
 
   if (!category) {
     notFound();
   }
 
-  const products = await sanityClient.fetch<CategoryProduct[]>(
-    `*[_type == "product" && category->slug.current == $slug && isActive != false] | order(name asc) {
-      _id,
-      name,
-      slug,
-      description,
-      materialComposition,
-      moq,
-      indicativePriceRangeMin,
-      indicativePriceRangeMax,
-      currency,
-      category->{_id, name, slug},
-      images[]{asset->{_ref, _id}}
-    }`,
-    { slug }
-  );
+  const allPublicProducts = await getProducts(false);
+  const products = allPublicProducts.filter((product: CategoryProduct) => {
+    const relation = product.category as { _id?: string; _ref?: string; slug?: { current?: string } } | undefined;
+    return relation?._id === category._id || relation?._ref === category._id || relation?.slug?.current === slug;
+  });
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
@@ -137,9 +114,9 @@ export default async function CategoryPage({
               <div>
                 <Link href={`/product/${product.slug.current}`} className="block">
                   <div className="aspect-[4/3] bg-surface-muted overflow-hidden">
-                    {product.images?.[0]?.asset?._ref ? (
+                    {product.images?.[0]?.url || product.images?.[0]?.asset?.url ? (
                       <img
-                        src={`https://cdn.sanity.io/images/6zj8mzj6/production/${product.images[0].asset._ref.split('-').slice(1).join('-')}.jpg`}
+                        src={product.images[0].url || product.images[0].asset?.url || ''}
                         alt={product.name}
                         className="h-full w-full object-cover"
                       />

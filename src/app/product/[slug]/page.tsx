@@ -1,22 +1,26 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound, redirect, RedirectType } from 'next/navigation';
-import { sanityClient, urlFor } from '@/lib/sanity';
 import { getProductById, getProducts, resolveRedirectSlug } from '@/lib/admin-store';
+import { urlFor } from '@/lib/sanity';
 
 interface SanityImageRef {
+  alt?: string;
   asset?: {
     _ref?: string;
     _id?: string;
+    url?: string;
   };
   url?: string;
 }
+
+type ProductDescription = string | Array<{ children?: Array<{ text?: string }> }> | null | undefined;
 
 interface ProductDetailData {
   _id: string;
   name: string;
   slug: { current: string };
-  description?: any;
+  description?: ProductDescription;
   materialComposition?: string;
   gsmWeight?: number;
   dimensions?: string;
@@ -27,6 +31,22 @@ interface ProductDetailData {
   indicativePriceRangeMin?: number;
   indicativePriceRangeMax?: number;
   currency?: string;
+  pricingMode?: string;
+  unitPrice?: number;
+  shortDescription?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  sku?: string;
+  unit?: string;
+  packagingDetails?: string;
+  additionalSpecifications?: Array<{ key: string; value: string }>;
+  sampleAvailable?: boolean;
+  certifications?: string[];
+  length?: number;
+  width?: number;
+  gusset?: number;
+  finishType?: string;
+  weavingType?: string;
   category?: {
     _id: string;
     name: string;
@@ -35,14 +55,14 @@ interface ProductDetailData {
   images?: SanityImageRef[];
 }
 
-const safeDescription = (desc: any): string => {
-  if (!desc) return 'Certified export-grade jute bag manufactured for global retail and promotional applications.';
+const safeDescription = (desc: ProductDescription): string => {
+  if (!desc) return 'Contact our team for product details and a quotation.';
   if (typeof desc === 'string') return desc;
   if (Array.isArray(desc)) {
     return desc
       .map((block) =>
         Array.isArray(block?.children)
-          ? block.children.map((c: any) => c.text || '').join('')
+          ? block.children.map((child) => child.text || '').join('')
           : ''
       )
       .join(' ')
@@ -51,43 +71,11 @@ const safeDescription = (desc: any): string => {
   return String(desc);
 };
 
-const getCuratedFallbackImages = (productName?: string, categoryName?: string, slug?: string) => {
-  const query = `${productName || ''} ${categoryName || ''} ${slug || ''}`.toLowerCase();
-  if (query.includes('wine') || query.includes('bottle')) {
-    return [
-      '/images/products/wine-bottle-carrier.jpg',
-      '/images/products/jute-tote-studio.jpg',
-    ];
-  }
-  if (query.includes('burlap') || query.includes('sack') || query.includes('industrial') || query.includes('agro')) {
-    return [
-      '/images/products/agro-burlap-sack.jpg',
-      '/images/products/jute-tote-studio.jpg',
-    ];
-  }
-  if (query.includes('print') || query.includes('designer') || query.includes('exhibition') || query.includes('botanical')) {
-    return [
-      '/images/products/printed-designer-tote.jpg',
-      '/images/products/juco-fashion-shopper.jpg',
-    ];
-  }
-  if (query.includes('canvas') || query.includes('juco') || query.includes('shopper') || query.includes('promo') || query.includes('pouch') || query.includes('drawstring')) {
-    return [
-      '/images/products/juco-fashion-shopper.jpg',
-      '/images/products/printed-designer-tote.jpg',
-    ];
-  }
-  return [
-    '/images/products/jute-tote-studio.jpg',
-    '/images/products/juco-fashion-shopper.jpg',
-  ];
-};
-
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
   try {
-    const products = await getProducts(true);
+    const products = await getProducts(false);
     const paramsMap = new Map<string, { slug: string }>();
 
     for (const p of products) {
@@ -143,63 +131,21 @@ async function fetchProduct(slug: string): Promise<{ product: ProductDetailData 
     // Redirect table read failure handled gracefully
   }
 
-  // 1. Try Sanity
   try {
-    const data = await sanityClient.fetch<ProductDetailData | null>(
-      `*[_type == "product" && (slug.current == $slug || _id == $slug) && isActive != false][0] {
-        _id,
-        name,
-        slug,
-        description,
-        materialComposition,
-        gsmWeight,
-        dimensions,
-        colorOptions,
-        printOptions,
-        handleType,
-        moq,
-        indicativePriceRangeMin,
-        indicativePriceRangeMax,
-        currency,
-        category->{_id, name, slug},
-        images[]{asset->{_ref, _id}}
-      }`,
-      { slug }
-    );
-    if (data) return { product: data };
-  } catch (err) {
-    // Sanity offline / unconfigured
+    const product = await getProductById(slug, false);
+    if (!product) return { product: null };
+    const category = typeof product.category === 'object' ? product.category : undefined;
+    return {
+      product: {
+        ...product,
+        slug: typeof product.slug === 'string' ? { current: product.slug } : product.slug || { current: slug },
+        category: category || undefined,
+        images: Array.isArray(product.images) ? product.images.map((image: SanityImageRef) => ({ ...image, url: image.url || image.asset?.url })) : [],
+      } as ProductDetailData,
+    };
+  } catch {
+    // The shared catalog service reports unavailable backing storage as a missing listing here.
   }
-
-  // 2. Fallback to single source of truth admin store
-  try {
-    const local = await getProductById(slug);
-    if (local && (local.status === 'Published' || local.isActive !== false)) {
-      return {
-        product: {
-          _id: local._id,
-          name: local.name,
-          slug: typeof local.slug === 'string' ? { current: local.slug } : local.slug || { current: slug },
-          description: local.description,
-          materialComposition: local.materialComposition,
-          gsmWeight: local.gsmWeight,
-          dimensions: local.dimensions,
-          colorOptions: local.colorOptions,
-          printOptions: local.printOptions,
-          handleType: local.handleType,
-          moq: local.moq,
-          indicativePriceRangeMin: local.indicativePriceRangeMin,
-          indicativePriceRangeMax: local.indicativePriceRangeMax,
-          currency: local.currency || 'USD',
-          category: typeof local.category === 'object' ? local.category : { _id: 'cat-1', name: 'Jute Bags', slug: { current: 'jute-bags' } },
-          images: Array.isArray(local.images) ? local.images : [],
-        },
-      };
-    }
-  } catch (err) {
-    // Store read failure
-  }
-
   return { product: null };
 }
 
@@ -220,8 +166,8 @@ export async function generateMetadata({
     }
 
     return {
-      title: `${product.name} | B2B Wholesale Exporter | eSailor.in`,
-      description: `Export-grade ${product.name} (${product.materialComposition || '100% Eco Jute'}). Certified wholesale manufacturing with custom branding and international freight.`,
+      title: product.seoTitle || `${product.name} | B2B Wholesale | eSailor.in`,
+      description: product.seoDescription || product.shortDescription || safeDescription(product.description),
       openGraph: {
         title: `${product.name} | eSailor.in Wholesale`,
         description: `Factory-direct pricing on ${product.name}. Inquire for custom volume quotes.`,
@@ -258,12 +204,10 @@ export default async function ProductDetailPage({
   }
 
   // Extract or synthesize images
-  let resolvedImages: string[] = [];
+  const resolvedImages: string[] = [];
   if (product.images && product.images.length > 0) {
-    product.images.forEach((img: any) => {
-      if (typeof img === 'string' && img.trim()) {
-        resolvedImages.push(img);
-      } else if (img?.url && typeof img.url === 'string') {
+    product.images.forEach((img: SanityImageRef) => {
+      if (img?.url && typeof img.url === 'string') {
         resolvedImages.push(img.url);
       } else if (img?.asset?._ref) {
         try {
@@ -277,21 +221,24 @@ export default async function ProductDetailPage({
     });
   }
 
-  if (resolvedImages.length === 0) {
-    resolvedImages = getCuratedFallbackImages(product.name, product.category?.name, slug);
-  }
-
+  const dimensions = [product.length, product.width, product.gusset].filter((value) => value !== undefined && value !== null);
   const specs: [string, string][] = [
-    ['Material Composition', product.materialComposition || '100% Natural Golden Jute'],
-    ['Fabric Density / Weight', product.gsmWeight ? `${product.gsmWeight} GSM` : '320 - 360 GSM Export Standard'],
-    ['Standard Dimensions', product.dimensions || '40 x 35 x 15 cm (Customizable)'],
-    ['Internal Lamination', 'Plant-based biodegradable PLA or 20µ LDPE barrier'],
-    ['Handle Type', product.handleType || 'Padded Organic Cotton Webbing with Box-X stitch'],
-    ['Minimum Order Quantity', product.moq ? `${product.moq} units` : '250 units'],
-    ['Printing & Customization', 'Azo-Free Reactive Screen Print / Heat Transfer / Embroidery'],
-    ['Export Ports', 'Kolkata Sea Port (CCU) / Nhava Sheva (NSA) Direct'],
-    ['Business Registrations', 'JPDEPC – RCMC, IEC, GST Registered, Udyam Micro Enterprise'],
-  ];
+    product.materialComposition && ['Material Composition', product.materialComposition],
+    product.gsmWeight && ['Fabric Density / Weight', `${product.gsmWeight} GSM`],
+    product.dimensions && dimensions.length === 0 && ['Dimensions', product.dimensions],
+    dimensions.length > 0 && ['Dimensions (L × W × Gusset)', `${dimensions.join(' × ')} cm`],
+    product.handleType && ['Handle Type', product.handleType],
+    product.moq && ['Minimum Order Quantity', `${product.moq} ${String(product.unit || 'pcs')}`],
+    Array.isArray(product.printOptions) && product.printOptions.length > 0 && ['Printing & Customization', product.printOptions.join(', ')],
+    product.finishType && ['Finish', product.finishType],
+    product.weavingType && ['Weaving Type', product.weavingType],
+    Array.isArray(product.colorOptions) && product.colorOptions.length > 0 && ['Available Colors', product.colorOptions.join(', ')],
+    Array.isArray(product.certifications) && product.certifications.length > 0 && ['Certifications', product.certifications.join(', ')],
+    product.packagingDetails && ['Packaging', product.packagingDetails],
+  ].filter(Boolean) as [string, string][];
+  for (const item of product.additionalSpecifications || []) {
+    if (item.key?.trim() && item.value?.trim()) specs.push([item.key, item.value]);
+  }
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -335,16 +282,12 @@ export default async function ProductDetailPage({
         <div className="lg:col-span-7">
           <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-md">
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-muted">
-              <img
-                src={resolvedImages[0]}
-                alt={product.name}
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
+              {resolvedImages[0] ? <img src={resolvedImages[0]} alt={product.images?.[0]?.alt || product.name} className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" /> : <div className="flex h-full items-center justify-center text-sm text-foreground/60">Product image available on request</div>}
               <div className="absolute top-4 left-4 rounded-full bg-primary/90 backdrop-blur px-3 py-1 text-xs font-bold text-background uppercase tracking-wider">
                 {product.category?.name || 'Certified Jute'}
               </div>
               <div className="absolute bottom-4 left-4 rounded-lg bg-surface/90 backdrop-blur px-3 py-1.5 border border-border/70 text-xs font-bold text-primary shadow-sm">
-                MOQ: {product.moq || 250} units
+                MOQ: {product.moq ? `${product.moq} ${String((product as ProductDetailData & { unit?: string }).unit || 'pcs')}` : 'Confirm with sales'}
               </div>
             </div>
           </div>
@@ -402,12 +345,7 @@ export default async function ProductDetailPage({
         <div className="lg:col-span-5 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2">
-              <span className="rounded-full bg-secondary/15 px-2.5 py-0.5 text-[10px] font-bold text-secondary uppercase tracking-wider">
-                RCMC, IEC, GST & Udyam Registered
-              </span>
-              <span className="text-xs text-foreground/60 font-mono">
-                SKU: {product._id.slice(0, 10).toUpperCase()}
-              </span>
+              {product.sku && <span className="text-xs text-foreground/60 font-mono">SKU: {product.sku}</span>}
             </div>
 
             <h1 className="mt-3 font-serif text-3xl sm:text-4xl font-bold text-primary tracking-tight">
@@ -415,28 +353,27 @@ export default async function ProductDetailPage({
             </h1>
 
             <p className="mt-5 text-sm leading-relaxed text-foreground/85">
-              {safeDescription(product.description)}
+              {safeDescription(product.shortDescription || product.description)}
             </p>
+            <p className="mt-3 text-sm font-semibold text-primary">{product.pricingMode === 'fixed' && product.unitPrice ? `${product.currency || 'USD'} ${product.unitPrice} per ${product.unit || 'unit'}` : 'Pricing provided on request'}</p>
 
             {/* Action Buttons */}
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Link
-                href={`/quote-request?product=${encodeURIComponent(product.name)}&moq=${product.moq || 500}`}
+                href={`/quote-request?product=${encodeURIComponent(product.name)}${product.moq ? `&moq=${product.moq}` : ''}`}
                 className="flex-1 text-center px-6 py-3.5 rounded-md bg-primary text-background font-bold text-sm hover:bg-primary/90 transition-all shadow-md hover:-translate-y-[1px]"
               >
                 Request Quotation & Mockup →
               </Link>
-              <Link
+              {product.sampleAvailable && <Link
                 href={`/quote-request?product=${encodeURIComponent(product.name)}&sample=true`}
                 className="sm:w-auto text-center px-5 py-3.5 rounded-md border border-primary text-primary font-bold text-sm hover:bg-primary/5 transition-all"
               >
                 Order Physical Sample
-              </Link>
+              </Link>}
             </div>
 
-            <p className="mt-3 text-[11px] text-foreground/60 text-center sm:text-left">
-              ⚡ Free digital 3D proof with your logo within 24 hours. Physical samples ship worldwide in 48h.
-            </p>
+            <p className="mt-3 text-[11px] text-foreground/60 text-center sm:text-left">Share your target quantity and specifications with our team for a tailored response.</p>
 
             {/* Technical Specifications Table */}
             <div className="mt-8 border-t border-border pt-6">

@@ -318,5 +318,48 @@
       "country": "Sweden"
     },
     "timestamp": "2026-10-14T05:55:43.194Z"
+  },
+  {
+    "id": "log-1792573391994-840",
+    "user": "Admin",
+    "action": "CREATE_PRODUCT",
+    "entity": "Product",
+    "entityId": "prod-1792573391978-368",
+    "oldValue": null,
+    "newValue": {
+      "name": "Linen Brown Jute Pouches",
+      "status": "Published",
+      "sku": null,
+      "moq": 10
+    },
+    "timestamp": "2026-10-21T09:03:11.994Z"
+  },
+  {
+    "id": "log-1792573424405-348",
+    "user": "esailor",
+    "action": "UPDATE_ORDER_STATUS",
+    "entity": "Order",
+    "entityId": "ODR-1042",
+    "oldValue": {
+      "status": "Shipped"
+    },
+    "newValue": {
+      "status": "Shipped"
+    },
+    "timestamp": "2026-10-21T09:03:44.405Z"
+  },
+  {
+    "id": "log-1792573426557-609",
+    "user": "esailor",
+    "action": "UPDATE_ORDER_STATUS",
+    "entity": "Order",
+    "entityId": "ODR-1042",
+    "oldValue": {
+      "status": "Delivered"
+    },
+    "newValue": {
+      "status": "Delivered"
+    },
+    "timestamp": "2026-10-21T09:03:46.557Z"
   }
 ]

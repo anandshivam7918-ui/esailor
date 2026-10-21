@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { getAdminSessionFromRequest } from '@/lib/admin-auth';
 import {
   getProducts,
+  getProductCatalogSource,
   createProduct,
   updateProduct,
   deleteProduct,
@@ -15,7 +16,8 @@ export async function GET(request: Request) {
 
   try {
     const products = await getProducts();
-    return NextResponse.json({ success: true, products });
+    const source = await getProductCatalogSource();
+    return NextResponse.json({ success: true, products, source });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Failed to fetch products';
     return NextResponse.json({ error: message }, { status: 500 });

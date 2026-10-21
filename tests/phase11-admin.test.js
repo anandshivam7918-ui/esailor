@@ -6,6 +6,7 @@ import {
   verifyAdminSessionToken,
   getAdminSessionFromRequest,
   SESSION_COOKIE_NAME,
+  isAdminAuthConfigured,
 } from '../src/lib/admin-auth.js';
 import {
   getCategories,
@@ -23,33 +24,54 @@ import {
   getQuoteRequests,
   updateQuoteRequestStatus,
   generateQuoteRequestsCSV,
+  updateOrderStatus,
+  updateProductionProgress,
+  updateInventoryQty,
 } from '../src/lib/admin-store.js';
 
+process.env.ADMIN_USER = 'test-admin';
+process.env.ADMIN_PASSWORD = 'test-only-password';
+process.env.SESSION_SECRET = 'test-only-session-secret-with-more-than-32-characters';
+process.env.SANITY_API_TOKEN = '';
 describe('Phase 11: Admin CMS & Dashboard Functional & Integration Tests', () => {
   // ========================================================
   // 1. AUTHENTICATION & SESSION MANAGEMENT
   // ========================================================
   describe('1. Admin Authentication & Session Management', () => {
+    it('fails closed when the session signing secret is missing or too short', () => {
+      const configuredSecret = process.env.SESSION_SECRET;
+      try {
+        delete process.env.SESSION_SECRET;
+        assert.equal(isAdminAuthConfigured(), false);
+        assert.equal(verifyAdminCredentials('test-admin', 'test-only-password'), false);
+        process.env.SESSION_SECRET = 'too-short';
+        assert.equal(isAdminAuthConfigured(), false);
+      } finally {
+        process.env.SESSION_SECRET = configuredSecret;
+      }
+      assert.equal(isAdminAuthConfigured(), true);
+    });
+
     it('verifies valid admin credentials and rejects invalid ones', () => {
-      assert.equal(verifyAdminCredentials('EsailorAdmin', 'Esailor.Xpertnote'), true);
-      assert.equal(verifyAdminCredentials('EsailorAdmin', 'wrong-pass'), false);
-      assert.equal(verifyAdminCredentials('stranger', 'Esailor.Xpertnote'), false);
+      assert.equal(verifyAdminCredentials('test-admin', 'test-only-password'), true);
+      assert.equal(verifyAdminCredentials('test-admin', 'wrong-password'), false);
+      assert.equal(verifyAdminCredentials('wrong-user', 'test-only-password'), false);
       assert.equal(verifyAdminCredentials('', ''), false);
     });
 
     it('creates and verifies a signed HMAC admin session token', () => {
-      const token = createAdminSessionToken('admin', 'admin');
+      const token = createAdminSessionToken('test-admin', 'admin');
       assert.ok(token);
       assert.ok(token.includes('.'));
 
       const verified = verifyAdminSessionToken(token);
       assert.equal(verified.valid, true);
-      assert.equal(verified.user?.username, 'admin');
+      assert.equal(verified.user?.username, 'test-admin');
       assert.equal(verified.user?.role, 'admin');
     });
 
     it('rejects tampered or forged session tokens', () => {
-      const token = createAdminSessionToken('admin', 'admin');
+      const token = createAdminSessionToken('test-admin', 'admin');
       const parts = token.split('.');
       const tampered = `${parts[0]}.forgedsignature12345`;
 
@@ -62,7 +84,7 @@ describe('Phase 11: Admin CMS & Dashboard Functional & Integration Tests', () =>
     });
 
     it('extracts admin session correctly from Request cookie or Bearer header', () => {
-      const token = createAdminSessionToken('admin', 'admin');
+      const token = createAdminSessionToken('test-admin', 'admin');
 
       // Test cookie header extraction
       const reqWithCookie = {
@@ -72,7 +94,7 @@ describe('Phase 11: Admin CMS & Dashboard Functional & Integration Tests', () =>
       };
       const sessionFromCookie = getAdminSessionFromRequest(reqWithCookie);
       assert.equal(sessionFromCookie.valid, true);
-      assert.equal(sessionFromCookie.user?.username, 'admin');
+      assert.equal(sessionFromCookie.user?.username, 'test-admin');
 
       // Test Bearer header extraction
       const reqWithBearer = {
@@ -82,7 +104,7 @@ describe('Phase 11: Admin CMS & Dashboard Functional & Integration Tests', () =>
       };
       const sessionFromBearer = getAdminSessionFromRequest(reqWithBearer);
       assert.equal(sessionFromBearer.valid, true);
-      assert.equal(sessionFromBearer.user?.username, 'admin');
+      assert.equal(sessionFromBearer.user?.username, 'test-admin');
 
       // Test unauthenticated request
       const unauthReq = { headers: new Headers() };
@@ -177,11 +199,42 @@ describe('Phase 11: Admin CMS & Dashboard Functional & Integration Tests', () =>
   describe('3. Product CRUD & Zero-Image Warning Safeguard', () => {
     let testProductId = '';
 
+    it('validates category and MOQ, enforces unique slugs, and keeps drafts private', async () => {
+      const category = (await getCategories())[0];
+      const slug = `catalog-test-${Date.now()}`;
+      const draft = await createProduct({
+        name: `Catalog Test ${Date.now()}`, slug, category: category._id, moq: 1000,
+        status: 'Draft', isActive: true, images: [],
+      });
+      assert.equal((await getProducts(false)).some((product) => product._id === draft._id), false);
+
+      await assert.rejects(
+        createProduct({ name: 'Invalid category product', category: 'missing-category', moq: 1000, status: 'Draft' }),
+        /category that exists/
+      );
+      await assert.rejects(
+        createProduct({ name: 'Duplicate slug product', slug, category: category._id, moq: 1000, status: 'Draft' }),
+        /slug is already in use/
+      );
+      await assert.rejects(
+        updateProduct(draft._id, { moq: 0 }),
+        /MOQ must be a whole number/
+      );
+
+      const published = await updateProduct(draft._id, {
+        status: 'Published', isActive: true, images: [{ url: '/images/products/jute-tote-studio.jpg', alt: 'Catalog test' }],
+      });
+      assert.equal((await getProducts(false)).some((product) => product._id === published._id), true);
+      await deleteProduct(draft._id);
+    });
+
     it('SAFEGUARD: warns and blocks publishing active product with zero images', async () => {
       let errorThrown = null;
       try {
         await createProduct({
           name: `Unimaged Product ${Date.now()}`,
+          category: (await getCategories())[0]._id,
+          moq: 1000,
           images: [], // Zero images!
           isActive: true, // Attempting to publish
           confirmZeroImages: false,
@@ -198,6 +251,8 @@ describe('Phase 11: Admin CMS & Dashboard Functional & Integration Tests', () =>
     it('allows publishing zero-image product when editor explicitly confirms', async () => {
       const prod = await createProduct({
         name: `Override Product ${Date.now()}`,
+        category: (await getCategories())[0]._id,
+        moq: 1000,
         images: [],
         isActive: true,
         confirmZeroImages: true, // Explicit override
@@ -212,6 +267,8 @@ describe('Phase 11: Admin CMS & Dashboard Functional & Integration Tests', () =>
     it('creates product with valid image array without warning', async () => {
       const prodWithImg = await createProduct({
         name: `Tote Bag With Image ${Date.now()}`,
+        category: (await getCategories())[0]._id,
+        moq: 1000,
         images: [{ url: '/images/products/jute-tote-hero.webp', alt: 'Hero' }],
         isActive: true,
       });
@@ -341,6 +398,16 @@ describe('Phase 11: Admin CMS & Dashboard Functional & Integration Tests', () =>
 
       // 5. Verify row count
       assert.ok(lines.length >= 3);
+    });
+  });
+
+  describe('6. Admin input validation', () => {
+    it('rejects invalid order, production, and inventory updates before touching stored records', async () => {
+      await assert.rejects(updateOrderStatus('missing-order', 'Invented'), /status is invalid/);
+      await assert.rejects(updateProductionProgress('missing-order', 101, 'Planning'), /from 0 to 100/);
+      await assert.rejects(updateProductionProgress('ODR-1042', 10, 'Invented'), /status is invalid/);
+      await assert.rejects(updateInventoryQty('inv-1', -1), /non-negative/);
+      await assert.rejects(updateInventoryQty('inv-1', Number.NaN), /non-negative/);
     });
   });
 });
