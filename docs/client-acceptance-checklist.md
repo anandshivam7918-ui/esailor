@@ -33,7 +33,7 @@
 - [x] All 9 B2B enquiry fields verified: Full Name, Company, Country, Buyer Type (International/Domestic), Product of Interest, Quantity, Customization Notes, Email, Phone.
 - [x] Zero-friction honeypot spam protection intercepts bots without forcing human buyers to solve CAPTCHAs.
 - [x] Resilient dual storage: Records stored in Sanity CMS with fallback persistence to `data/quote-requests.json`.
-- [x] Email dispatch configured for client sales desk (`export@esailor.in`).
+- [x] Quote notifications default to `info@esailor.in` (or `SALES_NOTIFICATION_EMAIL` when set); delivery requires a valid Resend API key in the deployment environment.
 - [x] Error-recovery interface preserves entered data and provides one-click retry.
 
 ### Criterion 4: WhatsApp B2B CTA Routing

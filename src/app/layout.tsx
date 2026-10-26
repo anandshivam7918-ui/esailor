@@ -25,9 +25,13 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/images/esailor-logo.png",
-    shortcut: "/images/esailor-logo.png",
-    apple: "/images/esailor-logo.png",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 

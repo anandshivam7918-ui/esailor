@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound, redirect, RedirectType } from 'next/navigation';
 import { getProductById, getProducts, resolveRedirectSlug } from '@/lib/admin-store';
 import { urlFor } from '@/lib/sanity';
+import { CONTACT_EMAIL_LINK } from '@/lib/contact-details';
 
 interface SanityImageRef {
   alt?: string;
@@ -373,7 +374,16 @@ export default async function ProductDetailPage({
               </Link>}
             </div>
 
-            <p className="mt-3 text-[11px] text-foreground/60 text-center sm:text-left">Share your target quantity and specifications with our team for a tailored response.</p>
+            <p className="mt-3 text-[11px] text-foreground/60 text-center sm:text-left">
+              Share your target quantity and specifications with our team for a tailored response.{' '}
+              <a
+                href={`${CONTACT_EMAIL_LINK}?subject=${encodeURIComponent(`Product Enquiry: ${product.name}`)}`}
+                className="font-semibold text-accent hover:underline"
+              >
+                Email us about this product
+              </a>
+              .
+            </p>
 
             {/* Technical Specifications Table */}
             <div className="mt-8 border-t border-border pt-6">

@@ -101,7 +101,11 @@ describe('Phase 10: Quote Request Form Functional & Integration Tests', () => {
       const testQuoteId = 'QR-TEST-SwedishBuyer-100';
       const emailResult = await sendQuoteNotification(validPayload, testQuoteId);
 
-      assert.equal(emailResult.success, true);
+      assert.equal(emailResult.success, emailResult.service === 'resend');
+      assert.equal(
+        emailResult.recipient,
+        process.env.SALES_NOTIFICATION_EMAIL || 'info@esailor.in'
+      );
       assert.ok(emailResult.recipient.includes('@'));
       assert.ok(emailResult.subject.includes(testQuoteId));
       assert.ok(emailResult.summary.includes('Alexander Wright'));
@@ -122,7 +126,7 @@ describe('Phase 10: Quote Request Form Functional & Integration Tests', () => {
 
       // 3. Email notification
       const email = await sendQuoteNotification(validation.sanitizedData, persistence.id);
-      assert.equal(email.success, true);
+      assert.equal(email.success, email.service === 'resend');
 
       // 4. Confirmation data structure prepared for buyer view
       const confirmationView = {

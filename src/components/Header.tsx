@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { WHATSAPP_URL } from '@/lib/contact-details';
+import { CONTACT_EMAIL, CONTACT_EMAIL_LINK, WHATSAPP_URL } from '@/lib/contact-details';
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -26,6 +26,15 @@ export const Header = () => {
 
           {/* Right Action: Download PDF */}
           <div className="flex items-center gap-3 shrink-0">
+            <a
+              href={CONTACT_EMAIL_LINK}
+              className="hidden 2xl:inline-flex items-center gap-1.5 text-[#FAF8F5]/90 hover:text-white font-medium transition-colors whitespace-nowrap"
+            >
+              <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7l9 6 9-6M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+              </svg>
+              {CONTACT_EMAIL}
+            </a>
             <a
               href="/catalog.pdf"
               target="_blank"
@@ -184,6 +193,12 @@ export const Header = () => {
                 >
                   Contact Desk
                 </Link>
+                <a
+                  href={CONTACT_EMAIL_LINK}
+                  className="py-1 px-2 rounded-md text-[#1C3224] hover:bg-[#FAF8F5] hover:text-[#C17F42] transition-colors"
+                >
+                  Email Us: {CONTACT_EMAIL}
+                </a>
 
                 <div className="pt-3 border-t border-[#EFEBE3] flex flex-col gap-2.5">
                   <a

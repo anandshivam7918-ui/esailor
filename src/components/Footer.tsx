@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { BUSINESS_ADDRESS } from '@/lib/contact-details';
+import { BUSINESS_ADDRESS, CONTACT_EMAIL, CONTACT_EMAIL_LINK } from '@/lib/contact-details';
 
 export const Footer = () => {
   const [email, setEmail] = useState("");
@@ -62,6 +62,12 @@ export const Footer = () => {
               <p className="text-[#FAF8F5]/70 leading-relaxed text-[11px]">
                 {BUSINESS_ADDRESS}
               </p>
+              <a
+                href={CONTACT_EMAIL_LINK}
+                className="inline-flex text-[11px] font-medium text-[#D4A373] hover:text-white hover:underline"
+              >
+                Email Us: {CONTACT_EMAIL}
+              </a>
               <div className="pt-2 border-t border-white/10 text-[10px] text-[#FAF8F5]/60 flex items-center justify-between">
                 <span>IEC: 0219481900</span>
                 <span>Port: CCU / NSA Direct</span>

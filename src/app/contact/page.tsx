@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { Suspense } from 'react';
-import { WhatsAppCTA } from '@/components/WhatsAppCTA';
 import {
   BUSINESS_ADDRESS,
+  CONTACT_EMAIL,
+  CONTACT_EMAIL_LINK,
   CONTACT_PHONE,
   CONTACT_PHONE_LINK,
   WHATSAPP_URL,
@@ -71,21 +71,21 @@ export default function ContactPage() {
             {/* Email Card */}
             <div className="rounded-2xl border border-border bg-surface p-6 shadow-sm">
               <span className="text-2xl">✉️</span>
-              <h3 className="mt-3 text-lg font-bold text-primary">Email Inquiries</h3>
+              <h3 className="mt-3 text-lg font-bold text-primary">Email Us</h3>
               <div className="mt-2 space-y-1 text-sm">
-                <p className="text-foreground/70">Export Sales:</p>
+                <p className="text-foreground/70">General &amp; Business Enquiries:</p>
+                <a
+                  href={CONTACT_EMAIL_LINK}
+                  className="block font-semibold text-accent hover:underline"
+                >
+                  {CONTACT_EMAIL}
+                </a>
+                <p className="mt-2 text-foreground/70">Export Sales:</p>
                 <a
                   href="mailto:export@esailor.in"
                   className="block font-medium text-accent hover:underline"
                 >
                   export@esailor.in
-                </a>
-                <p className="mt-2 text-foreground/70">General Information:</p>
-                <a
-                  href="mailto:info@esailor.in"
-                  className="block font-medium text-accent hover:underline"
-                >
-                  info@esailor.in
                 </a>
               </div>
             </div>

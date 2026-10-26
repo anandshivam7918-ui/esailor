@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { CONTACT_EMAIL_LINK } from '@/lib/contact-details';
 
 export const metadata: Metadata = {
   title: 'Sustainable Manufacturing Process | eSailor.in Jute Factory',
@@ -373,6 +374,12 @@ export default function ManufacturingProcessPage() {
           >
             Browse Production Styles
           </Link>
+          <a
+            href={`${CONTACT_EMAIL_LINK}?subject=${encodeURIComponent('Custom Bag Enquiry')}`}
+            className="rounded-md border border-background/30 px-6 py-3 text-sm font-semibold text-background transition hover:bg-background/10"
+          >
+            Email About Custom Bags
+          </a>
         </div>
       </section>
     </main>

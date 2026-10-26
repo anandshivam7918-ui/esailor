@@ -197,7 +197,7 @@ export async function persistQuoteRequest(data) {
  * @returns {Promise<{ success: boolean, service: string, recipient: string, subject: string, summary: string }>}
  */
 export async function sendQuoteNotification(data, quoteId) {
-  const salesInbox = process.env.SALES_NOTIFICATION_EMAIL || 'export@esailor.in';
+  const salesInbox = process.env.SALES_NOTIFICATION_EMAIL || 'info@esailor.in';
   const subject = `[New B2B Quote Request] ${data.buyerName} (${data.companyName || data.country}) - Ref: ${quoteId}`;
 
   const textBody = `
@@ -253,14 +253,17 @@ Please review customer specifications and respond with formal FOB pricing within
           summary: textBody,
         };
       }
+      console.warn(`Resend email delivery returned HTTP ${response.status}.`);
     } catch (err) {
       console.warn('Resend email delivery failed, falling back to dispatch log:', err);
     }
+  } else {
+    console.warn('Resend API key is not configured; quote notification was not sent.');
   }
 
   // Fallback / Development Dispatch Logger
   return {
-    success: true,
+    success: false,
     service: 'log',
     recipient: salesInbox,
     subject,

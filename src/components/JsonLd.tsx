@@ -1,5 +1,5 @@
 import React from 'react';
-import { CONTACT_PHONE } from '@/lib/contact-details';
+import { CONTACT_EMAIL, CONTACT_PHONE } from '@/lib/contact-details';
 
 export function JsonLd() {
   const schema = {
@@ -26,7 +26,7 @@ export function JsonLd() {
           '@type': 'ContactPoint',
           telephone: `+91-${CONTACT_PHONE}`,
           contactType: 'sales',
-          email: 'export@esailor.in',
+          email: CONTACT_EMAIL,
           areaServed: 'Worldwide',
           availableLanguage: ['English', 'German', 'French', 'Spanish'],
         },

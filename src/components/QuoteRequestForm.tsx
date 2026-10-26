@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react';
 import Link from 'next/link';
 import { InputField } from './ui/InputField';
 import { PremiumButton } from './ui/PremiumButton';
+import { CONTACT_EMAIL_LINK } from '@/lib/contact-details';
 
 type QuoteRequestFormProps = {
   defaultProduct?: string;
@@ -45,6 +46,7 @@ export function QuoteRequestForm({ defaultProduct = '' }: QuoteRequestFormProps)
     product: string;
     quantity: string;
     email: string;
+    emailDispatched: boolean;
   } | null>(null);
 
   const handleChange = (
@@ -103,6 +105,7 @@ export function QuoteRequestForm({ defaultProduct = '' }: QuoteRequestFormProps)
         product: formData.product,
         quantity: formData.quantity,
         email: formData.email,
+        emailDispatched: Boolean(result.emailDispatched),
       });
     } catch (err: unknown) {
       console.error('Submission error:', err);
@@ -127,6 +130,16 @@ export function QuoteRequestForm({ defaultProduct = '' }: QuoteRequestFormProps)
         <p className="mt-3 text-base text-foreground/80">
           Provide your order specifications, target volume, and branding requirements. Our export desk
           will calculate freight estimates and provide a formal quotation within 24 hours.
+        </p>
+        <p className="mt-2 text-sm text-foreground/70">
+          Prefer email for a bulk order?{' '}
+          <a
+            href={`${CONTACT_EMAIL_LINK}?subject=${encodeURIComponent('Bulk Order Enquiry')}`}
+            className="font-semibold text-accent hover:underline"
+          >
+            Send us your enquiry
+          </a>
+          .
         </p>
       </div>
 
@@ -165,10 +178,20 @@ export function QuoteRequestForm({ defaultProduct = '' }: QuoteRequestFormProps)
 
         <div className="mt-6 space-y-2 text-sm text-foreground/75">
           <p>
-            ⚡ <strong>What happens next:</strong> Our foreign trade specialists will review your
-            specifications, calculate FOB Kolkata port container freight, and email a complete quotation dossier
-            within 24 business hours.
+            ⚡ <strong>What happens next:</strong>{' '}
+            {submittedData.emailDispatched
+              ? 'Our foreign trade specialists will review your specifications, calculate FOB Kolkata port container freight, and email a complete quotation dossier within 24 business hours.'
+              : 'Your request has been saved, but we could not confirm that the sales team was notified. Contact us directly if you need follow-up.'}
           </p>
+          {!submittedData.emailDispatched && (
+            <p role="status">
+              Email the sales desk at{' '}
+              <a href={CONTACT_EMAIL_LINK} className="font-semibold text-accent hover:underline">
+                info@esailor.in
+              </a>
+              .
+            </p>
+          )}
           <p>
             Need immediate urgent assistance? You can also message our sales desk on WhatsApp quoting
             reference <strong>{submittedData.quoteRefId}</strong>.
