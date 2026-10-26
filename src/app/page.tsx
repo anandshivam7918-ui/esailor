@@ -46,7 +46,7 @@ export default async function Home() {
       {/* 7. Global Reach Banner */}
       <section className="relative overflow-hidden bg-[#182E21] text-white py-8 sm:py-10 border-t border-[#264431]">
         {/* World map watermark graphic */}
-        <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-15 pointer-events-none mix-blend-screen">
+        <div className="absolute inset-0 opacity-35 pointer-events-none mix-blend-screen">
           <img
             src="/images/world-trade-routes.jpg"
             alt="World trade map"
@@ -84,11 +84,11 @@ export default async function Home() {
 
       {/* 8. CTA Strip */}
       <section className="relative overflow-hidden bg-[#181411] text-white py-14 sm:py-20 border-b border-black/20">
-        <div 
-          className="absolute inset-0 opacity-40 mix-blend-multiply bg-cover bg-center pointer-events-none"
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-75 pointer-events-none"
           style={{ backgroundImage: `url('/images/jute-texture-banner.jpg')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#14110E]/80 via-transparent to-[#14110E]/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#14110E]/60 via-[#14110E]/35 to-[#14110E]/60 pointer-events-none" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-3xl sm:text-4xl font-normal text-white leading-tight">
